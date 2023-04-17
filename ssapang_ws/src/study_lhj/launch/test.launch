@@ -1,0 +1,5 @@
+<launch>
+    <node pkg='study_lhj' type='talker.py' name='start_node' />
+    <node pkg='study_lhj' type='lisener.py' name='node' />
+    <node pkg='study_lhj' type='lisener2.py' name='node2' output='screen'/>
+</launch>
