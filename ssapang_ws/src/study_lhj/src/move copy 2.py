@@ -1,62 +1,31 @@
 #!/usr/bin/env python3
 
 import rospy
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist, Point
 import tf
 from tf.transformations import euler_from_quaternion
-from turtlesim.msg import Pose
-from nav_msgs.msg import Odometry
-from math import sqrt, pow, pi, atan2, degrees
+
+from math import sqrt, pow, pi, atan2
 import numpy as np
 import random
 import sys, os
 if os.name != 'nt':
   import termios
 
-arg = rospy.myargv(argv=sys.argv)
-robot_name = arg[1]   
-now = [float(arg[2]),float(arg[3]),float(arg[4])]
+now = [0.0,0.0,0.0]
 dir =[[-1,0,180],[1,0,0],[0,-1, -90],[0,1, 90]]
-nowPosition = Pose()
-prv_theta = 0.0
-theta_sum = 0.0
+arg = rospy.myargv(argv=sys.argv)
+robot_name = arg[1]
 
-def print_pose(msg):
-  print(robot_name, "x = %f, y = %f, theta = %f = %f" %(msg.x, msg.y, msg.theta, degrees(msg.theta)))
-
-def get_pose(msg):
-  q = (msg.pose.pose.orientation.x, msg.pose.pose.orientation.y, 
-        msg.pose.pose.orientation.z, msg.pose.pose.orientation.w)
-                                      # quart[0] = roll
-  quart = euler_from_quaternion(q)    # quart[1] = pitch
-  theta = quart[2]                    # quart[2] = yaw <----
-  
-# make theta within from 0 to 360 degree
-  if theta < 0:
-      theta = theta + pi * 2
-  if theta > pi * 2:
-      theta = theta - pi * 2
-
-  pos_x = msg.pose.pose.position.x
-  pos_y = msg.pose.pose.position.y
-
-  return pos_x, pos_y, theta
-
-def callback(dat):
-  global nowPosition, theta_sum, prv_theta
-  pos_x, pos_y, theta = get_pose(dat)
-  pose2d       = Pose()   # turtlesim.msg.Pose()
-  pose2d.x     = pos_x
-  pose2d.y     = pos_y
-  pose2d.theta = theta
-  
-  if   pose2d.theta>  pi: #  5.0(rad) =  286.479(deg)
-      pose2d.theta  -= 2 * pi            
-  elif pose2d.theta< -pi: # -5.0(rad) = -286.479(deg)
-      pose2d.theta  += 2 * pi        
-
-  
-  nowPosition = pose2d
+def get_odom():
+  try:
+      (trans, rot) = tf_listener.lookupTransform(odom_frame, base_frame, rospy.Time(0))
+      rotation = euler_from_quaternion(rot)
+  except (tf.Exception, tf.ConnectivityException, tf.LookupException):
+      rospy.loginfo("TF Exception")
+      return
+  print(robot_name , ' - ' , Point(*trans), rotation[2])
+  return (Point(*trans), rotation[2])
 
 def nextIdx():
     global now
@@ -73,33 +42,51 @@ if __name__=="__main__":
 
   rospy.init_node('turtlebot3_teleop')
   pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
-  rospy.Subscriber('odom', Odometry, callback )
 
   turtlebot3_model = rospy.get_param("model", "burger")
   move_cmd = Twist()
   rate = rospy.Rate(60)
   target_linear_vel   = 0.0
   target_angular_vel  = 0.0
-  
+  tf_listener = tf.TransformListener()
+  odom_frame = 'odom'
+
   try:
+    tf_listener.waitForTransform(odom_frame, 'base_footprint', rospy.Time(), rospy.Duration(1.0))
+    base_frame = robot_name+'_tf/base_footprint'
+  except (tf.Exception, tf.ConnectivityException, tf.LookupException):
+    try:
+      tf_listener.waitForTransform(odom_frame, 'base_link', rospy.Time(), rospy.Duration(1.0))
+      base_frame = robot_name+'_tf/base_link'
+    except (tf.Exception, tf.ConnectivityException, tf.LookupException):
+      rospy.loginfo("Cannot find transform between odom and base_link or base_footprint")
+      rospy.signal_shutdown("tf Exception")
+
+  
+  print(base_frame)
+  try:
+    
     while not rospy.is_shutdown():
+        (position, rotation) = get_odom()
+        last_rotation = 0
         linear_speed = 0.22
         angular_speed = 2
         nextIdx()
-        print(robot_name , ' - ' , now)
+        # print(robot_name , ' - ' , now)
         d = np.deg2rad(now[2])
        
         while True:
-            if abs(nowPosition.theta - d) <= 0.02:
+            (position, rotation) = get_odom()
+            if abs(rotation - d) <= 0.02:
                break
             move_cmd.linear.x = 0.00
             if d >= 0:
-                if nowPosition.theta <= d and nowPosition.theta >= d - pi:
+                if rotation <= d and rotation >= d - pi:
                     move_cmd.angular.z = 0.5
                 else:
                     move_cmd.angular.z = -0.5
             else:
-                if nowPosition.theta <= d + pi and nowPosition.theta > d:
+                if rotation <= d + pi and rotation > d:
                     move_cmd.angular.z = -0.5
                 else:
                     move_cmd.angular.z = 0.5
@@ -111,17 +98,18 @@ if __name__=="__main__":
 
 
         while True:
-            x_start = nowPosition.x
-            y_start = nowPosition.y
+            (position, rotation) = get_odom() #차량 윛, 방향
+            x_start = position.x
+            y_start = position.y
             path_angle = atan2(now[1] - y_start, now[0]- x_start)
 
             if path_angle >= 0:
-                if nowPosition.theta <= path_angle and nowPosition.theta >= path_angle - pi:
+                if rotation <= path_angle and rotation >= path_angle - pi:
                     move_cmd.angular.z = 0.2
                 else:
                     move_cmd.angular.z = -0.2
             else:
-                if nowPosition.theta <= path_angle + pi and nowPosition.theta > path_angle:
+                if rotation <= path_angle + pi and rotation > path_angle:
                     move_cmd.angular.z = -0.2
                 else:
                     move_cmd.angular.z = 0.2
@@ -131,13 +119,13 @@ if __name__=="__main__":
                break
             move_cmd.linear.x = linear_speed
 
+            last_rotation = rotation
             pub.publish(move_cmd)
             rate.sleep()
         
         
         rospy.loginfo("Stopping the robot...")
         pub.publish(Twist())
-        theta_sum = 0.0
         rate.sleep()
 
   except:
