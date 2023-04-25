@@ -8,6 +8,8 @@
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
     </include>
+    <!-- <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' /> -->
+
     <!-- BEGIN ROBOT 1 -->
     <group ns="robot1">
         <include file="$(find robot)/launch/one_robot.launch">
@@ -20,7 +22,7 @@
     </group>
 
     <!-- BEGIN ROBOT 2 -->
-    <group ns="robot2">
+    <!-- <group ns="robot2">
         <include file="$(find robot)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 0 -y 5 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
@@ -58,7 +60,7 @@
             <arg name="ang" value="-90"/>
             <arg name="robot_name" value="robot5"/>
         </include>
-    </group>
+    </group> -->
     
 
 </launch>

@@ -51,6 +51,8 @@ add_message_files(
 #   DIRECTORY msg
   FILES
   str.msg
+  Locations.msg
+  Coordinate.msg
 )
 
 ## Generate services in the 'srv' folder
