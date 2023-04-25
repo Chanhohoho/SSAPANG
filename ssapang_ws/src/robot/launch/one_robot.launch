@@ -1,0 +1,24 @@
+<launch>
+      <!-- Set arguments -->
+      <arg name="init_pose"/>
+      <arg name="robot_name"/>
+      <arg name="x"/>
+      <arg name="y"/>
+      <arg name="ang"/>
+
+      <!-- Load robot description -->
+      <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro" />
+
+      <!-- Spwan a robot into Gazebo -->
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+            args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"
+            respawn="false" />
+            
+      <!-- Publich robot state -->
+      <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+            <param name="publish_frequency" type="double" value="50.0" />
+            <param name="tf_prefix" value="$(arg robot_name)_tf" />
+      </node>
+      <node pkg='robot' type='robot.py' name='robot' args="$(arg robot_name) $(arg x) $(arg y) $(arg ang)" output='screen' />
+</launch>
+
