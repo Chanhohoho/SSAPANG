@@ -297,7 +297,7 @@
           <geometry>
             <mesh>
               <uri>model://aws_robomaker_warehouse_ShelfD_01/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
-              <scale>0.3 0.3 0.3</scale>
+              
             </mesh>
           </geometry>
           <meta>
@@ -359,7 +359,6 @@
           <geometry>
             <mesh>
               <uri>model://aws_robomaker_warehouse_ShelfD_01/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
-              <scale>0.3 0.3 0.3</scale>
             </mesh>
           </geometry>
           <meta>
@@ -421,7 +420,6 @@
           <geometry>
             <mesh>
               <uri>model://aws_robomaker_warehouse_ShelfD_01/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
-              <scale>0.3 0.3 0.3</scale>
             </mesh>
           </geometry>
           <meta>
