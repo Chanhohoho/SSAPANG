@@ -1,0 +1,3 @@
+map = study_kdh에서 연습하는 공간
+final_map = 내가 연습에서 마친 것 최종으로 올릴때
+
