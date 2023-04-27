@@ -9,16 +9,17 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' />
+    <!-- <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' /> -->
+    <node pkg='study_lhj' type='path_pub_node' name='path_pub_node' />
     <!-- <node pkg='study_lhj' type='tf_pub.py' name='tf_pub' /> -->
     <!-- <include file="$(find study_lhj)/launch/robots.launch"/> -->
     <!-- BEGIN ROBOT 1 -->
     <group ns="robot1">
         <include file="$(find study_lhj)/launch/one_robot.launch">
-            <arg name="init_pose" value="-x 0 -y 0 -z 0 -Y 3.14"/>
+            <arg name="init_pose" value="-x 0 -y 0 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
             <arg name="y" value="0"/>
-            <arg name="ang" value="180"/>
+            <arg name="ang" value="0"/>
             <arg name="robot_name" value="robot1"/>
         </include>
     </group>

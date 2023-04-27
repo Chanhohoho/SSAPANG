@@ -58,7 +58,8 @@ class robot:
       pose2d.theta -= 2 * pi            
     elif pose2d.theta < -pi: # -3.14(rad) = -180(deg)
       pose2d.theta += 2 * pi        
-
+    print(pose2d.theta)
+    print()
     self.nowPosition = pose2d
 
   def get_pose(self, msg):
@@ -69,10 +70,12 @@ class robot:
     theta = quart[2]                    # quart[2] = yaw <----
     
   # make theta within from 0 to 360 degree
-    if theta < 0:
-        theta += pi * 2
-    elif theta > pi * 2:
-        theta -= pi * 2
+    print(theta)
+    # if theta < 0:
+    #     theta += pi * 2
+    # elif theta > pi * 2:
+    #     theta -= pi * 2
+    # print(theta)
 
     return msg.pose.pose.position.x, msg.pose.pose.position.y, theta
 

@@ -10,7 +10,6 @@
     </include>
     <!-- <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' /> -->
 
-    <!-- BEGIN ROBOT 1 -->
     <group ns="robot1">
         <include file="$(find robot)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 0 -y 0 -z 0 -Y 3.14"/>
@@ -21,12 +20,11 @@
         </include>
     </group>
 
-    <!-- BEGIN ROBOT 2 -->
-    <!-- <group ns="robot2">
+    <group ns="robot2">
         <include file="$(find robot)/launch/one_robot.launch">
-            <arg name="init_pose" value="-x 0 -y 5 -z 0 -Y 0"/>
+            <arg name="init_pose" value="-x 0 -y 3 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
-            <arg name="y" value="5"/>
+            <arg name="y" value="3"/>
             <arg name="ang" value="0"/>
             <arg name="robot_name" value="robot2"/>
         </include>
@@ -34,9 +32,9 @@
 
     <group ns="robot3">
         <include file="$(find robot)/launch/one_robot.launch">
-            <arg name="init_pose" value="-x 5 -y 0 -z 0 -Y 1.57"/>
-            <arg name="x" value="5"/>
-            <arg name="y" value="0"/>
+            <arg name="init_pose" value="-x 0 -y 6 -z 0 -Y 1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="6"/>
             <arg name="ang" value="90"/>
             <arg name="robot_name" value="robot3"/>
         </include>
@@ -44,9 +42,9 @@
 
     <group ns="robot4">
         <include file="$(find robot)/launch/one_robot.launch">
-            <arg name="init_pose" value="-x 0 -y 10 -z 0 -Y 0"/>
+            <arg name="init_pose" value="-x 0 -y 9 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
-            <arg name="y" value="10"/>
+            <arg name="y" value="9"/>
             <arg name="ang" value="0"/>
             <arg name="robot_name" value="robot4"/>
         </include>
@@ -54,13 +52,263 @@
 
     <group ns="robot5">
         <include file="$(find robot)/launch/one_robot.launch">
-            <arg name="init_pose" value="-x 10 -y 0 -z 0 -Y -1.57"/>
-            <arg name="x" value="10"/>
-            <arg name="y" value="0"/>
+            <arg name="init_pose" value="-x 0 -y 12 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="12"/>
             <arg name="ang" value="-90"/>
             <arg name="robot_name" value="robot5"/>
         </include>
-    </group> -->
+    </group>
+
+    <group ns="robot6">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 0 -y 15 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="15"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot6"/>
+        </include>
+    </group>
+
+    <group ns="robot7">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 0 -y 18 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="18"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot7"/>
+        </include>
+    </group>
+
+    <group ns="robot8">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 0 -y 21 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="21"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot8"/>
+        </include>
+    </group>
+
+    <group ns="robot9">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 0 -y 24 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="24"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot9"/>
+        </include>
+    </group>
+
+    <group ns="robot10">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 0 -y 27 -z 0 -Y -1.57"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="27"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot10"/>
+        </include>
+    </group>
+
+
+    <group ns="robot11">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 0 -z 0 -Y 3.14"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="0"/>
+            <arg name="ang" value="180"/>
+            <arg name="robot_name" value="robot11"/>
+        </include>
+    </group>
+
+    <group ns="robot12">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 3 -z 0 -Y 0"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="3"/>
+            <arg name="ang" value="0"/>
+            <arg name="robot_name" value="robot12"/>
+        </include>
+    </group>
+
+    <group ns="robot13">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 6 -z 0 -Y 1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="6"/>
+            <arg name="ang" value="90"/>
+            <arg name="robot_name" value="robot13"/>
+        </include>
+    </group>
+
+    <group ns="robot14">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 9 -z 0 -Y 0"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="9"/>
+            <arg name="ang" value="0"/>
+            <arg name="robot_name" value="robot14"/>
+        </include>
+    </group>
+
+    <group ns="robot15">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 12 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="12"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot15"/>
+        </include>
+    </group>
+
+    <group ns="robot16">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 15 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="15"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot16"/>
+        </include>
+    </group>
+
+    <group ns="robot17">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 18 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="18"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot17"/>
+        </include>
+    </group>
+
+    <group ns="robot18">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 21 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="21"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot18"/>
+        </include>
+    </group>
+
+    <group ns="robot19">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 24 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="24"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot19"/>
+        </include>
+    </group>
+
+    <group ns="robot20">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 3 -y 27 -z 0 -Y -1.57"/>
+            <arg name="x" value="3"/>
+            <arg name="y" value="27"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot20"/>
+        </include>
+    </group>
     
+    <group ns="robot21">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 0 -z 0 -Y 3.14"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="0"/>
+            <arg name="ang" value="180"/>
+            <arg name="robot_name" value="robot21"/>
+        </include>
+    </group>
+
+    <group ns="robot22">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 3 -z 0 -Y 0"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="3"/>
+            <arg name="ang" value="0"/>
+            <arg name="robot_name" value="robot22"/>
+        </include>
+    </group>
+
+    <group ns="robot23">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 6 -z 0 -Y 1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="6"/>
+            <arg name="ang" value="90"/>
+            <arg name="robot_name" value="robot23"/>
+        </include>
+    </group>
+
+    <group ns="robot24">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 9 -z 0 -Y 0"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="9"/>
+            <arg name="ang" value="0"/>
+            <arg name="robot_name" value="robot24"/>
+        </include>
+    </group>
+
+    <group ns="robot25">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 12 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="12"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot25"/>
+        </include>
+    </group>
+
+    <group ns="robot26">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 15 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="15"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot26"/>
+        </include>
+    </group>
+
+    <group ns="robot27">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 18 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="18"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot27"/>
+        </include>
+    </group>
+
+    <group ns="robot28">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 21 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="21"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot28"/>
+        </include>
+    </group>
+
+    <group ns="robot29">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 24 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="24"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot29"/>
+        </include>
+    </group>
+
+    <group ns="robot30">
+        <include file="$(find robot)/launch/one_robot.launch">
+            <arg name="init_pose" value="-x 6 -y 27 -z 0 -Y -1.57"/>
+            <arg name="x" value="6"/>
+            <arg name="y" value="27"/>
+            <arg name="ang" value="-90"/>
+            <arg name="robot_name" value="robot30"/>
+        </include>
+    </group>
 
 </launch>

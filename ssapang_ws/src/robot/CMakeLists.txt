@@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 3.0.2)
 project(robot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
 rospy
+roscpp
 std_msgs
 message_generation
 )
@@ -50,7 +51,8 @@ message_generation
 add_message_files(
 #   DIRECTORY msg
   FILES
-  str.msg
+  Locations.msg
+  Coordinate.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -105,9 +107,10 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES robot
+ LIBRARIES robot
  CATKIN_DEPENDS 
  message_runtime
+ roscpp
 #  DEPENDS system_lib
 )
 
