@@ -10,7 +10,7 @@
     </include>
 
     <!-- <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' /> -->
-    <node pkg='study_lhj' type='path_pub_node' name='path_pub_node' />
+    
     <!-- <node pkg='study_lhj' type='tf_pub.py' name='tf_pub' /> -->
     <!-- <include file="$(find study_lhj)/launch/robots.launch"/> -->
     <!-- BEGIN ROBOT 1 -->

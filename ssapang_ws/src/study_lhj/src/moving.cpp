@@ -5,8 +5,10 @@
 #include <turtlesim/Pose.h>
 #include <nav_msgs/Odometry.h>
 #include <iostream>
-#include "study_lhj/Locations.h"
+#include <study_lhj/Locations.h>
 #include <study_lhj/Coordinate.h>
+#include <study_lhj/Move.h>
+#include <study_lhj/str.h>
 #include <vector>
 
 using std::sqrt;
@@ -23,12 +25,15 @@ class Robot
 public:
     Robot(int argc, char **argv, ros::NodeHandle *nh){
         cmdPub = nh->advertise<geometry_msgs::Twist>("cmd_vel", 10);
-        odomSub = nh->subscribe("odom", 10, &Robot::callback, this);
-        pathSub = nh->subscribe("/path", 10, &Robot::pathCallback, this);
+        movePub = nh->advertise<study_lhj::Move>("move", 10);
+        odomSub = nh->subscribe("odom", 10, &Robot::odomCallback, this);
+        shelfSub = nh->subscribe("shelf", 10, &Robot::shelfCallback, this);
+        pathSub = nh->subscribe("path", 10, &Robot::pathCallback, this);
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
 
         linearSpeed = 0.22;
+        angularSpeed = 1.0;
         idx = 0;
 
         nh->getParam("robotName", robotName);
@@ -39,14 +44,17 @@ public:
             {
                 ros::spinOnce();
                 // std::cout << path.size() << std::endl;
-                if(path.size() == 0 || idx >= path.size() ) continue;
+                if(path.size() == 0 ) continue;
+                std::cout << idx << '/' << path.size() << "\n";
                 nextIdx();
                 std::cout << nh->getNamespace() << " - " << nextPos[0] << ", " << nextPos[1] << ", " << nextPos[2] << std::endl;
                 turn();
-
                 go();
                 std::cout << robotName<< "arrival idx..." << std::endl;
-                idx++;
+                if(++idx >= path.size()) {
+                    path.clear();
+                    idx = 0;
+                }
             }
         }
         catch (const std::exception &e)
@@ -59,7 +67,7 @@ public:
         }
         cmdPub.publish(stop);
     }
-    void callback(const nav_msgs::Odometry::ConstPtr &msg)
+    void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
     {
         turtlesim::Pose pose; 
         pose.x = msg->pose.pose.position.x;
@@ -70,6 +78,15 @@ public:
         tf::Matrix3x3(quat).getRPY(roll, pitch, yaw);
         pose.theta = yaw;
         nowPosition = pose;
+    }
+
+    void shelfCallback(const study_lhj::str::ConstPtr &msg)
+    {
+        shelfNode = msg->data;
+        study_lhj::Move move;
+        move.startNode = "nowidx";
+        move.endNode = shelfNode;
+        movePub.publish(move);
     }
 
     void pathCallback(const study_lhj::Locations::ConstPtr &msg)
@@ -96,7 +113,7 @@ public:
             double deg=0.0;
             while (1){
                 ros::spinOnce();
-                if (abs(nowPosition.theta - nextPos[2]) <= 0.02)
+                if (abs(nowPosition.theta - nextPos[2]) <= 0.01)
                     return;
                 deg = abs(nowPosition.theta - nextPos[2]);
                 speed = max(2*min(deg, 1.0), 0.1);
@@ -129,119 +146,58 @@ public:
     {
         try
         {
-            double nowX, nowY, pathAng;
-            double error = 0;
-            double prev_error = 0;
-            double integral = 0;
-            double derivative = 0;
-            double Kp = 1.0;
-            double Ki = 0.01;
-            double Kd = 0.1;
+            double dX, dY, pathAng, distance;
             moveCmd.linear.x = linearSpeed;
-            ros::spinOnce();
-            std::cout << nowPosition.theta << "\n";
-            while (1)
-            {
+            while(1){
                 ros::spinOnce();
-                nowX = nowPosition.x;
-                nowY = nowPosition.y;
-                pathAng = atan2(nextPos[1] - nowY, nextPos[0] - nowX);
+                dX = nextPos[0] - nowPosition.x;
+                dY = nextPos[1] - nowPosition.y;
+                distance = sqrt(pow(dY,2) + pow(dX,2));
+                if(distance <= 0.02) return;
 
-                error = 0 - (pathAng - nowPosition.theta);
-                std::cout << "error : " << error << std::endl;
-                // if (error > 0)
-                //     error -= 2 * PI;
-                // else if (error < 0)
-                //     error += 2 * PI;
-
-                integral += error;
-                derivative = error - prev_error;
-                prev_error = error;
-
-                double pid_output = Kp * error + Ki * integral + Kd * derivative;
-
-
-                std::cout << "pid_output : " << pid_output << std::endl;
-                moveCmd.angular.z = std::min(std::max(-0.2, pid_output), 0.2);
-
-                if (sqrt(pow(nextPos[1] - nowY, 2) + pow(nextPos[0] - nowX, 2)) <= 0.1)
-                    return;
-
+                pathAng = atan2(dY, dX);
+                moveCmd.linear.x = max(min(distance,0.22), 0.1);
+                
+                if(pathAng >= 0){
+                    if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
+                        moveCmd.angular.z = 0.2;
+                    else
+                        moveCmd.angular.z = -0.2;
+                }
+                else{
+                    if(nowPosition.theta <= pathAng + PI && nowPosition.theta > pathAng)
+                        moveCmd.angular.z = -0.2;
+                    else
+                        moveCmd.angular.z = 0.2;
+                }
                 cmdPub.publish(moveCmd);
                 rate.sleep();
             }
         }
-        catch (...)
+        catch(...)
         {
-            std::cout << robotName << " - go error" << std::endl;
+            std::cout << robotName <<  " - go error" << std::endl;
         }
         cmdPub.publish(stop);
         rate.sleep();
-    }
-    // void go()
-    // {
-    //     try
-    //     {
-    //         double nowX, nowY, pathAng;
-    //         moveCmd.linear.x = linearSpeed;
-    //         double error = nextPos[2] - nowPosition.theta;
-    //         double prev_error = 0;
-    //         double integral = 0;
-    //         double derivative = 0;
-    //         double Kp = 1.5;
-    //         double Ki = 0.02;
-    //         double Kd = 0.3;
-            
-    //         ros::spinOnce();
-    //         std::cout << nowPosition.theta << "\n";
-    //         while(1){
-    //             ros::spinOnce();
-    //             nowX = nowPosition.x;
-    //             nowY = nowPosition.y;
-    //             pathAng = atan2(nextPos[1] - nowY, nextPos[0] - nowX);
-
-    //             std::cout <<"nowPosition.theta : "<<nowPosition.theta << ", pathAng : "<<  pathAng  << "\n";
-    //             if(pathAng >= 0){
-    //                 if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
-    //                     moveCmd.angular.z = -0.2;
-    //                 else
-    //                     moveCmd.angular.z = 0.2;
-    //             }
-    //             else{
-    //                 if(nowPosition.theta <= pathAng + PI && nowPosition.theta > pathAng)
-    //                     moveCmd.angular.z = 0.2;
-    //                 else
-    //                     moveCmd.angular.z = -0.2;
-    //             }
-
-    //             if(sqrt(pow(nextPos[1] - nowY,2) + pow(nextPos[0] - nowX,2)) <= 0.05) return;
-                
-    //             cmdPub.publish(moveCmd);
-    //             rate.sleep();
-    //         }
-    //     }
-    //     catch(...)
-    //     {
-    //         std::cout << robotName <<  " - go error" << std::endl;
-    //     }
-    //     cmdPub.publish(stop);
-    //     rate.sleep();
-    // }
+    }   
 
 private:
-    ros::Publisher cmdPub;
-    ros::Subscriber odomSub, pathSub;
-    ros::Rate rate = 10;
+    ros::Publisher cmdPub, movePub;
+    ros::Subscriber odomSub, pathSub, shelfSub;
+    ros::Rate rate = 30;
 
     geometry_msgs::Twist moveCmd;
     geometry_msgs::Twist stop;
     turtlesim::Pose nowPosition;  
-    std::string robotName;
+    std::string robotName, shelfNode;
     std::vector<study_lhj::Coordinate> path;
     int idx;
     double nextPos[3];
     double d;
     double linearSpeed;
+    double angularSpeed;
+    double lastDeg;
 
 
 };

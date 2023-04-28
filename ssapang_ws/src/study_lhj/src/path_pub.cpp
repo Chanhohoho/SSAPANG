@@ -2,51 +2,71 @@
 #include <random>
 #include <study_lhj/Locations.h>
 #include <study_lhj/Coordinate.h>
+#include <study_lhj/Move.h>
 #include <time.h>
 #include <unistd.h>
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
 
-double now[3] = {0, 0, 0};
-double dir[4][3]= {{-0.5, 0, 180}, {0.5, 0, 0}, {0, -0.5, -90}, {0, 0.5, 90}};
-
-void nextIdx() {
-    try {
-        int num = rand() % 4;
-        for (int i = 0; i < 2; i++) {
-            now[i] += static_cast<double>(dir[num][i]);
-        }
-        now[2] = dir[num][2];
-    } catch (exception &e) {
-        cout << "find next idx error: " << e.what() << endl;
+class Path
+{
+public:
+    Path(int argc, char **argv, ros::NodeHandle *nh){
+        pathPub = nh->advertise<study_lhj::Locations>("path", 1);
+        // cmdPub = nh->advertise<geometry_msgs::Twist>("cmd_vel", 10);
+        Sub = nh->subscribe("move", 10, &Path::callback, this);
     }
-}
 
-int main(int argc, char **argv) {
-    ros::init(argc, argv, "path_pub_node");
+private:
+    ros::Publisher pathPub;
+    ros::Subscriber Sub;
+    ros::Rate rate = 10;
+    std::string startNode, endNode;
+
+    double now[3] = {0, 0, 0};
+    // double dir[4][3]= {{-0.5, 0, 180}, {0.5, 0, 0}, {0, -0.5, -90}, {0, 0.5, 90}};
+    double dir[4][3]= {{-1.0, 0, 180}, {1.0, 0, 0}, {0, -1.0, -90}, {0, 1.0, 90}};
+    // double dir[4][3]= {{-2.0, 0, 180}, {2.0, 0, 0}, {0, -2.0, -90}, {0, 2.0, 90}};
+
+
+    void callback(const study_lhj::Move::ConstPtr &msg)
+    {
+        startNode = msg->startNode;
+        endNode = msg->endNode;
+        std::cout << startNode << ", " << endNode<< "\n";
+        study_lhj::Locations loc;
+        for (int i = 0; i < 100; i++) {
+            nextIdx();
+            study_lhj::Coordinate coord;
+            coord.x = now[0];
+            coord.y = now[1];
+            coord.deg = now[2];
+            loc.location.push_back(coord);
+        }
+        pathPub.publish(loc);
+    }
+
+    void nextIdx() {
+        try {
+            int num = rand() % 4;
+            for (int i = 0; i < 2; i++) 
+                now[i] += static_cast<double>(dir[num][i]);
+            now[2] = dir[num][2];
+        } catch (exception &e) {
+            cout << "find next idx error: " << e.what() << endl;
+        }
+    }
+
+};
+
+
+int main(int argc, char **argv)
+{
+    ros::init(argc, argv, "path_pub");
     ros::NodeHandle nh;
-    ros::Publisher pub = nh.advertise<study_lhj::Locations>("/path", 1);
-    ros::Rate rate(20);
-
-    bool sw = true;
-    usleep(10000000); 
-    while (ros::ok()) {
-        if(sw){
-            study_lhj::Locations loc;
-            for (int i = 0; i < 30; i++) {
-                nextIdx();
-                study_lhj::Coordinate coord;
-                coord.x = now[0];
-                coord.y = now[1];
-                coord.deg = now[2];
-                loc.location.push_back(coord);
-            }
-            pub.publish(loc);
-            sw = false;
-        }
-        rate.sleep();
-    }
+    Path path(argc, argv, &nh);
+    ros::spin();
 
     return 0;
 }
