@@ -54,6 +54,7 @@ add_message_files(
   FILES
   Location.msg
   Coordinate.msg
+  TaskList.msg
 )
 
 ## Generate services in the 'srv' folder
