@@ -26,7 +26,7 @@ void nextIdx() {
 int main(int argc, char **argv) {
     ros::init(argc, argv, "path_pub");
     ros::NodeHandle nh;
-    ros::Publisher pub = nh.advertise<robot_control::Location>("/path", 1);
+    ros::Publisher pub = nh.advertise<robot_control::Location>("path", 1);
     ros::Rate rate(20);
 
     bool sw = true;

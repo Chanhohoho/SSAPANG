@@ -20,5 +20,6 @@
             <param name="tf_prefix" value="$(arg robot_name)_tf" />
       </node>
       <node pkg='robot_control' type='robot' name='robot' args="$(arg robot_name) $(arg x) $(arg y) $(arg ang)" output='screen' />
+      <node pkg='robot_control' type='path_pub' name='path_pub' args="$(arg robot_name) $(arg x) $(arg y) $(arg ang)" output='screen' />
 </launch>
 

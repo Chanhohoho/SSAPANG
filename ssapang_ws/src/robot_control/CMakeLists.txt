@@ -55,6 +55,9 @@ add_message_files(
   Location.msg
   Coordinate.msg
   TaskList.msg
+  Task.msg
+  RobotStatus.msg
+  RobotPos.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -152,13 +155,17 @@ ${catkin_INCLUDE_DIRS}
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_executable(robot src/robot_control.cpp)
 add_executable(path_pub src/path_pub.cpp)
+add_executable(control_tower src/control_tower.cpp)
 ## Specify libraries to link a library or executable target against
 
 add_dependencies(robot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(robot ${catkin_LIBRARIES} )
+
 target_link_libraries(path_pub ${catkin_LIBRARIES} )
 add_dependencies(path_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+add_dependencies(control_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(control_tower ${catkin_LIBRARIES} )
 #############
 ## Install ##
 #############

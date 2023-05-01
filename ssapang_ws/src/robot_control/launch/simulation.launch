@@ -8,6 +8,8 @@
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
     </include>
+
+
     <!-- BEGIN ROBOT 1 -->
     <group ns="robot1">
         <include file="$(find robot_control)/launch/one_robot.launch">
@@ -18,10 +20,10 @@
             <arg name="robot_name" value="robot1"/>
         </include>
     </group>
-    <node pkg='robot_control' type='path_pub' name='path_pub' output='screen' />
+
     <!-- BEGIN ROBOT 2 -->
-    <!-- <group ns="robot2">
-        <include file="$(find robot)/launch/one_robot.launch">
+    <group ns="robot2">
+        <include file="$(find robot_control)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 0 -y 5 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
             <arg name="y" value="5"/>
@@ -31,7 +33,7 @@
     </group>
 
     <group ns="robot3">
-        <include file="$(find robot)/launch/one_robot.launch">
+        <include file="$(find robot_control)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 5 -y 0 -z 0 -Y 1.57"/>
             <arg name="x" value="5"/>
             <arg name="y" value="0"/>
@@ -40,8 +42,10 @@
         </include>
     </group>
 
+    
+<!-- 
     <group ns="robot4">
-        <include file="$(find robot)/launch/one_robot.launch">
+        <include file="$(find robot_control)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 0 -y 10 -z 0 -Y 0"/>
             <arg name="x" value="0"/>
             <arg name="y" value="10"/>
@@ -51,14 +55,14 @@
     </group>
 
     <group ns="robot5">
-        <include file="$(find robot)/launch/one_robot.launch">
+        <include file="$(find robot_control)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 10 -y 0 -z 0 -Y -1.57"/>
             <arg name="x" value="10"/>
             <arg name="y" value="0"/>
             <arg name="ang" value="-90"/>
             <arg name="robot_name" value="robot5"/>
-        </include>
-    </group> -->
+        </include> -->
+    <!-- </group> -->
     
 
 </launch>

@@ -22,10 +22,10 @@ public:
     Robot(int argc, char **argv, ros::NodeHandle *nh){
         cmdPub = nh->advertise<geometry_msgs::Twist>("cmd_vel", 10);
         odomSub = nh->subscribe("odom", 10, &Robot::callback, this);
-        pathSub = nh->subscribe("/path", 10, &Robot::pathCallback, this);
+        pathSub = nh->subscribe("path", 10, &Robot::pathCallback, this);
         stop = geometry_msgs::Twist();
 
-        linearSpeed = 0.3;
+        linearSpeed = 0.22;
         idx = 0;
 
         nh->getParam("robotName", robotName);
@@ -234,7 +234,9 @@ public:
                         moveCmd.angular.z = 0.23;
                 }
 
-                if(sqrt(pow(nextPos[1] - nowY,2) + pow(nextPos[0] - nowX,2)) <= 0.1) return;
+                if(sqrt(pow(nextPos[1] - nowY,2) + pow(nextPos[0] - nowX,2)) <= 0.1) {
+                    eturn;
+                }
                 
                 cmdPub.publish(moveCmd);
                 rate.sleep();
@@ -250,6 +252,7 @@ public:
 
 private:
     ros::Publisher cmdPub;
+    ros::Publisher statusPub;
     ros::Subscriber odomSub, pathSub;
     ros::Rate rate = 10;
 
