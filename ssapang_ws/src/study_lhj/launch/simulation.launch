@@ -9,7 +9,7 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <!-- <node pkg='study_lhj' type='make_path_pub.py' name='make_path_pub' /> -->
+    <node pkg='study_lhj' type='tower' name='tower' output='screen' />
     
     <!-- <node pkg='study_lhj' type='tf_pub.py' name='tf_pub' /> -->
     <!-- <include file="$(find study_lhj)/launch/robots.launch"/> -->

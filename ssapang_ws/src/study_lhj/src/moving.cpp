@@ -9,7 +9,12 @@
 #include <study_lhj/Coordinate.h>
 #include <study_lhj/Move.h>
 #include <study_lhj/str.h>
+#include <study_lhj/RobotWait.h>
+#include <study_lhj/RobotPos.h>
+#include <study_lhj/RobotStatus.h>
+#include <study_lhj/Task.h>
 #include <vector>
+#include <string>
 
 using std::sqrt;
 using std::pow;
@@ -26,15 +31,24 @@ public:
     Robot(int argc, char **argv, ros::NodeHandle *nh){
         cmdPub = nh->advertise<geometry_msgs::Twist>("cmd_vel", 10);
         movePub = nh->advertise<study_lhj::Move>("move", 10);
+        posPub = nh->advertise<study_lhj::RobotPos>("pos", 10);
+        statusPub = nh->advertise<study_lhj::RobotStatus>("status", 10);
+
+
         odomSub = nh->subscribe("odom", 10, &Robot::odomCallback, this);
         shelfSub = nh->subscribe("shelf", 10, &Robot::shelfCallback, this);
         pathSub = nh->subscribe("path", 10, &Robot::pathCallback, this);
+        waitSub = nh->subscribe("wait", 10, &Robot::waitCallback, this);
+
+
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
 
         linearSpeed = 0.22;
         angularSpeed = 1.0;
         idx = 0;
+        status = 0;
+        battery = 100.0;
 
         nh->getParam("robotName", robotName);
 
@@ -44,16 +58,24 @@ public:
             {
                 ros::spinOnce();
                 // std::cout << path.size() << std::endl;
-                if(path.size() == 0 ) continue;
+                if(wait ||path.size() == 0 ) continue;
                 std::cout << idx << '/' << path.size() << "\n";
                 nextIdx();
                 std::cout << nh->getNamespace() << " - " << nextPos[0] << ", " << nextPos[1] << ", " << nextPos[2] << std::endl;
                 turn();
                 go();
                 std::cout << robotName<< "arrival idx..." << std::endl;
-                if(++idx >= path.size()) {
+                study_lhj::RobotPos pos;
+                pos.fromNode = std::to_string(nextPos[0]) +','+std::to_string(nextPos[1]);
+                idx++;
+                pos.toNode = std::to_string(path[idx].x) +','+std::to_string(path[idx].y);
+                pos.battery = --battery;
+                posPub.publish(pos);
+                if(idx >= path.size()) {
                     path.clear();
                     idx = 0;
+                    status++;
+                    // statusPub.publish(status);
                 }
             }
         }
@@ -67,6 +89,26 @@ public:
         }
         cmdPub.publish(stop);
     }
+      
+
+private:
+    ros::Publisher cmdPub, movePub, posPub, statusPub;
+    ros::Subscriber odomSub, pathSub, shelfSub, waitSub;
+    ros::Rate rate = 30;
+
+    geometry_msgs::Twist moveCmd;
+    geometry_msgs::Twist stop;
+    turtlesim::Pose nowPosition;  
+    std::string robotName, shelfNode;
+    std::vector<study_lhj::Coordinate> path;
+    int idx;
+    double nextPos[3];
+    double d, linearSpeed, angularSpeed;
+    double lastDeg;
+    bool wait = false;
+    int status;
+    double battery;
+
     void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
     {
         turtlesim::Pose pose; 
@@ -96,6 +138,10 @@ public:
             std::cout << c.y << ' ' << c.x << ' ' << c.deg<< std::endl;
         }
         path = msg->location;
+    }
+    void waitCallback(const study_lhj::RobotWait::ConstPtr &msg)
+    {
+        wait = msg->wait;
     }
 
     void nextIdx()
@@ -156,7 +202,7 @@ public:
                 if(distance <= 0.02) return;
 
                 pathAng = atan2(dY, dX);
-                moveCmd.linear.x = max(min(distance,0.22), 0.1);
+                moveCmd.linear.x = max(min(distance,0.3), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
@@ -180,25 +226,7 @@ public:
         }
         cmdPub.publish(stop);
         rate.sleep();
-    }   
-
-private:
-    ros::Publisher cmdPub, movePub;
-    ros::Subscriber odomSub, pathSub, shelfSub;
-    ros::Rate rate = 30;
-
-    geometry_msgs::Twist moveCmd;
-    geometry_msgs::Twist stop;
-    turtlesim::Pose nowPosition;  
-    std::string robotName, shelfNode;
-    std::vector<study_lhj::Coordinate> path;
-    int idx;
-    double nextPos[3];
-    double d;
-    double linearSpeed;
-    double angularSpeed;
-    double lastDeg;
-
+    } 
 
 };
 

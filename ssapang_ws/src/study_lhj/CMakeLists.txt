@@ -55,6 +55,11 @@ add_message_files(
   Move.msg
   Locations.msg
   Coordinate.msg
+  RobotPos.msg
+  RobotStatus.msg
+  RobotWait.msg
+  Task.msg
+  TaskList.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -139,6 +144,10 @@ target_link_libraries(path_pub ${catkin_LIBRARIES} )
 add_executable(robot src/moving.cpp)
 add_dependencies(robot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(robot ${catkin_LIBRARIES} )
+
+add_executable(tower src/controlTower.cpp)
+add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(tower ${catkin_LIBRARIES} )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
