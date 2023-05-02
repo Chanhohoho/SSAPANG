@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(robot)
+project(ssapang)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -51,8 +51,15 @@ message_generation
 add_message_files(
 #   DIRECTORY msg
   FILES
+  str.msg
+  Move.msg
   Locations.msg
   Coordinate.msg
+  RobotPos.msg
+  RobotStatus.msg
+  RobotWait.msg
+  Task.msg
+  TaskList.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -73,7 +80,7 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs  # Or other packages containing msgs
-  robot
+  ssapang
 )
 
 ################################################
@@ -107,7 +114,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
- LIBRARIES robot
+ LIBRARIES ros ssapang
  CATKIN_DEPENDS 
  message_runtime
  roscpp
@@ -125,9 +132,26 @@ include_directories(
 ${catkin_INCLUDE_DIRS}
 )
 
+
+add_executable(path_pub src/path_pub.cpp)
+add_dependencies(path_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(path_pub ${catkin_LIBRARIES} )
+
+# add_executable(path_sub src/path_sub.cpp)
+# add_dependencies(path_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(path_sub ${catkin_LIBRARIES} )
+
+add_executable(robot src/moving.cpp)
+add_dependencies(robot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(robot ${catkin_LIBRARIES} )
+
+add_executable(tower src/controlTower.cpp)
+add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(tower ${catkin_LIBRARIES} )
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/robot.cpp
+#   src/${PROJECT_NAME}/ssapang.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -138,7 +162,7 @@ ${catkin_INCLUDE_DIRS}
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/robot_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/ssapang_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -202,7 +226,7 @@ ${catkin_INCLUDE_DIRS}
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_robot.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ssapang.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
