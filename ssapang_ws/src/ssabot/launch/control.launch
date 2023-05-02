@@ -4,13 +4,13 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/my_robot" args="joint_state_controller 
-                                         joint1_position_controller"/>
+    output="screen" ns="/waffle" args="joint_state_controller 
+                                         waffle_piston_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
-    <remap from="/joint_states" to="/my_robot/joint_states" />
+    <remap from="/joint_states" to="/waffle/joint_states" />
   </node>
   <!--End lifting tray controller-->
 

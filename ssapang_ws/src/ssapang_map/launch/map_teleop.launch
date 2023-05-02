@@ -15,9 +15,9 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ssabot)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+  <param name="ssabot_description" command="$(find xacro)/xacro --inorder $(find ssabot)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
-  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param ssabot_description" />
 
   <!-- turtlebot3_teleop_key already has its own built in velocity smoother -->
   <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard"  output="screen">
