@@ -1,0 +1,8 @@
+prefix=/home/ssafy/S08P31A409/ssapang_ws/devel
+
+Name: control
+Description: Description of control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
