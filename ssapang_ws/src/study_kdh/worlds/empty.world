@@ -7,2405 +7,1786 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
-    <model name="B0709">
-        <include>
-                <uri>model://qrcode/B0709</uri>
-        </include>
-        <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0304">
-            <include>
-                    <uri>model://qrcode/BP0304</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0514">
-            <include>
-                    <uri>model://qrcode/B0514</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0201">
-            <include>
-                    <uri>model://qrcode/WP0201</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0805">
-            <include>
-                    <uri>model://qrcode/B0805</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0413">
-            <include>
-                    <uri>model://qrcode/B0413</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0104">
-            <include>
-                    <uri>model://qrcode/WP0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0401">
-            <include>
-                    <uri>model://qrcode/W0401</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0809">
-            <include>
-                    <uri>model://qrcode/B0809</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0704">
-            <include>
-                    <uri>model://qrcode/B0704</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0806">
-            <include>
-                    <uri>model://qrcode/B0806</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0607">
-            <include>
-                    <uri>model://qrcode/B0607</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0506">
-            <include>
-                    <uri>model://qrcode/B0506</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0508">
-            <include>
-                    <uri>model://qrcode/BP0508</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0504">
-            <include>
-                    <uri>model://qrcode/B0504</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0202">
-            <include>
-                    <uri>model://qrcode/B0202</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0215">
-            <include>
-                    <uri>model://qrcode/B0215</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0307">
-            <include>
-                    <uri>model://qrcode/W0307</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0111">
-            <include>
-                    <uri>model://qrcode/BO0111</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0103">
-            <include>
-                    <uri>model://qrcode/B0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0912">
-            <include>
-                    <uri>model://qrcode/B0912</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0315">
-            <include>
-                    <uri>model://qrcode/B0315</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0508">
-            <include>
-                    <uri>model://qrcode/B0508</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0108">
-            <include>
-                    <uri>model://qrcode/B0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="qrcodes">
-            <include>
-                    <uri>model://qrcode/qrcodes</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0101">
-            <include>
-                    <uri>model://qrcode/B0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0614">
-            <include>
-                    <uri>model://qrcode/B0614</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0101">
-            <include>
-                    <uri>model://qrcode/BS0101</uri>
-            </include>
-            <pose frame="">0 -10 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0106">
-            <include>
-                    <uri>model://qrcode/BP0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0102">
-            <include>
-                    <uri>model://qrcode/W0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0503">
-            <include>
-                    <uri>model://qrcode/BP0503</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0611">
-            <include>
-                    <uri>model://qrcode/B0611</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0204">
-            <include>
-                    <uri>model://qrcode/W0204</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0203">
-            <include>
-                    <uri>model://qrcode/BP0203</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0302">
-            <include>
-                    <uri>model://qrcode/BP0302</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0108">
-            <include>
-                    <uri>model://qrcode/BS0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0703">
-            <include>
-                    <uri>model://qrcode/B0703</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0404">
-            <include>
-                    <uri>model://qrcode/B0404</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0906">
-            <include>
-                    <uri>model://qrcode/B0906</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0212">
-            <include>
-                    <uri>model://qrcode/BP0212</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0203">
-            <include>
-                    <uri>model://qrcode/WP0203</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0402">
-            <include>
-                    <uri>model://qrcode/B0402</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0204">
-            <include>
-                    <uri>model://qrcode/B0204</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0602">
-            <include>
-                    <uri>model://qrcode/BP0602</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0207">
-            <include>
-                    <uri>model://qrcode/WP0207</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0112">
-            <include>
-                    <uri>model://qrcode/B0112</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0104">
-            <include>
-                    <uri>model://qrcode/WS0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0103">
-            <include>
-                    <uri>model://qrcode/BS0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0705">
-            <include>
-                    <uri>model://qrcode/B0705</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0402">
-            <include>
-                    <uri>model://qrcode/W0402</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0204">
-            <include>
-                    <uri>model://qrcode/BP0204</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0105">
-            <include>
-                    <uri>model://qrcode/WS0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0111">
-            <include>
-                    <uri>model://qrcode/BP0111</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0902">
-            <include>
-                    <uri>model://qrcode/B0902</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0301">
-            <include>
-                    <uri>model://qrcode/BP0301</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0903">
-            <include>
-                    <uri>model://qrcode/B0903</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0502">
-            <include>
-                    <uri>model://qrcode/B0502</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0211">
-            <include>
-                    <uri>model://qrcode/B0211</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0303">
-            <include>
-                    <uri>model://qrcode/BP0303</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0308">
-            <include>
-                    <uri>model://qrcode/B0308</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0102">
-            <include>
-                    <uri>model://qrcode/WS0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0106">
-            <include>
-                    <uri>model://qrcode/B0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0102">
-            <include>
-                    <uri>model://qrcode/BP0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0105">
-            <include>
-                    <uri>model://qrcode/BS0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0407">
-            <include>
-                    <uri>model://qrcode/BP0407</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0111">
-            <include>
-                    <uri>model://qrcode/BS0111</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0115">
-            <include>
-                    <uri>model://qrcode/B0115</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0604">
-            <include>
-                    <uri>model://qrcode/B0604</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0303">
-            <include>
-                    <uri>model://qrcode/B0303</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0109">
-            <include>
-                    <uri>model://qrcode/BS0109</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0108">
-            <include>
-                    <uri>model://qrcode/W0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0110">
-            <include>
-                    <uri>model://qrcode/BS0110</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0104">
-            <include>
-                    <uri>model://qrcode/BO0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0612">
-            <include>
-                    <uri>model://qrcode/B0612</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0109">
-            <include>
-                    <uri>model://qrcode/B0109</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0905">
-            <include>
-                    <uri>model://qrcode/B0905</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0301">
-            <include>
-                    <uri>model://qrcode/W0301</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0307">
-            <include>
-                    <uri>model://qrcode/B0307</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0501">
-            <include>
-                    <uri>model://qrcode/B0501</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0306">
-            <include>
-                    <uri>model://qrcode/BP0306</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0904">
-            <include>
-                    <uri>model://qrcode/B0904</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0813">
-            <include>
-                    <uri>model://qrcode/B0813</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0312">
-            <include>
-                    <uri>model://qrcode/BP0312</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0411">
-            <include>
-                    <uri>model://qrcode/B0411</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0104">
-            <include>
-                    <uri>model://qrcode/BP0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0301">
-            <include>
-                    <uri>model://qrcode/WP0301</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0107">
-            <include>
-                    <uri>model://qrcode/WP0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0507">
-            <include>
-                    <uri>model://qrcode/B0507</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0114">
-            <include>
-                    <uri>model://qrcode/B0114</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0406">
-            <include>
-                    <uri>model://qrcode/BP0406</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0110">
-            <include>
-                    <uri>model://qrcode/BO0110</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0405">
-            <include>
-                    <uri>model://qrcode/BP0405</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0908">
-            <include>
-                    <uri>model://qrcode/B0908</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0914">
-            <include>
-                    <uri>model://qrcode/B0914</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0502">
-            <include>
-                    <uri>model://qrcode/BP0502</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0410">
-            <include>
-                    <uri>model://qrcode/B0410</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0103">
-            <include>
-                    <uri>model://qrcode/WS0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0409">
-            <include>
-                    <uri>model://qrcode/B0409</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0312">
-            <include>
-                    <uri>model://qrcode/B0312</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    
-    <model name="B0310">
-        <include>
-                <uri>model://qrcode/B0310</uri>
-        </include>
-        <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0306">
-            <include>
-                    <uri>model://qrcode/W0306</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0512">
-            <include>
-                    <uri>model://qrcode/B0512</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0503">
-            <include>
-                    <uri>model://qrcode/B0503</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0305">
-            <include>
-                    <uri>model://qrcode/WP0305</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0405">
-            <include>
-                    <uri>model://qrcode/W0405</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0107">
-            <include>
-                    <uri>model://qrcode/B0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0608">
-            <include>
-                    <uri>model://qrcode/B0608</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0203">
-            <include>
-                    <uri>model://qrcode/W0203</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0406">
-            <include>
-                    <uri>model://qrcode/W0406</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0202">
-            <include>
-                    <uri>model://qrcode/WP0202</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0610">
-            <include>
-                    <uri>model://qrcode/B0610</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0408">
-            <include>
-                    <uri>model://qrcode/BP0408</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0108">
-            <include>
-                    <uri>model://qrcode/BO0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0201">
-            <include>
-                    <uri>model://qrcode/B0201</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0112">
-            <include>
-                    <uri>model://qrcode/BP0112</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0107">
-            <include>
-                    <uri>model://qrcode/W0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0113">
-            <include>
-                    <uri>model://qrcode/BO0113</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0403">
-            <include>
-                    <uri>model://qrcode/W0403</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0615">
-            <include>
-                    <uri>model://qrcode/B0615</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0311">
-            <include>
-                    <uri>model://qrcode/B0311</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0602">
-            <include>
-                    <uri>model://qrcode/B0602</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0206">
-            <include>
-                    <uri>model://qrcode/WP0206</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0209">
-            <include>
-                    <uri>model://qrcode/BP0209</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0612">
-            <include>
-                    <uri>model://qrcode/BP0612</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0205">
-            <include>
-                    <uri>model://qrcode/BP0205</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0112">
-            <include>
-                    <uri>model://qrcode/BS0112</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0611">
-            <include>
-                    <uri>model://qrcode/BP0611</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0210">
-            <include>
-                    <uri>model://qrcode/BP0210</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0208">
-            <include>
-                    <uri>model://qrcode/B0208</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0214">
-            <include>
-                    <uri>model://qrcode/B0214</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0604">
-            <include>
-                    <uri>model://qrcode/BP0604</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0307">
-            <include>
-                    <uri>model://qrcode/BP0307</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0803">
-            <include>
-                    <uri>model://qrcode/B0803</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0808">
-            <include>
-                    <uri>model://qrcode/B0808</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0114">
-            <include>
-                    <uri>model://qrcode/BS0114</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0114">
-            <include>
-                    <uri>model://qrcode/BO0114</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0801">
-            <include>
-                    <uri>model://qrcode/B0801</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0115">
-            <include>
-                    <uri>model://qrcode/BO0115</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0505">
-            <include>
-                    <uri>model://qrcode/BP0505</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0407">
-            <include>
-                    <uri>model://qrcode/B0407</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0415">
-            <include>
-                    <uri>model://qrcode/B0415</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0302">
-            <include>
-                    <uri>model://qrcode/W0302</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0103">
-            <include>
-                    <uri>model://qrcode/BO0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0309">
-            <include>
-                    <uri>model://qrcode/B0309</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0509">
-            <include>
-                    <uri>model://qrcode/B0509</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0807">
-            <include>
-                    <uri>model://qrcode/B0807</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0113">
-            <include>
-                    <uri>model://qrcode/BS0113</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0305">
-            <include>
-                    <uri>model://qrcode/B0305</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0308">
-            <include>
-                    <uri>model://qrcode/W0308</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0401">
-            <include>
-                    <uri>model://qrcode/B0401</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0714">
-            <include>
-                    <uri>model://qrcode/B0714</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0105">
-            <include>
-                    <uri>model://qrcode/B0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0715">
-            <include>
-                    <uri>model://qrcode/B0715</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0512">
-            <include>
-                    <uri>model://qrcode/BP0512</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0305">
-            <include>
-                    <uri>model://qrcode/BP0305</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0412">
-            <include>
-                    <uri>model://qrcode/BP0412</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0613">
-            <include>
-                    <uri>model://qrcode/B0613</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0105">
-            <include>
-                    <uri>model://qrcode/BO0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0204">
-            <include>
-                    <uri>model://qrcode/WP0204</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0815">
-            <include>
-                    <uri>model://qrcode/B0815</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0610">
-            <include>
-                    <uri>model://qrcode/BP0610</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0213">
-            <include>
-                    <uri>model://qrcode/B0213</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0405">
-            <include>
-                    <uri>model://qrcode/B0405</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0411">
-            <include>
-                    <uri>model://qrcode/BP0411</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0713">
-            <include>
-                    <uri>model://qrcode/B0713</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0601">
-            <include>
-                    <uri>model://qrcode/BP0601</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0104">
-            <include>
-                    <uri>model://qrcode/BS0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0712">
-            <include>
-                    <uri>model://qrcode/B0712</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0203">
-            <include>
-                    <uri>model://qrcode/B0203</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0402">
-            <include>
-                    <uri>model://qrcode/BP0402</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0701">
-            <include>
-                    <uri>model://qrcode/B0701</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0509">
-            <include>
-                    <uri>model://qrcode/BP0509</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0103">
-            <include>
-                    <uri>model://qrcode/WP0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0101">
-            <include>
-                    <uri>model://qrcode/W0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0510">
-            <include>
-                    <uri>model://qrcode/BP0510</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0206">
-            <include>
-                    <uri>model://qrcode/BP0206</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0414">
-            <include>
-                    <uri>model://qrcode/B0414</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0314">
-            <include>
-                    <uri>model://qrcode/B0314</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0306">
-            <include>
-                    <uri>model://qrcode/WP0306</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0409">
-            <include>
-                    <uri>model://qrcode/BP0409</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0110">
-            <include>
-                    <uri>model://qrcode/B0110</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0814">
-            <include>
-                    <uri>model://qrcode/B0814</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0106">
-            <include>
-                    <uri>model://qrcode/BS0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0102">
-            <include>
-                    <uri>model://qrcode/B0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0608">
-            <include>
-                    <uri>model://qrcode/BP0608</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0109">
-            <include>
-                    <uri>model://qrcode/BO0109</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0304">
-            <include>
-                    <uri>model://qrcode/B0304</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0112">
-            <include>
-                    <uri>model://qrcode/BO0112</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0207">
-            <include>
-                    <uri>model://qrcode/W0207</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0305">
-            <include>
-                    <uri>model://qrcode/W0305</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0907">
-            <include>
-                    <uri>model://qrcode/B0907</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0309">
-            <include>
-                    <uri>model://qrcode/BP0309</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0104">
-            <include>
-                    <uri>model://qrcode/B0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0104">
-            <include>
-                    <uri>model://qrcode/W0104</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0607">
-            <include>
-                    <uri>model://qrcode/BP0607</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0515">
-            <include>
-                    <uri>model://qrcode/B0515</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0408">
-            <include>
-                    <uri>model://qrcode/W0408</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0101">
-        <include>
-            <uri>model://qrcode/B0101</uri>
-        </include>
-        <pose frame="">0 0 0.01 0 0 0</pose>
-	  </model>
-
-    <model name="B0102">
-        <include>
-            <uri>model://qrcode/B0102</uri>
-        </include>
-        <pose frame="">0.5 0 0.01 0 0 0</pose>
-	  </model>
-    <model name="W0105">
-        <include>
-                <uri>model://qrcode/W0105</uri>
-        </include>
-        <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0811">
-            <include>
-                    <uri>model://qrcode/B0811</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0501">
-            <include>
-                    <uri>model://qrcode/BP0501</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0401">
-            <include>
-                    <uri>model://qrcode/BP0401</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0115">
-            <include>
-                    <uri>model://qrcode/BS0115</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0403">
-            <include>
-                    <uri>model://qrcode/B0403</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0106">
-            <include>
-                    <uri>model://qrcode/W0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0101">
-            <include>
-                    <uri>model://qrcode/BO0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0909">
-            <include>
-                    <uri>model://qrcode/B0909</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0710">
-            <include>
-                    <uri>model://qrcode/B0710</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0211">
-            <include>
-                    <uri>model://qrcode/BP0211</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0507">
-            <include>
-                    <uri>model://qrcode/BP0507</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0403">
-            <include>
-                    <uri>model://qrcode/BP0403</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0505">
-            <include>
-                    <uri>model://qrcode/B0505</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0110">
-            <include>
-                    <uri>model://qrcode/BP0110</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0609">
-            <include>
-                    <uri>model://qrcode/BP0609</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0804">
-            <include>
-                    <uri>model://qrcode/B0804</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0304">
-            <include>
-                    <uri>model://qrcode/W0304</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0107">
-            <include>
-                    <uri>model://qrcode/WS0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0606">
-            <include>
-                    <uri>model://qrcode/B0606</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0513">
-            <include>
-                    <uri>model://qrcode/B0513</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0308">
-            <include>
-                    <uri>model://qrcode/BP0308</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0212">
-            <include>
-                    <uri>model://qrcode/B0212</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BS0102">
-            <include>
-                    <uri>model://qrcode/BS0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0511">
-            <include>
-                    <uri>model://qrcode/B0511</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0601">
-            <include>
-                    <uri>model://qrcode/B0601</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0308">
-            <include>
-                    <uri>model://qrcode/WP0308</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0412">
-            <include>
-                    <uri>model://qrcode/B0412</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0404">
-            <include>
-                    <uri>model://qrcode/BP0404</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0810">
-            <include>
-                    <uri>model://qrcode/B0810</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0108">
-            <include>
-                    <uri>model://qrcode/BP0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0101">
-            <include>
-                    <uri>model://qrcode/BP0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0107">
-            <include>
-                    <uri>model://qrcode/BO0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0101">
-            <include>
-                    <uri>model://qrcode/WP0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0404">
-            <include>
-                    <uri>model://qrcode/W0404</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0310">
-            <include>
-                    <uri>model://qrcode/BP0310</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0708">
-            <include>
-                    <uri>model://qrcode/B0708</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0406">
-            <include>
-                    <uri>model://qrcode/B0406</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0302">
-            <include>
-                    <uri>model://qrcode/WP0302</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0510">
-            <include>
-                    <uri>model://qrcode/B0510</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0313">
-            <include>
-                    <uri>model://qrcode/B0313</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0102">
-            <include>
-                    <uri>model://qrcode/WP0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0302">
-            <include>
-                    <uri>model://qrcode/B0302</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0105">
-            <include>
-                    <uri>model://qrcode/WP0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0605">
-            <include>
-                    <uri>model://qrcode/BP0605</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0210">
-            <include>
-                    <uri>model://qrcode/B0210</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0911">
-            <include>
-                    <uri>model://qrcode/B0911</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0202">
-            <include>
-                    <uri>model://qrcode/BP0202</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0303">
-            <include>
-                    <uri>model://qrcode/WP0303</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0307">
-            <include>
-                    <uri>model://qrcode/WP0307</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0209">
-            <include>
-                    <uri>model://qrcode/B0209</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0802">
-            <include>
-                    <uri>model://qrcode/B0802</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0706">
-            <include>
-                    <uri>model://qrcode/B0706</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0702">
-            <include>
-                    <uri>model://qrcode/B0702</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0206">
-            <include>
-                    <uri>model://qrcode/B0206</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0606">
-            <include>
-                    <uri>model://qrcode/BP0606</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0201">
-            <include>
-                    <uri>model://qrcode/W0201</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0504">
-            <include>
-                    <uri>model://qrcode/BP0504</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0208">
-            <include>
-                    <uri>model://qrcode/BP0208</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0201">
-            <include>
-                    <uri>model://qrcode/BP0201</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0102">
-            <include>
-                    <uri>model://qrcode/BO0102</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0205">
-            <include>
-                    <uri>model://qrcode/WP0205</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0603">
-            <include>
-                    <uri>model://qrcode/B0603</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0207">
-            <include>
-                    <uri>model://qrcode/B0207</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0306">
-            <include>
-                    <uri>model://qrcode/B0306</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0205">
-            <include>
-                    <uri>model://qrcode/W0205</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0311">
-            <include>
-                    <uri>model://qrcode/BP0311</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0410">
-            <include>
-                    <uri>model://qrcode/BP0410</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0915">
-            <include>
-                    <uri>model://qrcode/B0915</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0303">
-            <include>
-                    <uri>model://qrcode/W0303</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0106">
-            <include>
-                    <uri>model://qrcode/WP0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0511">
-            <include>
-                    <uri>model://qrcode/BP0511</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0111">
-            <include>
-                    <uri>model://qrcode/B0111</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0707">
-            <include>
-                    <uri>model://qrcode/B0707</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0812">
-            <include>
-                    <uri>model://qrcode/B0812</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BO0106">
-            <include>
-                    <uri>model://qrcode/BO0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0108">
-            <include>
-                    <uri>model://qrcode/WP0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0207">
-            <include>
-                    <uri>model://qrcode/BP0207</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0103">
-            <include>
-                    <uri>model://qrcode/W0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0107">
-            <include>
-                    <uri>model://qrcode/BP0107</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0208">
-            <include>
-                    <uri>model://qrcode/WP0208</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0407">
-            <include>
-                    <uri>model://qrcode/W0407</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0408">
-            <include>
-                    <uri>model://qrcode/B0408</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0113">
-            <include>
-                    <uri>model://qrcode/B0113</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WP0304">
-            <include>
-                    <uri>model://qrcode/WP0304</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0609">
-            <include>
-                    <uri>model://qrcode/B0609</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0103">
-            <include>
-                    <uri>model://qrcode/BP0103</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0208">
-            <include>
-                    <uri>model://qrcode/W0208</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0101">
-            <include>
-                    <uri>model://qrcode/WS0101</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0106">
-            <include>
-                    <uri>model://qrcode/WS0106</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0901">
-            <include>
-                    <uri>model://qrcode/B0901</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0206">
-            <include>
-                    <uri>model://qrcode/W0206</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0205">
-            <include>
-                    <uri>model://qrcode/B0205</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0711">
-            <include>
-                    <uri>model://qrcode/B0711</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0605">
-            <include>
-                    <uri>model://qrcode/B0605</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0506">
-            <include>
-                    <uri>model://qrcode/BP0506</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="WS0108">
-            <include>
-                    <uri>model://qrcode/WS0108</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0913">
-            <include>
-                    <uri>model://qrcode/B0913</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0109">
-            <include>
-                    <uri>model://qrcode/BP0109</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="W0202">
-            <include>
-                    <uri>model://qrcode/W0202</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0603">
-            <include>
-                    <uri>model://qrcode/BP0603</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0301">
-            <include>
-                    <uri>model://qrcode/B0301</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="BP0105">
-            <include>
-                    <uri>model://qrcode/BP0105</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    <model name="B0910">
-            <include>
-                    <uri>model://qrcode/B0910</uri>
-            </include>
-            <pose frame="">0 0 0.01 0 0 0</pose>
-    </model>
-    
+	<include>
+		<uri>model://qrcode/BP0312</uri>
+		<pose>9 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0411</uri>
+		<pose>4 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0104</uri>
+		<pose>-4 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0301</uri>
+		<pose>-9.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0107</uri>
+		<pose>6.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0507</uri>
+		<pose>-1 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0114</uri>
+		<pose>9 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0406</uri>
+		<pose>-1 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0110</uri>
+		<pose>3 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0405</uri>
+		<pose>-3 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0908</uri>
+		<pose>0 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0914</uri>
+		<pose>9 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0502</uri>
+		<pose>-7 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0410</uri>
+		<pose>3 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0103</uri>
+		<pose>-3.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0409</uri>
+		<pose>1 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0312</uri>
+		<pose>6 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0107</uri>
+		<pose>-1 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0105</uri>
+		<pose>0.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0811</uri>
+		<pose>4 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0501</uri>
+		<pose>-9 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0401</uri>
+		<pose>-9 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0115</uri>
+		<pose>10 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0403</uri>
+		<pose>-7 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0106</uri>
+		<pose>3.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0101</uri>
+		<pose>-10 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0909</uri>
+		<pose>1 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0710</uri>
+		<pose>3 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0211</uri>
+		<pose>7 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0507</uri>
+		<pose>1 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0403</uri>
+		<pose>-6 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0505</uri>
+		<pose>-4 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0110</uri>
+		<pose>6 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0609</uri>
+		<pose>4 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0804</uri>
+		<pose>-6 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0304</uri>
+		<pose>-0.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0107</uri>
+		<pose>6.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0606</uri>
+		<pose>-3 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0513</uri>
+		<pose>7 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0308</uri>
+		<pose>3 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0212</uri>
+		<pose>6 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0102</uri>
+		<pose>-9 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0511</uri>
+		<pose>4 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0601</uri>
+		<pose>-10 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0308</uri>
+		<pose>9.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0412</uri>
+		<pose>6 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0404</uri>
+		<pose>-4 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0810</uri>
+		<pose>3 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0108</uri>
+		<pose>3 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0101</uri>
+		<pose>-9 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0107</uri>
+		<pose>-1 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0101</uri>
+		<pose>-9.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0404</uri>
+		<pose>-0.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0310</uri>
+		<pose>6 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0708</uri>
+		<pose>0 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0406</uri>
+		<pose>-3 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0302</uri>
+		<pose>-6.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0510</uri>
+		<pose>3 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0313</uri>
+		<pose>7 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0102</uri>
+		<pose>-6.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0302</uri>
+		<pose>-9 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0105</uri>
+		<pose>0.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0605</uri>
+		<pose>-3 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0210</uri>
+		<pose>3 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0911</uri>
+		<pose>4 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0202</uri>
+		<pose>-7 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0303</uri>
+		<pose>-3.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0307</uri>
+		<pose>6.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0209</uri>
+		<pose>1 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0802</uri>
+		<pose>-9 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0706</uri>
+		<pose>-3 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0702</uri>
+		<pose>-9 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0206</uri>
+		<pose>-3 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0606</uri>
+		<pose>-1 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0201</uri>
+		<pose>-9.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0504</uri>
+		<pose>-4 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0208</uri>
+		<pose>3 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0201</uri>
+		<pose>-9 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0102</uri>
+		<pose>-9 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0205</uri>
+		<pose>0.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0603</uri>
+		<pose>-7 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0207</uri>
+		<pose>-1 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0306</uri>
+		<pose>-3 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0205</uri>
+		<pose>0.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0311</uri>
+		<pose>7 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0410</uri>
+		<pose>6 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0915</uri>
+		<pose>10 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0303</uri>
+		<pose>-3.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0106</uri>
+		<pose>3.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0511</uri>
+		<pose>7 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0111</uri>
+		<pose>4 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0707</uri>
+		<pose>-1 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0812</uri>
+		<pose>6 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0106</uri>
+		<pose>-3 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0108</uri>
+		<pose>9.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0207</uri>
+		<pose>1 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0103</uri>
+		<pose>-3.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0107</uri>
+		<pose>1 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0208</uri>
+		<pose>9.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0407</uri>
+		<pose>6.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0408</uri>
+		<pose>0 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0113</uri>
+		<pose>7 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0304</uri>
+		<pose>-0.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0609</uri>
+		<pose>1 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0103</uri>
+		<pose>-6 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0208</uri>
+		<pose>9.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0101</uri>
+		<pose>-9.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0106</uri>
+		<pose>3.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0901</uri>
+		<pose>-10 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0206</uri>
+		<pose>3.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0205</uri>
+		<pose>-4 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0711</uri>
+		<pose>4 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0605</uri>
+		<pose>-4 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0506</uri>
+		<pose>-1 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0108</uri>
+		<pose>9.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0913</uri>
+		<pose>7 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0109</uri>
+		<pose>4 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0202</uri>
+		<pose>-6.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0603</uri>
+		<pose>-6 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0301</uri>
+		<pose>-10 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0105</uri>
+		<pose>-3 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0910</uri>
+		<pose>3 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0310</uri>
+		<pose>3 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0306</uri>
+		<pose>3.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0512</uri>
+		<pose>6 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0503</uri>
+		<pose>-7 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0305</uri>
+		<pose>0.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0405</uri>
+		<pose>0.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0107</uri>
+		<pose>-1 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0608</uri>
+		<pose>0 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0203</uri>
+		<pose>-3.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0406</uri>
+		<pose>3.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0202</uri>
+		<pose>-6.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0610</uri>
+		<pose>3 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0408</uri>
+		<pose>3 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0108</uri>
+		<pose>0 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0201</uri>
+		<pose>-10 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0112</uri>
+		<pose>9 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0107</uri>
+		<pose>6.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0113</uri>
+		<pose>7 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0403</uri>
+		<pose>-3.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0615</uri>
+		<pose>10 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0311</uri>
+		<pose>4 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0602</uri>
+		<pose>-9 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0206</uri>
+		<pose>3.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0209</uri>
+		<pose>4 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0612</uri>
+		<pose>9 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0205</uri>
+		<pose>-3 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0112</uri>
+		<pose>6 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0611</uri>
+		<pose>7 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0210</uri>
+		<pose>6 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0208</uri>
+		<pose>0 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0214</uri>
+		<pose>9 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0604</uri>
+		<pose>-4 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0307</uri>
+		<pose>1 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0803</uri>
+		<pose>-7 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0808</uri>
+		<pose>0 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0114</uri>
+		<pose>9 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0114</uri>
+		<pose>9 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0801</uri>
+		<pose>-10 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0115</uri>
+		<pose>10 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0505</uri>
+		<pose>-3 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0407</uri>
+		<pose>-1 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0415</uri>
+		<pose>10 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0302</uri>
+		<pose>-6.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0103</uri>
+		<pose>-7 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0309</uri>
+		<pose>1 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0509</uri>
+		<pose>1 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0807</uri>
+		<pose>-1 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0113</uri>
+		<pose>7 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0305</uri>
+		<pose>-4 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0308</uri>
+		<pose>9.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0401</uri>
+		<pose>-10 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0714</uri>
+		<pose>9 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0105</uri>
+		<pose>-4 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0715</uri>
+		<pose>10 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0512</uri>
+		<pose>9 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0305</uri>
+		<pose>-3 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0412</uri>
+		<pose>9 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0613</uri>
+		<pose>7 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0105</uri>
+		<pose>-4 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0204</uri>
+		<pose>-0.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0815</uri>
+		<pose>10 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0610</uri>
+		<pose>6 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0213</uri>
+		<pose>7 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0405</uri>
+		<pose>-4 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0411</uri>
+		<pose>7 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0713</uri>
+		<pose>7 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0601</uri>
+		<pose>-9 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0104</uri>
+		<pose>-6 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0712</uri>
+		<pose>6 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0203</uri>
+		<pose>-7 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0402</uri>
+		<pose>-7 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0701</uri>
+		<pose>-10 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0509</uri>
+		<pose>4 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0103</uri>
+		<pose>-3.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0101</uri>
+		<pose>-9.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0510</uri>
+		<pose>6 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0206</uri>
+		<pose>-1 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0414</uri>
+		<pose>9 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0314</uri>
+		<pose>9 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0306</uri>
+		<pose>3.5 -11 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0409</uri>
+		<pose>4 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0110</uri>
+		<pose>3 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0814</uri>
+		<pose>9 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0106</uri>
+		<pose>-3 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0102</uri>
+		<pose>-9 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0608</uri>
+		<pose>3 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0109</uri>
+		<pose>1 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0304</uri>
+		<pose>-6 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0112</uri>
+		<pose>6 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0207</uri>
+		<pose>6.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0305</uri>
+		<pose>0.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0907</uri>
+		<pose>-1 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0309</uri>
+		<pose>4 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0104</uri>
+		<pose>-6 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0104</uri>
+		<pose>-0.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0607</uri>
+		<pose>1 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0515</uri>
+		<pose>10 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0408</uri>
+		<pose>9.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0709</uri>
+		<pose>1 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0304</uri>
+		<pose>-4 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0514</uri>
+		<pose>9 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0201</uri>
+		<pose>-9.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0805</uri>
+		<pose>-4 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0413</uri>
+		<pose>7 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0104</uri>
+		<pose>-0.5 -3 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0401</uri>
+		<pose>-9.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0809</uri>
+		<pose>1 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0704</uri>
+		<pose>-6 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0806</uri>
+		<pose>-3 -13.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0607</uri>
+		<pose>-1 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0506</uri>
+		<pose>-3 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0508</uri>
+		<pose>3 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0504</uri>
+		<pose>-6 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0202</uri>
+		<pose>-9 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0215</uri>
+		<pose>10 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0307</uri>
+		<pose>6.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0111</uri>
+		<pose>4 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0103</uri>
+		<pose>-7 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0912</uri>
+		<pose>6 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0315</uri>
+		<pose>10 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0508</uri>
+		<pose>0 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0108</uri>
+		<pose>0 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0101</uri>
+		<pose>-10 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0614</uri>
+		<pose>9 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0101</uri>
+		<pose>-10 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0106</uri>
+		<pose>-1 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0102</uri>
+		<pose>-6.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0503</uri>
+		<pose>-6 -10.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0611</uri>
+		<pose>4 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0204</uri>
+		<pose>-0.5 -5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0203</uri>
+		<pose>-6 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0302</uri>
+		<pose>-7 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0108</uri>
+		<pose>0 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0703</uri>
+		<pose>-7 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0404</uri>
+		<pose>-6 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0906</uri>
+		<pose>-3 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0212</uri>
+		<pose>9 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0203</uri>
+		<pose>-3.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0402</uri>
+		<pose>-9 -5.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0204</uri>
+		<pose>-6 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0602</uri>
+		<pose>-7 -11.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WP0207</uri>
+		<pose>6.5 -7 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0112</uri>
+		<pose>6 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0104</uri>
+		<pose>-0.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0103</uri>
+		<pose>-7 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0705</uri>
+		<pose>-4 -12.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0402</uri>
+		<pose>-6.5 -13 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0204</uri>
+		<pose>-4 -3.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0105</uri>
+		<pose>0.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0111</uri>
+		<pose>7 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0902</uri>
+		<pose>-9 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0301</uri>
+		<pose>-9 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0903</uri>
+		<pose>-7 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0502</uri>
+		<pose>-9 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0211</uri>
+		<pose>4 -1.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0303</uri>
+		<pose>-6 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0308</uri>
+		<pose>0 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/WS0102</uri>
+		<pose>-6.5 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0106</uri>
+		<pose>-3 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0102</uri>
+		<pose>-7 -2.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0105</uri>
+		<pose>-4 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0407</uri>
+		<pose>1 -7.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0111</uri>
+		<pose>4 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0115</uri>
+		<pose>10 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0604</uri>
+		<pose>-6 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0303</uri>
+		<pose>-7 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0109</uri>
+		<pose>1 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0108</uri>
+		<pose>9.5 -1 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BS0110</uri>
+		<pose>3 -0 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BO0104</uri>
+		<pose>-6 -15 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0612</uri>
+		<pose>6 -9.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0109</uri>
+		<pose>1 -0.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0905</uri>
+		<pose>-4 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/W0301</uri>
+		<pose>-9.5 -9 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0307</uri>
+		<pose>-1 -4.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0501</uri>
+		<pose>-10 -8.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/BP0306</uri>
+		<pose>-1 -6.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0904</uri>
+		<pose>-6 -14.5 0.01 0 0 0</pose>
+	</include>
+	<include>
+		<uri>model://qrcode/B0813</uri>
+		<pose>7 -13.5 0.01 0 0 0</pose>
+	</include>
 	
-	
-	
-    <model name='aws_robomaker_warehouse_Lamp_01_005'>
-      <frame name='aws_robomaker_warehouse_Lamp_01::__model__' attached_to='aws_robomaker_warehouse_Lamp_01::link'>
-        <pose relative_to='__model__'>0 0 0 0 -0 0</pose>
-      </frame>
-      <link name='aws_robomaker_warehouse_Lamp_01::link'>
-        <inertial>
-          <mass>30</mass>
-          <inertia>
-            <ixx>907.144</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>104.95</iyy>
-            <iyz>0</iyz>
-            <izz>824.248</izz>
-          </inertia>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://aws_robomaker_warehouse_Lamp_01/meshes/aws_robomaker_warehouse_Lamp_01_collision.DAE</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>0.2</mu>
-                <mu2>0.2</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://aws_robomaker_warehouse_Lamp_01/meshes/aws_robomaker_warehouse_Lamp_01_visual.DAE</uri>
-            </mesh>
-          </geometry>
-          <meta>
-            <layer>1</layer>
-          </meta>
-        </visual>
-        <pose relative_to='aws_robomaker_warehouse_Lamp_01::__model__'>0 0 0 0 -0 0</pose>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <static>1</static>
-      <pose>0 0 -4 0 -0 0</pose>
-    </model>
-    <light name='Warehouse_CeilingLight_003' type='point'>
-      <pose>0 0 9 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>80</range>
-        <constant>0.3</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <cast_shadows>1</cast_shadows>
-      <direction>0.1 0.1 -1</direction>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
-    </light>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>-6.02661 29.5082 16.527 0 0.573797 -1.37501</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
-    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
-    <atmosphere type='adiabatic'/>
-    <scene>
-      <ambient>0.4 0.4 0.4 1</ambient>
-      <background>0.7 0.7 0.7 1</background>
-      <shadows>1</shadows>
-    </scene>
-    <wind/>
-    <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>0</latitude_deg>
-      <longitude_deg>0</longitude_deg>
-      <elevation>0</elevation>
-      <heading_deg>0</heading_deg>
-    </spherical_coordinates>
-    <state world_name='default'>
-      <sim_time>395 197000000</sim_time>
-      <real_time>83 821067801</real_time>
-      <wall_time>1682492913 557596460</wall_time>
-      <iterations>83188</iterations>
-      <model name='aws_robomaker_warehouse_Lamp_01_005'>
-        <pose>0 0 -4 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='aws_robomaker_warehouse_Lamp_01::link'>
-          <pose>0 0 -4 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='turtlebot3_burger'>
-        <pose>-1.91393 -0.501822 0.038 1.68544 1.57079 3.14159</pose>
-        <scale>1 1 1</scale>
-        <link name='base_footprint'>
-          <pose>-1.91393 -0.501822 0.038 1.68544 1.57079 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='wheel_left_link'>
-          <pose>-1.98963 -0.459887 0.038 1.5708 1.47414 -1.68624</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='wheel_right_link'>
-          <pose>-1.83068 -0.47819 0.038 1.5708 1.49607 -1.68624</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 -0 0 0 -0 0</acceleration>
-          <wrench>0 -0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='warehouse_ground'>
-        <pose>0.001361 7.48302 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0.001361 7.48302 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='Warehouse_CeilingLight_003'>
-        <pose>0 0 9 0 -0 0</pose>
-      </light>
-    </state>
-    <model name='turtlebot3_burger'>
-      <link name='base_footprint'>
-        <inertial>
-          <pose>-0.00429 0 0.030734 0 -0 0</pose>
-          <mass>0.944735</mass>
-          <inertia>
-            <ixx>0.00717896</ixx>
-            <ixy>-1.22941e-05</ixy>
-            <ixz>0.00057674</ixz>
-            <iyy>0.00721804</iyy>
-            <iyz>-5.01209e-06</iyz>
-            <izz>0.00413858</izz>
-          </inertia>
-        </inertial>
-        <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
-          <pose>-0.032 0 0.08 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.14 0.14 0.143</size>
-            </box>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_footprint_fixed_joint_lump__caster_back_link_collision_1'>
-          <pose>-0.081 1e-06 0.005 -1.57 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.009 0.02</size>
-            </box>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+06</kp>
-                <kd>100</kd>
-                <max_vel>1</max_vel>
-                <min_depth>0.001</min_depth>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.1</mu>
-                <mu2>0.1</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_footprint_fixed_joint_lump__base_scan_collision_2'>
-          <pose>-0.017 0 0.1755 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <length>0.0315</length>
-              <radius>0.055</radius>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
-          <pose>-0.032 0 0.01 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/opt/ros/noetic/share/turtlebot3_description/meshes/bases/burger_base.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_footprint_fixed_joint_lump__base_scan_visual_1'>
-          <pose>-0.032 0 0.182 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/opt/ros/noetic/share/turtlebot3_description/meshes/sensors/lds.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/FlatBlack</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <sensor name='imu' type='imu'>
-          <always_on>1</always_on>
-          <visualize>0</visualize>
-          <pose>-0.032 0 0.078 0 -0 0</pose>
-          <imu/>
-        </sensor>
-        <sensor name='lds_lfcd_sensor' type='ray'>
-          <visualize>0</visualize>
-          <update_rate>5</update_rate>
-          <ray>
-            <scan>
-              <horizontal>
-                <samples>360</samples>
-                <resolution>1</resolution>
-                <min_angle>0</min_angle>
-                <max_angle>6.28319</max_angle>
-              </horizontal>
-              <vertical>
-                <samples>1</samples>
-                <min_angle>0</min_angle>
-                <max_angle>0</max_angle>
-              </vertical>
-            </scan>
-            <range>
-              <min>0.12</min>
-              <max>3.5</max>
-              <resolution>0.015</resolution>
-            </range>
-            <noise>
-              <type>gaussian</type>
-              <mean>0</mean>
-              <stddev>0.01</stddev>
-            </noise>
-          </ray>
-          <plugin name='gazebo_ros_lds_lfcd_controller' filename='libgazebo_ros_laser.so'>
-            <topicName>scan</topicName>
-            <frameName>base_scan</frameName>
-            <robotNamespace>/</robotNamespace>
-          </plugin>
-          <pose>-0.032 0 0.182 0 -0 0</pose>
-        </sensor>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_left_joint' type='revolute'>
-        <pose relative_to='base_footprint'>0 0.08 0.033 -1.57 0 0</pose>
-        <parent>base_footprint</parent>
-        <child>wheel_left_link</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='wheel_left_link'>
-        <pose relative_to='wheel_left_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <mass>0.0284989</mass>
-          <inertia>
-            <ixx>1.11756e-05</ixx>
-            <ixy>-4.23698e-11</ixy>
-            <ixz>-5.93817e-09</ixz>
-            <iyy>1.11924e-05</iyy>
-            <iyz>-1.44001e-11</iyz>
-            <izz>2.07126e-05</izz>
-          </inertia>
-        </inertial>
-        <collision name='wheel_left_link_collision'>
-          <pose>0 0 0 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <length>0.018</length>
-              <radius>0.033</radius>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>500000</kp>
-                <kd>10</kd>
-                <max_vel>0.1</max_vel>
-                <min_depth>0.001</min_depth>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.1</mu>
-                <mu2>0.1</mu2>
-                <fdir1>1 0 0</fdir1>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='wheel_left_link_visual'>
-          <pose>0 0 0 1.57 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/opt/ros/noetic/share/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/FlatBlack</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_right_joint' type='revolute'>
-        <pose relative_to='base_footprint'>0 -0.08 0.033 -1.57 0 0</pose>
-        <parent>base_footprint</parent>
-        <child>wheel_right_link</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='wheel_right_link'>
-        <pose relative_to='wheel_right_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <mass>0.0284989</mass>
-          <inertia>
-            <ixx>1.11756e-05</ixx>
-            <ixy>-4.23698e-11</ixy>
-            <ixz>-5.93817e-09</ixz>
-            <iyy>1.11924e-05</iyy>
-            <iyz>-1.44001e-11</iyz>
-            <izz>2.07126e-05</izz>
-          </inertia>
-        </inertial>
-        <collision name='wheel_right_link_collision'>
-          <pose>0 0 0 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <length>0.018</length>
-              <radius>0.033</radius>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>500000</kp>
-                <kd>10</kd>
-                <max_vel>0.1</max_vel>
-                <min_depth>0.001</min_depth>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.1</mu>
-                <mu2>0.1</mu2>
-                <fdir1>1 0 0</fdir1>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='wheel_right_link_visual'>
-          <pose>0 0 0 1.57 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/opt/ros/noetic/share/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/FlatBlack</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <plugin name='turtlebot3_burger_controller' filename='libgazebo_ros_diff_drive.so'>
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
-        <odometryFrame>odom</odometryFrame>
-        <odometrySource>world</odometrySource>
-        <publishOdomTF>1</publishOdomTF>
-        <robotBaseFrame>base_footprint</robotBaseFrame>
-        <publishWheelTF>0</publishWheelTF>
-        <publishTf>1</publishTf>
-        <publishWheelJointState>1</publishWheelJointState>
-        <legacyMode>0</legacyMode>
-        <updateRate>30</updateRate>
-        <leftJoint>wheel_left_joint</leftJoint>
-        <rightJoint>wheel_right_joint</rightJoint>
-        <wheelSeparation>0.160</wheelSeparation>
-        <wheelDiameter>0.066</wheelDiameter>
-        <wheelAcceleration>1</wheelAcceleration>
-        <wheelTorque>10</wheelTorque>
-        <rosDebugLevel>na</rosDebugLevel>
-        <robotNamespace>/</robotNamespace>
-      </plugin>
-      <static>0</static>
-      <plugin name='imu_plugin' filename='libgazebo_ros_imu.so'>
-        <alwaysOn>1</alwaysOn>
-        <topicName>imu</topicName>
-        <serviceName>imu_service</serviceName>
-        <gaussianNoise>0.0</gaussianNoise>
-        <updateRate>0</updateRate>
-        <imu>
-          <noise>
-            <type>gaussian</type>
-            <rate>
-              <mean>0.0</mean>
-              <stddev>2e-4</stddev>
-              <bias_mean>0.0000075</bias_mean>
-              <bias_stddev>0.0000008</bias_stddev>
-            </rate>
-            <accel>
-              <mean>0.0</mean>
-              <stddev>1.7e-2</stddev>
-              <bias_mean>0.1</bias_mean>
-              <bias_stddev>0.001</bias_stddev>
-            </accel>
-          </noise>
-        </imu>
-        <robotNamespace>/</robotNamespace>
-        <bodyName>base_footprint</bodyName>
-        <frameName>base_footprint</frameName>
-        <xyzOffset>-0.064 0 0.156</xyzOffset>
-        <rpyOffset>0 -0 0</rpyOffset>
-        <ignition::corrected_offsets>1</ignition::corrected_offsets>
-      </plugin>
-      <pose>-2 -0.5 0 0 -0 0</pose>
-    </model>
-    <model name='warehouse_ground'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>21 16</size>
-            </plane>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>21 16</size>
-            </plane>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://warehouse_ground/materials/scripts</uri>
-              <uri>model://warehouse_ground/materials/textures/</uri>
-              <name>WareHouseGround/Image</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>0.001361 7.48302 0 0 -0 0</pose>
-    </model>
+	<model name='aws_robomaker_warehouse_Lamp_01_005'>
+	<frame name='aws_robomaker_warehouse_Lamp_01::__model__' attached_to='aws_robomaker_warehouse_Lamp_01::link'>
+		<pose relative_to='__model__'>0 0 0 0 -0 0</pose>
+	</frame>
+	<link name='aws_robomaker_warehouse_Lamp_01::link'>
+		<inertial>
+		<mass>30</mass>
+		<inertia>
+		<ixx>907.144</ixx>
+		<ixy>0</ixy>
+		<ixz>0</ixz>
+		<iyy>104.95</iyy>
+		<iyz>0</iyz>
+		<izz>824.248</izz>
+		</inertia>
+		</inertial>
+		<collision name='collision'>
+		<geometry>
+		<mesh>
+		<uri>model://aws_robomaker_warehouse_Lamp_01/meshes/aws_robomaker_warehouse_Lamp_01_collision.DAE</uri>
+		<scale>1 1 1</scale>
+		</mesh>
+		</geometry>
+		<surface>
+		<friction>
+		<ode>
+			<mu>0.2</mu>
+			<mu2>0.2</mu2>
+			<fdir1>0 0 0</fdir1>
+			<slip1>0</slip1>
+			<slip2>0</slip2>
+		</ode>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<contact>
+		<ode/>
+		</contact>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<visual name='visual'>
+		<geometry>
+		<mesh>
+		<uri>model://aws_robomaker_warehouse_Lamp_01/meshes/aws_robomaker_warehouse_Lamp_01_visual.DAE</uri>
+		</mesh>
+		</geometry>
+		<meta>
+		<layer>1</layer>
+		</meta>
+		</visual>
+		<pose relative_to='aws_robomaker_warehouse_Lamp_01::__model__'>0 0 0 0 -0 0</pose>
+		<self_collide>0</self_collide>
+		<enable_wind>0</enable_wind>
+		<kinematic>0</kinematic>
+	</link>
+	<static>1</static>
+	<pose>0 0 -4 0 -0 0</pose>
+	</model>
+	<light name='Warehouse_CeilingLight_003' type='point'>
+	<pose>0 0 9 0 -0 0</pose>
+	<diffuse>0.5 0.5 0.5 1</diffuse>
+	<specular>0.2 0.2 0.2 1</specular>
+	<attenuation>
+		<range>80</range>
+		<constant>0.3</constant>
+		<linear>0.01</linear>
+		<quadratic>0.001</quadratic>
+	</attenuation>
+	<cast_shadows>1</cast_shadows>
+	<direction>0.1 0.1 -1</direction>
+	<spot>
+		<inner_angle>0</inner_angle>
+		<outer_angle>0</outer_angle>
+		<falloff>0</falloff>
+	</spot>
+	</light>
+	<gui fullscreen='0'>
+	<camera name='user_camera'>
+		<pose>-6.02661 29.5082 16.527 0 0.573797 -1.37501</pose>
+		<view_controller>orbit</view_controller>
+		<projection_type>perspective</projection_type>
+	</camera>
+	</gui>
+	<magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+	<atmosphere type='adiabatic'/>
+	<scene>
+	<ambient>0.4 0.4 0.4 1</ambient>
+	<background>0.7 0.7 0.7 1</background>
+	<shadows>1</shadows>
+	</scene>
+	<wind/>
+	<spherical_coordinates>
+	<surface_model>EARTH_WGS84</surface_model>
+	<latitude_deg>0</latitude_deg>
+	<longitude_deg>0</longitude_deg>
+	<elevation>0</elevation>
+	<heading_deg>0</heading_deg>
+	</spherical_coordinates>
+	<state world_name='default'>
+	<sim_time>395 197000000</sim_time>
+	<real_time>83 821067801</real_time>
+	<wall_time>1682492913 557596460</wall_time>
+	<iterations>83188</iterations>
+	<model name='aws_robomaker_warehouse_Lamp_01_005'>
+		<pose>0 0 -4 0 -0 0</pose>
+		<scale>1 1 1</scale>
+		<link name='aws_robomaker_warehouse_Lamp_01::link'>
+		<pose>0 0 -4 0 -0 0</pose>
+		<velocity>0 0 0 0 -0 0</velocity>
+		<acceleration>0 0 0 0 -0 0</acceleration>
+		<wrench>0 0 0 0 -0 0</wrench>
+		</link>
+	</model>
+	<model name='turtlebot3_burger'>
+		<pose>-1.91393 -0.501822 0.038 1.68544 1.57079 3.14159</pose>
+		<scale>1 1 1</scale>
+		<link name='base_footprint'>
+		<pose>-1.91393 -0.501822 0.038 1.68544 1.57079 3.14159</pose>
+		<velocity>0 0 0 0 -0 0</velocity>
+		<acceleration>0 0 0 0 -0 0</acceleration>
+		<wrench>0 0 0 0 -0 0</wrench>
+		</link>
+		<link name='wheel_left_link'>
+		<pose>-1.98963 -0.459887 0.038 1.5708 1.47414 -1.68624</pose>
+		<velocity>0 0 0 0 -0 0</velocity>
+		<acceleration>0 0 0 0 -0 0</acceleration>
+		<wrench>0 0 0 0 -0 0</wrench>
+		</link>
+		<link name='wheel_right_link'>
+		<pose>-1.83068 -0.47819 0.038 1.5708 1.49607 -1.68624</pose>
+		<velocity>0 0 0 0 -0 0</velocity>
+		<acceleration>0 -0 0 0 -0 0</acceleration>
+		<wrench>0 -0 0 0 -0 0</wrench>
+		</link>
+	</model>
+	<model name='warehouse_ground'>
+		<pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
+		<scale>1 1 1</scale>
+		<link name='link'>
+		<pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
+		<velocity>0 0 0 0 -0 0</velocity>
+		<acceleration>0 0 0 0 -0 0</acceleration>
+		<wrench>0 0 0 0 -0 0</wrench>
+		</link>
+	</model>
+	<light name='Warehouse_CeilingLight_003'>
+		<pose>0 0 9 0 -0 0</pose>
+	</light>
+	</state>
+	<model name='turtlebot3_burger'>
+	<link name='base_footprint'>
+		<inertial>
+		<pose>-0.00429 0 0.030734 0 -0 0</pose>
+		<mass>0.944735</mass>
+		<inertia>
+		<ixx>0.00717896</ixx>
+		<ixy>-1.22941e-05</ixy>
+		<ixz>0.00057674</ixz>
+		<iyy>0.00721804</iyy>
+		<iyz>-5.01209e-06</iyz>
+		<izz>0.00413858</izz>
+		</inertia>
+		</inertial>
+		<collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+		<pose>-0.032 0 0.08 0 -0 0</pose>
+		<geometry>
+		<box>
+		<size>0.14 0.14 0.143</size>
+		</box>
+		</geometry>
+		<surface>
+		<contact>
+		<ode/>
+		</contact>
+		<friction>
+		<ode/>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<collision name='base_footprint_fixed_joint_lump__caster_back_link_collision_1'>
+		<pose>-0.081 1e-06 0.005 -1.57 0 0</pose>
+		<geometry>
+		<box>
+		<size>0.03 0.009 0.02</size>
+		</box>
+		</geometry>
+		<surface>
+		<contact>
+		<ode>
+			<kp>1e+06</kp>
+			<kd>100</kd>
+			<max_vel>1</max_vel>
+			<min_depth>0.001</min_depth>
+		</ode>
+		</contact>
+		<friction>
+		<ode>
+			<mu>0.1</mu>
+			<mu2>0.1</mu2>
+		</ode>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<collision name='base_footprint_fixed_joint_lump__base_scan_collision_2'>
+		<pose>-0.017 0 0.1755 0 -0 0</pose>
+		<geometry>
+		<cylinder>
+		<length>0.0315</length>
+		<radius>0.055</radius>
+		</cylinder>
+		</geometry>
+		<surface>
+		<contact>
+		<ode/>
+		</contact>
+		<friction>
+		<ode/>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+		<pose>-0.032 0 0.01 0 -0 0</pose>
+		<geometry>
+		<mesh>
+		<scale>0.001 0.001 0.001</scale>
+		<uri>/opt/ros/noetic/share/turtlebot3_description/meshes/bases/burger_base.stl</uri>
+		</mesh>
+		</geometry>
+		<material>
+		<script>
+		<name>Gazebo/DarkGrey</name>
+		<uri>file://media/materials/scripts/gazebo.material</uri>
+		</script>
+		</material>
+		</visual>
+		<visual name='base_footprint_fixed_joint_lump__base_scan_visual_1'>
+		<pose>-0.032 0 0.182 0 -0 0</pose>
+		<geometry>
+		<mesh>
+		<scale>0.001 0.001 0.001</scale>
+		<uri>/opt/ros/noetic/share/turtlebot3_description/meshes/sensors/lds.stl</uri>
+		</mesh>
+		</geometry>
+		<material>
+		<script>
+		<name>Gazebo/FlatBlack</name>
+		<uri>file://media/materials/scripts/gazebo.material</uri>
+		</script>
+		</material>
+		</visual>
+		<sensor name='imu' type='imu'>
+		<always_on>1</always_on>
+		<visualize>0</visualize>
+		<pose>-0.032 0 0.078 0 -0 0</pose>
+		<imu/>
+		</sensor>
+		<sensor name='lds_lfcd_sensor' type='ray'>
+		<visualize>0</visualize>
+		<update_rate>5</update_rate>
+		<ray>
+		<scan>
+		<horizontal>
+			<samples>360</samples>
+			<resolution>1</resolution>
+			<min_angle>0</min_angle>
+			<max_angle>6.28319</max_angle>
+		</horizontal>
+		<vertical>
+			<samples>1</samples>
+			<min_angle>0</min_angle>
+			<max_angle>0</max_angle>
+		</vertical>
+		</scan>
+		<range>
+		<min>0.12</min>
+		<max>3.5</max>
+		<resolution>0.015</resolution>
+		</range>
+		<noise>
+		<type>gaussian</type>
+		<mean>0</mean>
+		<stddev>0.01</stddev>
+		</noise>
+		</ray>
+		<plugin name='gazebo_ros_lds_lfcd_controller' filename='libgazebo_ros_laser.so'>
+		<topicName>scan</topicName>
+		<frameName>base_scan</frameName>
+		<robotNamespace>/</robotNamespace>
+		</plugin>
+		<pose>-0.032 0 0.182 0 -0 0</pose>
+		</sensor>
+		<self_collide>0</self_collide>
+		<enable_wind>0</enable_wind>
+		<kinematic>0</kinematic>
+	</link>
+	<joint name='wheel_left_joint' type='revolute'>
+		<pose relative_to='base_footprint'>0 0.08 0.033 -1.57 0 0</pose>
+		<parent>base_footprint</parent>
+		<child>wheel_left_link</child>
+		<axis>
+		<xyz>0 0 1</xyz>
+		<limit>
+		<lower>-1e+16</lower>
+		<upper>1e+16</upper>
+		</limit>
+		<dynamics>
+		<spring_reference>0</spring_reference>
+		<spring_stiffness>0</spring_stiffness>
+		</dynamics>
+		</axis>
+	</joint>
+	<link name='wheel_left_link'>
+		<pose relative_to='wheel_left_joint'>0 0 0 0 -0 0</pose>
+		<inertial>
+		<pose>0 0 0 0 -0 0</pose>
+		<mass>0.0284989</mass>
+		<inertia>
+		<ixx>1.11756e-05</ixx>
+		<ixy>-4.23698e-11</ixy>
+		<ixz>-5.93817e-09</ixz>
+		<iyy>1.11924e-05</iyy>
+		<iyz>-1.44001e-11</iyz>
+		<izz>2.07126e-05</izz>
+		</inertia>
+		</inertial>
+		<collision name='wheel_left_link_collision'>
+		<pose>0 0 0 0 -0 0</pose>
+		<geometry>
+		<cylinder>
+		<length>0.018</length>
+		<radius>0.033</radius>
+		</cylinder>
+		</geometry>
+		<surface>
+		<contact>
+		<ode>
+			<kp>500000</kp>
+			<kd>10</kd>
+			<max_vel>0.1</max_vel>
+			<min_depth>0.001</min_depth>
+		</ode>
+		</contact>
+		<friction>
+		<ode>
+			<mu>0.1</mu>
+			<mu2>0.1</mu2>
+			<fdir1>1 0 0</fdir1>
+		</ode>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<visual name='wheel_left_link_visual'>
+		<pose>0 0 0 1.57 -0 0</pose>
+		<geometry>
+		<mesh>
+		<scale>0.001 0.001 0.001</scale>
+		<uri>/opt/ros/noetic/share/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
+		</mesh>
+		</geometry>
+		<material>
+		<script>
+		<name>Gazebo/FlatBlack</name>
+		<uri>file://media/materials/scripts/gazebo.material</uri>
+		</script>
+		</material>
+		</visual>
+		<self_collide>0</self_collide>
+		<enable_wind>0</enable_wind>
+		<kinematic>0</kinematic>
+	</link>
+	<joint name='wheel_right_joint' type='revolute'>
+		<pose relative_to='base_footprint'>0 -0.08 0.033 -1.57 0 0</pose>
+		<parent>base_footprint</parent>
+		<child>wheel_right_link</child>
+		<axis>
+		<xyz>0 0 1</xyz>
+		<limit>
+		<lower>-1e+16</lower>
+		<upper>1e+16</upper>
+		</limit>
+		<dynamics>
+		<spring_reference>0</spring_reference>
+		<spring_stiffness>0</spring_stiffness>
+		</dynamics>
+		</axis>
+	</joint>
+	<link name='wheel_right_link'>
+		<pose relative_to='wheel_right_joint'>0 0 0 0 -0 0</pose>
+		<inertial>
+		<pose>0 0 0 0 -0 0</pose>
+		<mass>0.0284989</mass>
+		<inertia>
+		<ixx>1.11756e-05</ixx>
+		<ixy>-4.23698e-11</ixy>
+		<ixz>-5.93817e-09</ixz>
+		<iyy>1.11924e-05</iyy>
+		<iyz>-1.44001e-11</iyz>
+		<izz>2.07126e-05</izz>
+		</inertia>
+		</inertial>
+		<collision name='wheel_right_link_collision'>
+		<pose>0 0 0 0 -0 0</pose>
+		<geometry>
+		<cylinder>
+		<length>0.018</length>
+		<radius>0.033</radius>
+		</cylinder>
+		</geometry>
+		<surface>
+		<contact>
+		<ode>
+			<kp>500000</kp>
+			<kd>10</kd>
+			<max_vel>0.1</max_vel>
+			<min_depth>0.001</min_depth>
+		</ode>
+		</contact>
+		<friction>
+		<ode>
+			<mu>0.1</mu>
+			<mu2>0.1</mu2>
+			<fdir1>1 0 0</fdir1>
+		</ode>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<visual name='wheel_right_link_visual'>
+		<pose>0 0 0 1.57 -0 0</pose>
+		<geometry>
+		<mesh>
+		<scale>0.001 0.001 0.001</scale>
+		<uri>/opt/ros/noetic/share/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
+		</mesh>
+		</geometry>
+		<material>
+		<script>
+		<name>Gazebo/FlatBlack</name>
+		<uri>file://media/materials/scripts/gazebo.material</uri>
+		</script>
+		</material>
+		</visual>
+		<self_collide>0</self_collide>
+		<enable_wind>0</enable_wind>
+		<kinematic>0</kinematic>
+	</link>
+	<plugin name='turtlebot3_burger_controller' filename='libgazebo_ros_diff_drive.so'>
+		<commandTopic>cmd_vel</commandTopic>
+		<odometryTopic>odom</odometryTopic>
+		<odometryFrame>odom</odometryFrame>
+		<odometrySource>world</odometrySource>
+		<publishOdomTF>1</publishOdomTF>
+		<robotBaseFrame>base_footprint</robotBaseFrame>
+		<publishWheelTF>0</publishWheelTF>
+		<publishTf>1</publishTf>
+		<publishWheelJointState>1</publishWheelJointState>
+		<legacyMode>0</legacyMode>
+		<updateRate>30</updateRate>
+		<leftJoint>wheel_left_joint</leftJoint>
+		<rightJoint>wheel_right_joint</rightJoint>
+		<wheelSeparation>0.160</wheelSeparation>
+		<wheelDiameter>0.066</wheelDiameter>
+		<wheelAcceleration>1</wheelAcceleration>
+		<wheelTorque>10</wheelTorque>
+		<rosDebugLevel>na</rosDebugLevel>
+		<robotNamespace>/</robotNamespace>
+	</plugin>
+	<static>0</static>
+	<plugin name='imu_plugin' filename='libgazebo_ros_imu.so'>
+		<alwaysOn>1</alwaysOn>
+		<topicName>imu</topicName>
+		<serviceName>imu_service</serviceName>
+		<gaussianNoise>0.0</gaussianNoise>
+		<updateRate>0</updateRate>
+		<imu>
+		<noise>
+		<type>gaussian</type>
+		<rate>
+		<mean>0.0</mean>
+		<stddev>2e-4</stddev>
+		<bias_mean>0.0000075</bias_mean>
+		<bias_stddev>0.0000008</bias_stddev>
+		</rate>
+		<accel>
+		<mean>0.0</mean>
+		<stddev>1.7e-2</stddev>
+		<bias_mean>0.1</bias_mean>
+		<bias_stddev>0.001</bias_stddev>
+		</accel>
+		</noise>
+		</imu>
+		<robotNamespace>/</robotNamespace>
+		<bodyName>base_footprint</bodyName>
+		<frameName>base_footprint</frameName>
+		<xyzOffset>-0.064 0 0.156</xyzOffset>
+		<rpyOffset>0 -0 0</rpyOffset>
+		<ignition::corrected_offsets>1</ignition::corrected_offsets>
+	</plugin>
+	<pose>-2 -0.5 0 0 -0 0</pose>
+	</model>
+	<model name='warehouse_ground'>
+	<static>1</static>
+	<link name='link'>
+		<collision name='collision'>
+		<geometry>
+		<plane>
+		<normal>0 0 1</normal>
+		<size>21 16</size>
+		</plane>
+		</geometry>
+		<surface>
+		<friction>
+		<ode>
+			<mu>100</mu>
+			<mu2>50</mu2>
+		</ode>
+		<torsional>
+			<ode/>
+		</torsional>
+		</friction>
+		<contact>
+		<ode/>
+		</contact>
+		<bounce/>
+		</surface>
+		<max_contacts>10</max_contacts>
+		</collision>
+		<visual name='visual'>
+		<cast_shadows>0</cast_shadows>
+		<geometry>
+		<plane>
+		<normal>0 0 1</normal>
+		<size>21 16</size>
+		</plane>
+		</geometry>
+		<material>
+		<script>
+		<uri>model://warehouse_ground/materials/scripts</uri>
+		<uri>model://warehouse_ground/materials/textures/</uri>
+		<name>WareHouseGround/Image</name>
+		</script>
+		</material>
+		</visual>
+		<self_collide>0</self_collide>
+		<enable_wind>0</enable_wind>
+		<kinematic>0</kinematic>
+	</link>
+	<pose>0.001361 7.48302 0 0 -0 0</pose>
+	</model>
   </world>
 </sdf>

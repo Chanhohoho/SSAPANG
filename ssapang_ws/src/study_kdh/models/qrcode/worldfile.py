@@ -7,31 +7,27 @@ folder_list = os.listdir(current_path)
 # num = 0
 # for folder in folder_list:materials
    
-# #     model_name = folder
-# #     print(f'<model name="{model_name}">\n' \
-# #         '\t<include>\n' \
-# #         f'\t\t<uri>model://qrcode/{model_name}</uri>\n' \
-# #         '\t</include>\n' \
-# #         '\t<pose frame="">0 0 0.01 0 0 0</pose>\n' \
-# #         '</model>')
-
-
-
-
+cnt = 0
 for folder_name in folder_list:
-    if folder_name == 'worldfile.py' or folder_name =='qrcodes' or folder_name == 'mkdir.py':
+    if folder_name == 'worldfile.py' or folder_name =='qrcodes' or folder_name == 'mkdir.py' or folder_name == 'file1.txt':
         continue
-    print(folder_name)
-    
-    current_path1 = f'{current_path}/{folder_name}/materials'
-    os.mkdir(f'{current_path1}')
+    with open("file1.txt", "r") as f:
+        for line in f:
+            name, y, x, a = line.split('\t')
+            if name == folder_name:
+                output = (f'<include>\n\t<uri>model://qrcode/{name}</uri>\n\t<pose>{x} -{y} 0.01 0 0 1.57</pose>\n</include>')
+                cnt += 1
+                if 180<=cnt:
+                    print(output)
+    # current_path1 = f'{current_path}/{folder_name}/materials'
+    # os.mkdir(f'{current_path1}')
 #     print(current_path1)
 #     if not os.listdir(f'{current_path}/{folder_name}/materials'):
         
 #         os.mkdir(f'{current_path1}/scripts')
 #         os.mkdir(f'{current_path1}/textures')
         
-#         #material 파일 생성
+#         #material file
 #         with open(f'{current_path1}/scripts/{folder_name}.material', 'w') as f:
 #             f.write(f"material {folder_name}\n" \
 #             f"{{\n" \
