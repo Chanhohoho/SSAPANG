@@ -10,19 +10,36 @@
     </physics>
 	
 	<model name="qrcode">
-        <include>
-     		<uri>model://qrcode</uri>
-      		<pose> 0 0 0.05 0 0 -1.54</pose>
-        </include>
-        </model>
+    <include>
+    <uri>model://qrcode</uri>
+      <pose> 0 0 0.05 0 0 -1.54</pose>
+    </include>
+  </model>
 
 
-        <model name="warehouse_ground">
-        <include>
-            <uri>model://warehouse_ground</uri>
-        </include>
-        <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
+  <model name="warehouse_ground">
+    <include>
+        <uri>model://warehouse_ground</uri>
+    </include>
+    <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
 	</model>
+
+  <model name="shelf">
+    <pose>0 0 0  0 0 0</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
 
   <light type="directional" name="some_light">
       <diffuse>0.7 0.7 0.7 0</diffuse>

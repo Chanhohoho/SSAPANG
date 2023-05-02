@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="turtlebot3_waffle" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find turtlebot3_description)/urdf/common_properties.xacro"/>
-  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_waffle.gazebo.xacro"/>
+  <xacro:include filename="$(find ssabot)/urdf/common_properties.xacro"/>
+  <xacro:include filename="$(find ssabot)/urdf/turtlebot3_waffle.gazebo.xacro"/>
 
   <xacro:property name="r200_cam_rgb_px" value="0.005"/>
   <xacro:property name="r200_cam_rgb_py" value="0.018"/>
@@ -20,7 +20,7 @@
     <visual>
       <origin xyz="-0.064 0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/bases/waffle_base.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ssabot/meshes/bases/waffle_base.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="light_black"/>
     </visual>
@@ -76,7 +76,7 @@
     <child link="piston_link2"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-0.01" upper="0.01" velocity="1.571"/>
+    <limit effort="30" lower="-0.1" upper="0.1" velocity="0.171"/>
   </joint>
 
   <link name="piston_link2">
@@ -103,18 +103,18 @@
     <visual>
       <origin xyz="-0.05 0 0.17" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/piston/piston_plate.stl" scale="0.015 0.015 0.015"/>
+        <mesh filename="package://ssabot/meshes/piston/piston_plate.dae" scale="0.015 0.015 0.015"/>
       </geometry>
       <material name="dark"/>
     </visual>
-<!-- 
+
     <collision>
-      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <origin xyz="-0.05 0 0.17" rpy="0 0 1.57"/>
       <geometry>
-        <cylinder length="0.0315" radius="0.055"/>
+        <mesh filename="package://ssabot/meshes/piston/piston_plate.dae" scale="0.015 0.015 0.015"/>
       </geometry>
     </collision>
-
+<!-- 
     <inertial>
       <mass value="0.114" />
       <origin xyz="0 0 0" />
@@ -124,35 +124,16 @@
     </inertial> -->
   </link>
 
-
-  <!-- <joint name="fixed" type="fixed">
-    <parent link="link1"/>
-    <child link="link2"/>
-  </joint>
-
-
-  <link name="link3">
-    <collision>
-      <origin xyz="0 0 1" rpy="0 1.57 0"/>
-      <geometry>
-        <cylinder length="2" radius="0.1"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0 1" rpy= "0 1.57 0"/>
-      <geometry>
-        <cylinder length="2" radius="0.1"/>
-      </geometry>
-      <material name="red">
-          <color rgba="1 0 0 1"/>
-      </material>
-    </visual>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="1"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-    </inertial>
-  </link> -->
+  <transmission name="waffle_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="piston_joint2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="waffle_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <!---->
 
@@ -167,7 +148,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/wheels/left_tire.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ssabot/meshes/wheels/left_tire.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -199,7 +180,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/wheels/right_tire.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ssabot/meshes/wheels/right_tire.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -284,7 +265,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ssabot/meshes/sensors/lds.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -315,7 +296,7 @@
     <visual>
      <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
       <geometry>
-       <mesh filename="package://turtlebot3_description/meshes/sensors/r200.dae" />
+       <mesh filename="package://ssabot/meshes/sensors/r200.dae" />
       </geometry>
     </visual>
     <collision>

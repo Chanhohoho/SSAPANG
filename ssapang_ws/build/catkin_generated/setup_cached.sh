@@ -7,7 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ssafy/S08P31A409/ssapang_ws/devel:$CMAKE_PREFIX_PATH"
 export PWD='/home/ssafy/S08P31A409/ssapang_ws/build'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/ssafy/S08P31A409/ssapang_ws/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/ssafy/S08P31A409/ssapang_ws/src:$ROS_PACKAGE_PATH"

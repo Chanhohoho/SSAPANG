@@ -133,8 +133,12 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ssafy/S08P31A409/ssapang_ws/build/gtest/cmake_install.cmake")
   include("/home/ssafy/S08P31A409/ssapang_ws/build/control/cmake_install.cmake")
   include("/home/ssafy/S08P31A409/ssapang_ws/build/detection/cmake_install.cmake")
+  include("/home/ssafy/S08P31A409/ssapang_ws/build/gazebo_ros_demos/rrbot_control/cmake_install.cmake")
+  include("/home/ssafy/S08P31A409/ssapang_ws/build/gazebo_ros_demos/rrbot_description/cmake_install.cmake")
+  include("/home/ssafy/S08P31A409/ssapang_ws/build/gazebo_ros_demos/rrbot_gazebo/cmake_install.cmake")
   include("/home/ssafy/S08P31A409/ssapang_ws/build/ssabot/cmake_install.cmake")
   include("/home/ssafy/S08P31A409/ssapang_ws/build/ssapang_map/cmake_install.cmake")
+  include("/home/ssafy/S08P31A409/ssapang_ws/build/gazebo_ros_demos/gazebo_tutorials/cmake_install.cmake")
 
 endif()
 
