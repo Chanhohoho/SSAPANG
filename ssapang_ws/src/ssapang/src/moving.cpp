@@ -60,7 +60,7 @@ public:
                 ros::spinOnce();
                 if(wait || idx < 0 ) continue;
                 nextIdx();
-                if(nextPos.y == 100) {
+                if(idx+1 >= path.size()) {
                     path.clear();
                     idx = -1;
                     status.status++;
@@ -202,7 +202,7 @@ private:
                 dY = nextPos.y - nowPosition.y;
                 distance = sqrt(pow(dY,2) + pow(dX,2));
                 if(distance <= 0.02) return;
-                std::cout << nowPosition.x << ", " << nowPosition.y << "\n";
+                // std::cout << nowPosition.x << ", " << nowPosition.y << "\n";
 
                 pathAng = atan2(dY, dX);
                 moveCmd.linear.x = max(min(distance,0.1), 0.1);
