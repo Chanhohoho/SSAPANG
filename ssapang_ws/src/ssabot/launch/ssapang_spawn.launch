@@ -44,7 +44,7 @@
   </group>
 
  <!-- BEGIN RRBOT -->
-  <!-- <group ns="rrbot1">
+  <group ns="rrbot1">
       <include file="$(find ssabot)/launch/rrbot_spawn.launch">
           <arg name="init_pose" value="-x 2 -y -3 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="rrbot1"/>
@@ -63,7 +63,7 @@
           <arg name="init_pose" value="-x 2 -y -7 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="rrbot3"/>
       </include>
-  </group> -->
+  </group>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
