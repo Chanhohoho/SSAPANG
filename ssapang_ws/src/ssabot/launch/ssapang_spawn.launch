@@ -1,0 +1,77 @@
+<launch>
+  <!-- BEGIN BURGER -->
+  <group ns="burger1">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 1 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger1"/>
+      </include>
+  </group>
+
+  <group ns="burger2">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 3 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger2"/>
+      </include>
+  </group>
+
+  <group ns="burger3">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 5 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger3"/>
+      </include>
+  </group>
+
+ <!-- BEGIN WAFFLE -->
+  <group ns="waffle1">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x -1 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle1"/>
+      </include>
+  </group>
+
+  <group ns="waffle2">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x -3 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle2"/>
+      </include>
+  </group>
+
+  <group ns="waffle3">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x -5 -y 1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle3"/>
+      </include>
+  </group>
+
+ <!-- BEGIN RRBOT -->
+  <group ns="rrbot1">
+      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
+          <arg name="init_pose" value="-x 2 -y -3 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="rrbot1"/>
+      </include>
+  </group>
+
+  <group ns="rrbot2">
+      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
+          <arg name="init_pose" value="-x 5 -y -3 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="rrbot2"/>
+      </include>
+  </group>
+
+  <group ns="rrbot3">
+      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
+          <arg name="init_pose" value="-x 2 -y -7 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="rrbot3"/>
+      </include>
+  </group>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+</launch>
