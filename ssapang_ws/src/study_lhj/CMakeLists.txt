@@ -133,21 +133,21 @@ ${catkin_INCLUDE_DIRS}
 )
 
 
-add_executable(path_pub src/path_pub.cpp)
-add_dependencies(path_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(path_pub ${catkin_LIBRARIES} )
+# add_executable(path_pub src/path_pub.cpp)
+# add_dependencies(path_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(path_pub ${catkin_LIBRARIES} )
 
 # add_executable(path_sub src/path_sub.cpp)
 # add_dependencies(path_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # target_link_libraries(path_sub ${catkin_LIBRARIES} )
 
-add_executable(robot src/moving.cpp)
-add_dependencies(robot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(robot ${catkin_LIBRARIES} )
+# add_executable(robot src/moving.cpp)
+# add_dependencies(robot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(robot ${catkin_LIBRARIES} )
 
-add_executable(tower src/controlTower.cpp)
-add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(tower ${catkin_LIBRARIES} )
+# add_executable(tower src/controlTower.cpp)
+# add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(tower ${catkin_LIBRARIES} )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
