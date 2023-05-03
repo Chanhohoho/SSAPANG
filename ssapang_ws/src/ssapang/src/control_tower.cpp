@@ -15,7 +15,10 @@
 #include <stdlib.h>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <queue>
 
+std::unordered_map<std::string, std::queue<info>> node;
 
 class ControlTower
 {
@@ -26,24 +29,26 @@ public:
             robotStatus.push_back(0);
         }
     }
-
 private:
-    ros::Publisher waitPub;
-    ros::Subscriber RobotStatusSub, RobotPosSub;
+    void updateNode(){
+        
+        std::cout << "update" << std::endl;
+    }
     std::vector<Robot> robots;
     std::vector<int> robotStatus;
     ssapang::TaskList taskList;
     ros::Rate rate = 30;
 
     std::string robotName, shelfNode;
+    
 };
 
 int main(int argc, char **argv)
 {
+    
     ros::init(argc, argv, "tower");
     ros::NodeHandle nh;
     ControlTower ControlTower(&nh);
-    // ros::MultiThreadedSpinner s(10);
     ros::spin();
 
     return 0;
