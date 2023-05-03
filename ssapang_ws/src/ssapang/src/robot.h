@@ -3,6 +3,17 @@
 #include <ssapang/RobotStatus.h>
 #include <ssapang/RobotWait.h>
 #include <string>
+#include <unordered_map>
+#include <queue>
+
+
+struct info{
+    int robotNum;
+    std::string beforeNode;
+};
+
+extern std::unordered_map<std::string, std::queue<info>> node;
+
 class Robot
 {
 public:
@@ -13,7 +24,6 @@ public:
         RobotPosSub = nh->subscribe<ssapang::RobotPos>(name+"/pos", 1, boost::bind(&Robot::pos, this, _1, num));
     }
 
-private:
     ros::Publisher waitPub;
     ros::Subscriber RobotStatusSub, RobotPosSub; 
     ros::Rate rate = 30;
@@ -25,6 +35,8 @@ private:
     }
 
     void pos(const ssapang::RobotPos::ConstPtr &msg, int num){
+        
+
         std::cout <<num << "-pos\n";
         std::cout << "now : " << msg->fromNode << ", next: " << msg->toNode << "\n";
         std::cout << "bottery : " <<msg->battery << "\n";
