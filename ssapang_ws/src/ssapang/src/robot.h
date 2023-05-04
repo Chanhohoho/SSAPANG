@@ -18,7 +18,7 @@ class Robot
 {
 public:
     Robot(int num, ros::NodeHandle *nh){
-        std::string name = "robot" + std::to_string(num);
+        std::string name = "burger" + std::to_string(num);
         waitPub = nh->advertise<ssapang::RobotWait>(name+"/wait", 1);
         RobotStatusSub = nh->subscribe<ssapang::RobotStatus>(name+"/status", 1, boost::bind(&Robot::status, this, _1, num));
         RobotPosSub = nh->subscribe<ssapang::RobotPos>(name+"/pos", 1, boost::bind(&Robot::pos, this, _1, num));
