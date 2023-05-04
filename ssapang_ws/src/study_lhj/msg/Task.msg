@@ -1,2 +1,0 @@
-string product
-string destination

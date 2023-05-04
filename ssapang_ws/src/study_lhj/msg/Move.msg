@@ -1,2 +1,0 @@
-string startNode
-string endNode
