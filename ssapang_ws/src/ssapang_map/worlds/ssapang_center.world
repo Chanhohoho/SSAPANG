@@ -1570,12 +1570,12 @@
     <link name="wall_body">
       <visual name="visual">
         <geometry>
-          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
         </geometry>
       </visual>
       <collision name="visual">
         <geometry>
-          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
         </geometry>
       </collision>
     </link>
