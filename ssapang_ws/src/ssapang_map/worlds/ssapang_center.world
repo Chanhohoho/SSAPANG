@@ -1228,23 +1228,6 @@
       <direction>-1 -1 -1</direction>
     </light>
     	
-    <model name="shelf">
-    <pose>0 0 0  0 0 0</pose>
-    <static>true</static>
-    <link name="shelf_body">
-      <visual name="visual">
-        <geometry>
-          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-        </geometry>
-      </visual>
-      <collision name="visual">
-        <geometry>
-          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-        </geometry>
-      </collision>
-    </link>
-  </model>
-
     <!-- <light name="Warehouse_CeilingLight_003" type="point">
       <pose frame="">0 0 9 0 0 0</pose>
       <diffuse>0.5 0.5 0.5 1</diffuse>
@@ -1257,7 +1240,7 @@
       </attenuation>
       <cast_shadows>1</cast_shadows>
       <direction>0.1 0.1 -1</direction>
-    </light> -->
+    </light>
     
 
     <gui fullscreen='0'>
