@@ -1,2 +1,2 @@
-control:detection:gazebo_ros_demos/gazebo_tutorials:gazebo_ros_demos/rrbot_control:gazebo_ros_demos/rrbot_description:gazebo_ros_demos/rrbot_gazebo:ssabot:ssapang_map
+control:detection:ssabot:ssapang_map
 -DCATKIN_DEVEL_PREFIX=/home/ssafy/S08P31A409/ssapang_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ssafy/S08P31A409/ssapang_ws/install -G Unix Makefiles
