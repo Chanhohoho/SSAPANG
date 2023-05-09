@@ -54,7 +54,8 @@ class IMGParser:
         decoded = decode(self.img_bgrD)
         print(decoded)
 
-
+    def test(self):
+        test = "test"
     def callbackD(self, msg):
         try:
             np_arr = np.fromstring(msg.data, np.uint8)
