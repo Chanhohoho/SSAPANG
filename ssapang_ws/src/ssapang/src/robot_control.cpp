@@ -25,6 +25,7 @@ class RobotControl
 {
 public:
     std::string robotName;
+    ssapang::Coordinate nextPos;
     RobotControl(int argc, char **argv, ros::NodeHandle *nh){
         cmdPub = nh->advertise<geometry_msgs::Twist>("cmd_vel", 10);
         movePub = nh->advertise<ssapang::Move>("move", 10);
@@ -49,11 +50,16 @@ public:
         idx = -1;
         status.status = 0;
         battery = 100.0;
-        nextPos.QR = "BS0105";
+        nextPos.QR = argv[2];
         GO.data = "GO";
         wait = 1;
 
         nh->getParam("robotName", robotName);
+        // nh->getParam("start", nextPos.QR);
+        std::cout << nextPos.QR << "\n";
+        for(int i = 0; i < argc; i++)
+            std::cout << argv[i] << " ";
+        std::cout << "\n";
 
         try
         {
@@ -73,8 +79,7 @@ public:
                 if(wait) continue;
                 // std::cout << nextPos.QR << ": " << node[nextPos.QR].size() << std::endl;
                 NOW.data = path[idx-1].QR;
-                goPub.publish(NOW);
-                rate.sleep();
+                
                 nextIdx();
 
                 if(idx+1 >= path.size()) {
@@ -99,15 +104,19 @@ public:
                 }else{
                     std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
                     turn();
+                    goPub.publish(NOW);
+                    rate.sleep();
                     go();
-                    ssapang::RobotPos pos;
-                    pos.fromNode = nextPos.QR;
-                    pos.toNode = path[idx+1].QR;
-                    NOW.data = path[idx].QR;
-                    NEXT.data = path[idx+1].QR;
-                    pos.battery = --battery;
-                    pos.idx = ++idx;
-                    posPub.publish(pos);
+                    if(idx < path.size()){
+                        ssapang::RobotPos pos;
+                        pos.fromNode = nextPos.QR;
+                        pos.toNode = path[idx+1].QR;
+                        NOW.data = path[idx].QR;
+                        NEXT.data = path[idx+1].QR;
+                        pos.battery = --battery;
+                        pos.idx = ++idx;
+                        posPub.publish(pos);
+                    }
                     std::cout << idx << '/' << path.size() << "\n";
                     wait = 1;
                 }
@@ -138,7 +147,7 @@ private:
     std::string shelfNode;
     ssapang::Task task;
     std::vector<ssapang::Coordinate> path;
-    ssapang::Coordinate nextPos;
+    // ssapang::Coordinate nextPos;
     ssapang::str NOW, NEXT, GO;
     int idx;
     double d, linearSpeed, angularSpeed;
@@ -178,9 +187,9 @@ private:
     void pathCallback(const ssapang::Locations::ConstPtr &msg)
     {
         // std::cout << "asdgasgs\n";
-        for(auto c:msg->location ){
-            std::cout << c.QR << ' ' << c.x << ' ' << c.y << ' ' << c.deg<< std::endl;
-        }
+        // for(auto c:msg->location ){
+        //     std::cout << c.QR << ' ' << c.x << ' ' << c.y << ' ' << c.deg<< std::endl;
+        // }
         path = msg->location;
         idx = 1;
         NEXT.data = path[1].QR;
@@ -201,8 +210,8 @@ private:
 
     void nextIdx()
     {
-        nextPos = path[idx];
-        nextPos.deg = path[idx].deg * PI / 180.0;
+        nextPos = path[idx-1];
+        nextPos.deg = path[idx-1].deg * PI / 180.0;
     }
 
     void turn()

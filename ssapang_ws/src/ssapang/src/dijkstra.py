@@ -64,7 +64,7 @@ def callback(msg):
             coord = Coordinate()
             coord.QR = shortest_dist[i][0]
             coord.x = shortest_dist[i][2][1]
-            coord.y = -shortest_dist[i][2][0]
+            coord.y = shortest_dist[i][2][0]
             coord.deg = shortest_dist[i][1]
             loc.location.append(coord)
         pub.publish(loc)
