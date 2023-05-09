@@ -10,19 +10,49 @@ from pyzbar.pyzbar import decode
 
 from sensor_msgs.msg import CompressedImage
 
+
+def warp_image(img, source_prop):
+    
+        image_size = (img.shape[1], img.shape[0])
+
+        x = img.shape[1]
+        y = img.shape[0]
+        
+        destination_points = np.float32([
+        [0, y],
+        [0, 0],
+        [x, 0],
+        [x, y]
+        ])
+
+        source_points = source_prop * np.float32([[x, y]]* 4)
+
+        perspective_transform = cv2.getPerspectiveTransform(source_points, destination_points)
+
+        warped_img = cv2.warpPerspective(img, perspective_transform, image_size, flags=cv2.INTER_LINEAR)
+        return warped_img
+
 class IMGParser:
     def __init__(self, pkg_name = 'ssafy_3'):
 
         self.img_bgrD = None
         self.img_hsvR = None
 
-        self.image_subL = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.callbackD)
+        self.image_subD = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.callbackD)
         # self.image_subR = rospy.Subscriber("/image_jpeg/compressed_R", CompressedImage, self.callbackU)
+
+        self.source_prop = np.float32([
+                                       [0, 0.9],
+                                       [0.37, 0.6],
+                                       [0.63, 0.6],
+                                       [1, 0.9],
+                                       ])
 
         rate = rospy.Rate(5)
 
         while not rospy.is_shutdown():
             if self.img_bgrD is not None:
+                # self.img_bgrD = warp_image(self.img_bgrD, self.source_prop)
                 self.detectQR()
 
                 rate.sleep()
@@ -50,9 +80,9 @@ class IMGParser:
     #     cv2.waitKey(1)
 
     def detectQR(self):
-        self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=0.3, fy=0.3)
+        self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
         decoded = decode(self.img_bgrD)
-        print(decoded)
+        print(decoded)    
 
 
     def callbackD(self, msg):
@@ -63,6 +93,10 @@ class IMGParser:
         except CvBridgeError as e:
             print(e)
         
+        img_warp = warp_image(self.img_bgrD, self.source_prop)
+        # cv2.imshow("Image window", img_warp)
+        cv2.imshow("Image window", self.img_bgrD)
+        cv2.waitKey(1)
         #self.detectLane("left", img_hsvL)
 
 
