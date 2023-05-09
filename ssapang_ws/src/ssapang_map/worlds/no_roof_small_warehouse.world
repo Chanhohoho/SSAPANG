@@ -9,7 +9,12 @@
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
-    
+    	
+    	<include>
+      		<uri>model://qrcode</uri>
+      		<pose> 0 0 0.1 0 0 -1.54</pose>
+    	</include>	
+    	
         <!--model name="aws_robomaker_warehouse_RoofB_01_001">
         <include>
             <uri>model://aws_robomaker_warehouse_RoofB_01</uri>
@@ -94,9 +99,18 @@
         <pose frame="">-0.061684 -6.6493 0 0 0 0</pose>
 	</model-->
 
-        <model name="aws_robomaker_warehouse_GroundB_01_001">
+
+
+        <!--model name="aws_robomaker_warehouse_GroundB_01_001">
         <include>
             <uri>model://aws_robomaker_warehouse_GroundB_01</uri>
+        </include>
+        <pose frame="">0.0 0.0 -0.090092 0 0 0</pose>
+	</model-->
+	
+	<model name="JY_ground">
+        <include>
+            <uri>model://JY_ground</uri>
         </include>
         <pose frame="">0.0 0.0 -0.090092 0 0 0</pose>
 	</model>

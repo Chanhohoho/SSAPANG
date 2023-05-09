@@ -1,1 +1,1 @@
-bool wait
+int32 wait
