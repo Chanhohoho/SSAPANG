@@ -2,6 +2,7 @@
 import rospy
 from ssapang.msg import Locations, Coordinate, Move
 import time
+import copy
 
 import heapq
 from graph import graph
@@ -43,15 +44,22 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
 
     while path[-1][0] != start_node:
         path.append(prev[path[-1][0]])
-
+    
+    # print(path[-1])
+    # print()
+    path.append(copy.deepcopy(path[-1]))
     path.reverse()
     return path
 
 def addCoordinates(arr):
     last = len(arr)-1
-    for i in range(last):
+    arr[0].append(node.get(arr[0][0]))
+    for i in range(1, last):
         arr[i].append(node.get(arr[i+1][0]))
-    arr[last].append([-100, 100])
+        arr[i][0] = arr[i+1][0]
+        # print(arr[i])
+    arr[last].append([100,100])
+    # arr[last].append(node.get(arr[last][0]))
     arr[last][1] = arr[last-1][1]
     print(arr)
     return arr
@@ -64,7 +72,7 @@ def callback(msg):
             coord = Coordinate()
             coord.QR = shortest_dist[i][0]
             coord.x = shortest_dist[i][2][1]
-            coord.y = -shortest_dist[i][2][0]
+            coord.y = shortest_dist[i][2][0]
             coord.deg = shortest_dist[i][1]
             loc.location.append(coord)
         pub.publish(loc)
