@@ -82,8 +82,6 @@ private:
         sw = false;
         std::cout << "\n" << name <<" now : " << msg->data << ", size : " << node[msg->data].size() << "---------------------------------------------------------------------------\n";
     }
-    
-    
 };
 
 class ControlTower

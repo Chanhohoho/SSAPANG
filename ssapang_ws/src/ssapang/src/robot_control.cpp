@@ -55,11 +55,6 @@ public:
         wait = 1;
 
         nh->getParam("robotName", robotName);
-        // nh->getParam("start", nextPos.QR);
-        std::cout << nextPos.QR << "\n";
-        for(int i = 0; i < argc; i++)
-            std::cout << argv[i] << " ";
-        std::cout << "\n";
 
         try
         {
