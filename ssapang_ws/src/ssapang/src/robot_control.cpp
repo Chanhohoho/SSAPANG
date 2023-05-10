@@ -130,7 +130,7 @@ public:
                         if(NOW.data != path[idx].QR){
                             pos.toNode = path[idx].QR;
                             NEXT.data = path[idx].QR;
-                            posPub.publish(pos);
+                        posPub.publish(pos);
 
                         }
                     }
