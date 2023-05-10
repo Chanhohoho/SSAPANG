@@ -95,6 +95,7 @@ class IMGParser:
         
         img_warp = warp_image(self.img_bgrD, self.source_prop)
         # cv2.imshow("Image window", img_warp)
+        self.img_bgrD = cv2.flip(self.img_bgrD, 0)
         cv2.imshow("Image window", self.img_bgrD)
         cv2.waitKey(1)
         #self.detectLane("left", img_hsvL)
