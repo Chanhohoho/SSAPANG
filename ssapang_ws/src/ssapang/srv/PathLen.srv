@@ -1,0 +1,4 @@
+string startNode
+string endNode
+---
+int32 len

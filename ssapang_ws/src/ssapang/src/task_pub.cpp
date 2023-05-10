@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -13,20 +14,20 @@ class Task
 {
 public:
     Task(int argc, char **argv, ros::NodeHandle *nh){
-        taskPub = nh->advertise<ssapang::TaskList>("task_list", 1);
+        taskPub = nh->advertise<ssapang::TaskList>("/task_list", 1);
 
         ros::Rate loop_rate(10);
-        
-        while (ros::ok()){
-            for(int i = 0; i < 30; i++){
+        sleep(3);
+        // while (ros::ok()){
+            for(int i = 0; i < 10; i++){
                 task.product = rightSectTaskList[rand()%9][rand()%4];
                 task.destination = destination[rand()%15];
                 taskList.list.push_back(task);
             }
 
             taskPub.publish(taskList);
-            loop_rate.sleep();
-        }
+            // loop_rate.sleep();
+        // }
     }
 
 private:
