@@ -88,6 +88,7 @@ class ControlTower
 {
 public:
     ControlTower(ros::NodeHandle *nh){
+        taskListSub = nh->subscribe<ssapang::TaskList>("/task_list", 10, &ControlTower::taskListCallback, this);
         for(int i = 1; i <= 9; i++){
             Robot robot = Robot("burger",i, nh);
             robots.push_back(robot);
@@ -98,10 +99,14 @@ private:
     ros::Subscriber taskListSub, taskSub;
 
     std::vector<int> robotStatus;
-    ssapang::TaskList taskList;
+    std::vector<ssapang::Task> taskList;
     
     ros::Rate rate = 30;
     std::string robotName, shelfNode;
+
+    void taskListCallback(const ssapang::TaskList::ConstPtr &msg){
+        taskList = msg->list;
+    }
 
 };
 

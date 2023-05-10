@@ -77,25 +77,44 @@ public:
                 
                 nextIdx();
 
-                if(idx+1 >= path.size()) {
-                    path.clear();
-                    idx = -1;
-                    status.status++;
-                    statusPub.publish(status);
+                // if(idx >= path.size()) {
+                //     path.clear();
+                //     idx = -1;
+                //     sleep(3);
+                //     switch (status.status)
+                //     {
+                //     case 1:
+                //         makePath(task.destination);
+                //         break;
                     
-                }else{
+                //     default:
+                //         makePath("LB1132");
+                //         break;
+                //     }
+                // }else{
                     std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
                     turn();
                     cmdPub.publish(stop);
                     rate.sleep();
-                }
+                // }
                 if(nextPos.y == 100) {
                     path.clear();
                     idx = -1;
-                    status.status++;
+                    // status.status++;
+                    // statusPub.publish(status);
                     cmdPub.publish(stop);
-                    statusPub.publish(status);
                     rate.sleep();
+                    sleep(3);
+                    switch (status.status)
+                    {
+                    case 1:
+                        makePath(task.destination);
+                        break;
+                    
+                    default:
+                        makePath("LB1132");
+                        break;
+                    }
                 }else{
                     std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
                     turn();
@@ -105,12 +124,15 @@ public:
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
-                        pos.toNode = path[idx+1].QR;
                         NOW.data = path[idx].QR;
-                        NEXT.data = path[idx+1].QR;
                         pos.battery = --battery;
                         pos.idx = ++idx;
-                        posPub.publish(pos);
+                        if(NOW.data != path[idx].QR){
+                            pos.toNode = path[idx].QR;
+                            NEXT.data = path[idx].QR;
+                            posPub.publish(pos);
+
+                        }
                     }
                     std::cout << idx << '/' << path.size() << "\n";
                     wait = 1;
@@ -167,24 +189,18 @@ private:
     void shelfCallback(const ssapang::str::ConstPtr &msg)
     {
         shelfNode = msg->data;
-        ssapang::Move move;
-        move.startNode = nextPos.QR;
-        move.endNode = shelfNode;
-        movePub.publish(move);
-        rate.sleep();
+        makePath(shelfNode);
     }
     void taskCallback(const ssapang::Task::ConstPtr &msg)
     {
         // task받아서 처리 할 수있게 코드 수정 필요 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         task = *msg;
+        std::cout << task.product << ", " << task.destination <<"\n";
+        makePath(task.product);
     }
 
     void pathCallback(const ssapang::Locations::ConstPtr &msg)
     {
-        // std::cout << "asdgasgs\n";
-        // for(auto c:msg->location ){
-        //     std::cout << c.QR << ' ' << c.x << ' ' << c.y << ' ' << c.deg<< std::endl;
-        // }
         path = msg->location;
         idx = 1;
         NEXT.data = path[1].QR;
@@ -203,10 +219,25 @@ private:
         wait = msg->wait;
     }
 
+    void makePath(std::string nodeName){
+        ssapang::Move move;
+        move.startNode = nextPos.QR;
+        move.endNode = nodeName;
+        movePub.publish(move);
+        rate.sleep();
+        statePush();
+    }
+
+    void statePush(){
+        status.status++;
+        statusPub.publish(status);
+        rate.sleep();
+    }
+
     void nextIdx()
     {
-        nextPos = path[idx-1];
-        nextPos.deg = path[idx-1].deg * PI / 180.0;
+        nextPos = path[idx];
+        nextPos.deg = path[idx].deg * PI / 180.0;
     }
 
     void turn()

@@ -135,7 +135,7 @@
 
   <!-- add waffle_pi camera -->
 
-  <gazebo reference="camera_rgb_frame">
+  <!-- <gazebo reference="camera_rgb_frame">
     <sensor type="camera" name="Pi Camera">
       <always_on>true</always_on>
       <visualize>$(arg camera_visual)</visualize>
@@ -144,8 +144,6 @@
           <image>
               <width>640</width>
               <height>480</height>
-              <!-- <width>480</width> -->
-              <!-- <height>640</height> -->
               <format>R8G8B8</format>
           </image>
           <clip>
@@ -168,18 +166,16 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
   <!-- add second camera -->
-  <gazebo reference="camera_rgb_frame2">
+  <!-- <gazebo reference="camera_rgb_frame2">
     <sensor type="camera" name="Pi Camera">
       <always_on>true</always_on>
       <visualize>$(arg camera_visual)</visualize>
       <camera>
           <horizontal_fov>1.085595</horizontal_fov>
           <image>
-              <!-- <width>640</width> -->
-              <!-- <height>480</height> -->
               <width>480</width>
               <height>640</height>
               <format>R8G8B8</format>
@@ -204,6 +200,6 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
   
 </robot>
