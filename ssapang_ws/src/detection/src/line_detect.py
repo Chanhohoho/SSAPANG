@@ -9,6 +9,8 @@ from cv_bridge import CvBridgeError
 
 from sensor_msgs.msg import CompressedImage
 
+global px
+px = [[0,0], [0,0], [0,0]]
 
 class IMGParser:
     def __init__(self):
@@ -35,7 +37,6 @@ class IMGParser:
         # point1 = self.img_bgrD[240,320]
         # print("p1 == ", point1)
 
-        px = [[0,0], [0,0], [0,0]]
         for i in range(3):
             find = 0
             for j in range(50, 590):
@@ -46,9 +47,13 @@ class IMGParser:
                     px[i][1] = j
                     break
 
-        print("\n\npx")
-        print(px)
+        # print("\n\npx")
+        # print(px)
 
+        print("p1 == ", px[0][1]-px[0][0])
+        print("p1 == ", px[1][1]-px[1][0])
+        print("p1 == ", px[2][1]-px[2][0])
+        print("\n\n")
 
         cv2.line(self.img_bgrD, (px[0][0],80),(px[0][1],80),(0,0,255),5)
         cv2.line(self.img_bgrD, (px[1][0],160),(px[1][1],160),(0,0,255),5)
