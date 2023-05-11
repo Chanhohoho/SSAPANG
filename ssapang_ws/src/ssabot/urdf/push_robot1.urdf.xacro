@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<robot name="push_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ssabot)/urdf/common_properties.xacro"/>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0.010" rpy="0 0 0"/>
+  </joint>
+
+    <link name="base_link">
+      <visual>
+        <origin xyz="-0.064 0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+  <joint name="joint1" type="prismatic">
+    <parent link="base_link"/>
+    <child link="virtual_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-1" upper="1" velocity="0.1"/>
+  </joint>
+
+  <link name="virtual_link">
+    <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.05"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="joint2" type="prismatic">
+    <parent link="virtual_link"/>
+    <child link="piston1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-1" upper="1" velocity="0.1"/>
+  </joint>
+
+  <link name="piston1">
+    <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="joint3" type="prismatic">
+    <parent link="piston1"/>
+    <child link="piston2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-1" upper="1" velocity="0.1"/>
+  </joint>
+
+  <link name="piston2">
+    <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.05"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+</robot>

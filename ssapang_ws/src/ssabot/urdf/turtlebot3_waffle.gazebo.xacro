@@ -13,7 +13,7 @@
   </gazebo>
 
   <gazebo reference="base_link">
-    <material>Gazebo/DarkGrey</material>
+    <material>Gazebo/White</material>
   </gazebo>
 
   <gazebo reference="wheel_left_link">

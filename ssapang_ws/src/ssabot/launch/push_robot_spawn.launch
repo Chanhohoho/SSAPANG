@@ -7,7 +7,7 @@
       <arg name="ang"/>
 
       <!-- Load robot description -->
-      <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ssabot)/urdf/turtlebot3_burger.urdf.xacro" />
+      <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ssabot)/urdf/push_robot.urdf.xacro" />
 
       <!-- Spwan a robot into Gazebo -->
       <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
