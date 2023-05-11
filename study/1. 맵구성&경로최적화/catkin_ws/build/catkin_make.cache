@@ -1,0 +1,2 @@
+rrbot_pushing_object/rrbot_pushing_object_basic/custom_plugin_tutorial:rrbot_pushing_object/rrbot_pushing_object_basic/rrbot_control:rrbot_pushing_object/rrbot_pushing_object_basic/rrbot_description:rrbot_pushing_object/rrbot_pushing_object_basic/rrbot_gazebo
+-DCATKIN_DEVEL_PREFIX=/home/ssafy/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ssafy/catkin_ws/install -G Unix Makefiles
