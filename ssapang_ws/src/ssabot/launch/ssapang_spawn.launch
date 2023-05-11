@@ -24,7 +24,7 @@
   </group>
 
  <!-- BEGIN WAFFLE -->
-  <group ns="waffle1">
+  <!-- <group ns="waffle1">
       <include file="$(find ssabot)/launch/waffle_spawn.launch">
           <arg name="init_pose" value="-x -1 -y 1 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="waffle1"/>
@@ -43,7 +43,7 @@
           <arg name="init_pose" value="-x -5 -y 1 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="waffle3"/>
       </include>
-  </group>
+  </group> -->
 
  <!-- BEGIN RRBOT -->
   <!-- <group ns="rrbot1">
@@ -62,11 +62,11 @@
 
   <group ns="rrbot3">
       <include file="$(find ssabot)/launch/rrbot_spawn.launch">
-          <arg name="init_pose" value="-x 2 -y -7 -z 0 -Y 3.14"/>
+          <arg name="init_pose" value="-x 2 -y -7 -z 1 -Y 3.14"/>
           <arg name="robot_name" value="rrbot3"/>
       </include>
-  </group> -->
-
+  </group>
+ -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
     <arg name="paused" value="false"/>

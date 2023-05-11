@@ -5,10 +5,10 @@
       <link name="link">
          <collision name="collision">
             <geometry>
-               <plane>
+               <box>
                   <normal>0 0 1</normal>
-                  <size>21 16</size>
-               </plane>
+                  <size>16 21 0.01  0 0 0</size>
+               </box>
             </geometry>
             <surface>
                <friction>
@@ -22,10 +22,10 @@
          <visual name="visual">
             <cast_shadows>false</cast_shadows>
             <geometry>
-               <plane>
+               <box>
                   <normal>0 0 1</normal>
-                  <size>21 16</size>
-               </plane>
+                  <size>16 21 0.01  0 0 0</size>
+               </box>
             </geometry>
             <material>
                <script>
