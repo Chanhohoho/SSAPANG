@@ -121,116 +121,117 @@
           <arg name="robot_name" value="burger15"/>
           <arg name="start" value="LB3152"/>
       </include>
-  </group> -->
+  </group>
 
 
    
-  <!-- <group ns="burger31">
+  <group ns="burger16">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -1.5 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger31"/>
+          <arg name="robot_name" value="burger16"/>
           <arg name="start" value="RB1112"/>
       </include>
   </group>
-  <group ns="burger32">
+  <group ns="burger17">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -1.8 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger32"/>
+          <arg name="robot_name" value="burger17"/>
           <arg name="start" value="RB1122"/>
       </include>
   </group>
-  <group ns="burger33">
+  <group ns="burger18">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -2.1 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger33"/>
+          <arg name="robot_name" value="burger18"/>
           <arg name="start" value="RB1132"/>
       </include>
   </group>
-  <group ns="burger34">
+  <group ns="burger19">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -2.4 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger34"/>
+          <arg name="robot_name" value="burger19"/>
           <arg name="start" value="RB1142"/>
       </include>
   </group>
-  <group ns="burger35">
+  <group ns="burger20">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -2.7 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger35"/>
+          <arg name="robot_name" value="burger20"/>
           <arg name="start" value="RB1152"/>
       </include>
-  </group>
-  <group ns="burger36">
-      <include file="$(find ssabot)/launch/burger_spawn.launch">
-          <arg name="init_pose" value="-x 11.5 -y -3 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger36"/>
-          <arg name="start" value="RB1212"/>
-      </include>
-  </group>
-  <group ns="burger37">
-      <include file="$(find ssabot)/launch/burger_spawn.launch">
-          <arg name="init_pose" value="-x 11.5 -y -3.3 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger37"/>
-          <arg name="start" value="RB1222"/>
-      </include>
-  </group>
-  <group ns="burger38">
-      <include file="$(find ssabot)/launch/burger_spawn.launch">
-          <arg name="init_pose" value="-x 11.5 -y -3.6 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger38"/>
-          <arg name="start" value="RB1232"/>
-      </include>
-  </group>
-  <group ns="burger39">
-      <include file="$(find ssabot)/launch/burger_spawn.launch">
-          <arg name="init_pose" value="-x 11.5 -y -3.9 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger39"/>
-          <arg name="start" value="RB1242"/>
-      </include>
-  </group>
-  <group ns="burger40">
-      <include file="$(find ssabot)/launch/burger_spawn.launch">
-          <arg name="init_pose" value="-x 11.5 -y -4.2 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger40"/>
-          <arg name="start" value="RB1252"/>
-      </include>
-  </group>
-  <group ns="burger41">
+  </group> -->
+  
+  <!-- <group ns="burger21">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -5.5 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger41"/>
+          <arg name="robot_name" value="burger21"/>
           <arg name="start" value="RB2112"/>
       </include>
   </group>
-  <group ns="burger42">
+  <group ns="burger22">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -5.8 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger42"/>
+          <arg name="robot_name" value="burger22"/>
           <arg name="start" value="RB2122"/>
       </include>
   </group>
-  <group ns="burger43">
+  <group ns="burger23">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -6.1 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger43"/>
+          <arg name="robot_name" value="burger23"/>
           <arg name="start" value="RB2132"/>
       </include>
   </group>
-  <group ns="burger44">
+  <group ns="burger24">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -6.4 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger44"/>
+          <arg name="robot_name" value="burger24"/>
           <arg name="start" value="RB2142"/>
       </include>
   </group>
-  <group ns="burger45">
+  <group ns="burger25">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x 11.5 -y -6.7 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="burger45"/>
+          <arg name="robot_name" value="burger25"/>
           <arg name="start" value="RB2152"/>
       </include>
-  </group> -->
+  </group>
 
+  <group ns="burger26">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 11.5 -y -9.5 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger26"/>
+          <arg name="start" value="RB3112"/>
+      </include>
+  </group>
+  <group ns="burger27">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 11.5 -y -9.8 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger27"/>
+          <arg name="start" value="RB3122"/>
+      </include>
+  </group>
+  <group ns="burger28">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 11.5 -y -10.1 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger28"/>
+          <arg name="start" value="RB3132"/>
+      </include>
+  </group>
+  <group ns="burger29">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 11.5 -y -10.4 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger29"/>
+          <arg name="start" value="RB3142"/>
+      </include>
+  </group>
+  <group ns="burger30">
+      <include file="$(find ssabot)/launch/burger_spawn.launch">
+          <arg name="init_pose" value="-x 11.5 -y -10.7 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="burger30"/>
+          <arg name="start" value="RB3152"/>
+      </include>
+  </group> -->
  <!-- BEGIN WAFFLE -->
   <!-- <group ns="waffle1">
       <include file="$(find ssabot)/launch/waffle_spawn.launch">

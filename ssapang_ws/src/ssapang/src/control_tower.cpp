@@ -30,11 +30,13 @@ std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 int robotCnt = 10;
 
-std::string station[21] = {"",
+std::string station[31] = {"",
         "LB1112","LB1122","LB1132","LB1142","LB1152",
         "LB2112","LB2122","LB2132","LB2142","LB2152",
-        "RB1112","RB1112","RB1112","RB1112","RB1112",
-        "RB1112","RB1112","RB1112","RB1112","RB1112"
+        "LB3112","LB3122","LB3132","LB3142","LB3152",
+        "RB1112","RB1122","RB1132","RB1142","RB1152",
+        "RB2112","RB2122","RB2132","RB2142","RB2152",
+        "RB3112","RB3122","RB3132","RB3142","RB3152",
     };
 
 class Robot;
@@ -183,7 +185,10 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "tower");
     ros::NodeHandle nh;
+    // ros::AsyncSpinner spinner(0);
+    // spinner.start();
     ControlTower tower = ControlTower(&nh);
+    // ros::waitForShutdown();
     ros::spin();
 
     return 0;

@@ -62,13 +62,13 @@ public:
             while (ros::ok())
             {
                 // 판단
-                ros::spinOnce();
+                // ros::spinOnce();
                 if(idx < 0) continue;
                 checkGoPub.publish(NEXT); // 다음위치
                 rate.sleep();
                 // sleep(1);
                 
-                ros::spinOnce();
+                // ros::spinOnce();
                 if(wait) continue;
                 
                 
@@ -301,7 +301,10 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "robot_control");
     ros::NodeHandle nh;
+    ros::AsyncSpinner spinner(0);
+    spinner.start();
     RobotControl RobotControl(argc, argv, &nh);
+    ros::waitForShutdown();
 
     return 0;
 }
