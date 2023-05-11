@@ -209,6 +209,7 @@ private:
 
     void waitCallback(const ssapang::RobotWait::ConstPtr &msg)
     {
+        std::cout <<robotName << " " << msg->wait << "\n";
         wait = msg->wait;
     }
 
