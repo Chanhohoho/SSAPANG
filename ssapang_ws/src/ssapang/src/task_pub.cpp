@@ -19,9 +19,9 @@ public:
         ros::Rate loop_rate(10);
         sleep(3);
         // while (ros::ok()){
-            for(int i = 0; i < 10; i++){
+            for(int i = 0; i < 5; i++){
                 task.product = rightSectTaskList[rand()%9][rand()%4];
-                task.destination = destination[rand()%15];
+                task.destination = destination[rand()%7];
                 taskList.list.push_back(task);
             }
 
@@ -58,10 +58,14 @@ private:
         {"BP0511","BP0512","BP0611","BP0612"}
     };
 
-    std::string destination[15] = {
+    // std::string destination[15] = {
+    //     "BO0101","BO0102","BO0103","BO0104","BO0105",
+    //     "BO0106","BO0107","BO0108","BO0109","BO0110",
+    //     "BO0111","BO0112","BO0113","BO0114","BO0115",
+    // };
+    std::string destination[7] = {
         "BO0101","BO0102","BO0103","BO0104","BO0105",
-        "BO0106","BO0107","BO0108","BO0109","BO0110",
-        "BO0111","BO0112","BO0113","BO0114","BO0115",
+        "BO0106","BO0107",
     };
 };
 

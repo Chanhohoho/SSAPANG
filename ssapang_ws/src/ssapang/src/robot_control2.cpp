@@ -13,7 +13,7 @@
 #include <ssapang/RobotPos.h>
 #include <ssapang/RobotStatus.h>
 #include <ssapang/Task.h>
-#include <ssapang/End.h>
+#include <ssapang/Go.h>
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -36,13 +36,14 @@ public:
         goPub = nh->advertise<ssapang::str>("Go", 1);
 
 
+        goSrv = nh->advertiseService("go_go", &RobotControl::possible, this);
         odomSub = nh->subscribe("odom", 10, &RobotControl::odomCallback, this);
         pathSub = nh->subscribe("path", 10, &RobotControl::pathCallback, this);
         waitSub = nh->subscribe("wait", 10, &RobotControl::waitCallback, this);
         shelfSub = nh->subscribe("shelf", 10, &RobotControl::shelfCallback, this);
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
 
-        endSrv = nh->serviceClient<ssapang::End>("end");
+        // goSrv = nh->advertiseService("gogo", &RobotControl::possible, this);
 
 
         stop.angular.z = 0.0;
@@ -54,36 +55,39 @@ public:
         status.status = 0;
         battery = 100.0;
         nextPos.QR = argv[2];
-        robotName = argv[1];
         GO.data = "GO";
         wait = 1;
+        sw = 1;
 
-        // nh->getParam("robotName", robotName);
+        nh->getParam("robotName", robotName);
 
         try
         {
-            sleep(3);
+            sleep(10);
             while (ros::ok())
             {
                 // 판단
-                // ros::spinOnce();
-                if(idx < 0) continue;
-                checkGoPub.publish(NEXT); // 다음위치
+                ros::spinOnce();
                 rate.sleep();
+                if(idx < 0) continue;
+                if(sw){
+                    checkGoPub.publish(NEXT); // 다음위치
+                    rate.sleep();
+                    sw = 0;
+                }
                 // sleep(1);
                 
-                ros::spinOnce();
-                if(wait == 1) continue;
-                else if(wait == 2){
+                // ros::spinOnce();
+                if(wait) continue;
+                // std::cout << "들어옴\n";
+                
+                
+                // nextIdx();
 
-                    continue;;
-                }
-                
-                
-                nextIdx();
-                turn();
-                cmdPub.publish(stop);
-                rate.sleep();
+                // // std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
+                // turn();
+                // cmdPub.publish(stop);
+                // rate.sleep();
 
                 if(nextPos.y == 100) {
                     path.clear();
@@ -96,31 +100,17 @@ public:
                     switch (status.status)
                     {
                     case 1:
-                        std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
                     
-                    case 2:
-                        std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
-                        ssapang::End end;
-                        end.request.name = robotName;
-                        if(endSrv.call(end)){  
-                            std::cout << "일 재할당\n";
-                            task = end.response.task;
-                            status.status = 0;
-                            makePath(task.product);
-                            // statePush();
-                        }
-                        else{
-                            std::cout << "충전소\n";
-                            makePath("LB2132");
-                        }
+                    default:
+                        makePath("LB1132");
                         break;
                     }
                 }else{
-                    turn();
-                    goPub.publish(NOW);
-                    rate.sleep();
+                    // turn();
+                    // goPub.publish(NOW);
+                    // rate.sleep();
                     go();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
@@ -132,12 +122,11 @@ public:
                             pos.toNode = path[idx].QR;
                             NEXT.data = path[idx].QR;
                             posPub.publish(pos);
-
                         }
                     }
                     std::cout << idx << '/' << path.size() << "\n";
-                    wait = 1;
                 }
+                wait = 1;
                 cmdPub.publish(stop);
                 rate.sleep();
             }
@@ -157,7 +146,7 @@ public:
 private:
     ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
-    ros::ServiceClient endSrv;
+    ros::ServiceServer goSrv;
     ros::Rate rate = 30;
 
     geometry_msgs::Twist moveCmd;
@@ -174,6 +163,20 @@ private:
     int wait;
     ssapang::RobotStatus status;
     double battery;
+    bool sw;
+
+    bool possible(ssapang::Go::Request &req, ssapang::Go::Response &res)
+    {
+        wait = req.wait;
+        sw = 1;
+        if(wait) return false;
+        nextIdx();
+        turn();
+        cmdPub.publish(stop);
+        rate.sleep();
+        res.now = NOW.data;
+        return true ;
+    }
 
     void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
     {
@@ -290,7 +293,7 @@ private:
                 if(distance <= 0.02) return;
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.2), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
@@ -322,10 +325,10 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "robot_control");
     ros::NodeHandle nh;
-    ros::AsyncSpinner spinner(0);
-    spinner.start();
+    // ros::AsyncSpinner spinner(0);
+    // spinner.start();
     RobotControl RobotControl(argc, argv, &nh);
-    ros::waitForShutdown();
+    // ros::waitForShutdown();
 
     return 0;
 }

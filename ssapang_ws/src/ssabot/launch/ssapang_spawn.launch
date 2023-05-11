@@ -36,7 +36,7 @@
           <arg name="start" value="LB1132"/>
       </include>
   </group>
-  <group ns="burger4">
+  <!-- <group ns="burger4">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x -11.5 -y -2.4 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="burger4"/>
@@ -85,7 +85,7 @@
           <arg name="robot_name" value="burger10"/>
           <arg name="start" value="LB2152"/>
       </include>
-  </group>
+  </group> -->
 
   <!-- <group ns="burger11">
       <include file="$(find ssabot)/launch/burger_spawn.launch">

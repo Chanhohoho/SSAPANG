@@ -10,7 +10,7 @@
 #include <ssapang/TaskList.h>
 #include <ssapang/str.h>
 #include <ssapang/PathLen.h>
-#include <ssapang/End.h>
+#include <ssapang/Go.h>
 #include <time.h>
 #include <unistd.h>
 #include <iostream>
@@ -29,8 +29,7 @@ std::list <std::string> batteryStation1;
 std::list <std::string> batteryStation2;
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
-std::queue<ssapang::Task> taskList;
-int robotCnt = 3;
+int robotCnt = 10;
 
 std::string station[31] = {"",
         "LB1112","LB1122","LB1132","LB1142","LB1152",
@@ -61,19 +60,20 @@ public:
         this->RobotPosSub = robot_nh->subscribe<ssapang::RobotPos>("pos", 10, boost::bind(&Robot::pos, this, _1, name));
         this->checkGoSub = robot_nh->subscribe<ssapang::str>("checkGo", 10, boost::bind(&Robot::checkGo, this, _1, name, num));
         this->goSub = robot_nh->subscribe<ssapang::str>("Go", 10, boost::bind(&Robot::go, this, _1, name));
-        this->endSrv = robot_nh->advertiseService("end", &Robot::task, this);
+
+        this->gogo = robot_nh->serviceClient<ssapang::Go>("go_go");
     }
 
 private:
     ros::NodeHandle* robot_nh;
     ros::Subscriber RobotStatusSub, RobotPosSub, checkGoSub, goSub;
-    ros::ServiceServer endSrv;
+    ros::ServiceClient gogo;
     ros::Rate rate = 30;
 
     void status(const ssapang::RobotStatus::ConstPtr &msg, std::string name){
         // printf("&s:status\n", robotName);
         // printf("&d\n", msg->status);
-        std::cout << name << "-status\n";
+        // std::cout << name << "-status\n";
     }
 
     void pos(const ssapang::RobotPos::ConstPtr &msg, std::string name){
@@ -88,37 +88,39 @@ private:
         }
         node[msg->toNode].push(name);
         
-        std::cout << name << "-pos "<< msg->idx<<"\n";
+        std::cout << name << "-pos\n";
         std::cout << "now : " << msg->fromNode << ", size : " << node[msg->fromNode].size() << ", front : " << (node[msg->fromNode].size() ? node[msg->fromNode].front() : "None") << "\n";
         std::cout << "next : " << msg->toNode << ", size : " << node[msg->toNode].size() << ", front : " << (node[msg->toNode].size() ? node[msg->toNode].front() : "None") << "\n";
+        std::cout << "---------------------------------------------------------------------------\n";   
     }
 
     void checkGo(const ssapang::str::ConstPtr &msg, std::string name, int num){
-        // std::cout << name <<" go?\n"; 
+        std::cout << name << " " << msg->data <<"\n"; 
+        ssapang::Go ans;
         if(node[msg->data].size() == 0 || node[msg->data].front() != name){
-                std::cout << "너 못감 - " << name << " - "<<msg->data << "\n";
-            Wait.wait = 2;
+            // 다음 노드에 대기 로봇이 있고 대기 순번이 가장 앞이 아닐 때 대기
+            ans.request.wait = 1;
         }else{
-            std::cout << "너 감 - " << name << " - "<<msg->data << "\n";
-            // std::cout <<node[msg->data].front() << ", " << name << ", " << msg->data <<" wait - " << Wait.wait << "\n";
-            Wait.wait = 0;
-
+            ans.request.wait = 0;
         }
-        robots[num-1].waitPub.publish(Wait);
+        if(robots[num-1].gogo.call(ans)){  
+            std::cout << "너 감 - " << name << " - "<<msg->data;
+            std::string now = ans.response.now;
+            std::cout << ", now : " << now << ", size : " << node[now].size();    
+            node[now].pop();
+            std::cout << ", pop size : " << node[now].size() << "\n";      
+            std::cout << "---------------------------------------------------------------------------\n";     
+        }
+        else{
+            // ROS_ERROR("fail");
+            return;
+        }
+        // rate.sleep();
     }
     void go(const ssapang::str::ConstPtr &msg, std::string name){
         //로봇이 움직인 후 뺀다.
         node[msg->data].pop();
         std::cout << "\n" << name <<" now : " << msg->data << ", size : " << node[msg->data].size() << "---------------------------------------------------------------------------\n";
-    }
-
-    bool task(ssapang::End::Request &req, ssapang::End::Response &res)
-    {
-        if(taskList.size() == 0) return false;
-        std::string name = req.name;
-        res.task = taskList.front();
-        taskList.pop();
-        return true ;
     }
 };
 
@@ -138,13 +140,21 @@ public:
 private:
     ros::Subscriber taskListSub, taskSub;
     ros::ServiceClient reqMinDist;
+    std::vector<ssapang::Task> taskList;
     ros::Rate rate = 30;
     std::string robotName, shelfNode;
 
     void taskListCallback(const ssapang::TaskList::ConstPtr &msg){
-        for(auto task: msg->list)
-            taskList.push(task);
+        taskList = msg->list;
         std::string name = "burger";
+
+        for(auto task:taskList){
+            for(int i = 1; i <= robotCnt; i++){
+                
+                robotStatus[name + std::to_string(i)].nowIdx;
+            }
+        }
+
         distributeTask();
     }
 
@@ -154,8 +164,7 @@ private:
         int minLen = 100000;
         int robotNum;
 
-        for(int i = 0; i < robotCnt; i++){
-            auto task = taskList.front();
+        for(auto task:taskList){
             minLen = 0x7fff0000;
             robotNum = -1;
             for(int i = 1; i <= robotCnt; i++){
@@ -177,7 +186,6 @@ private:
             }
             if(robotNum == -1) continue;
             std::cout << "select robot - " << robotNum << "\n";
-            taskList.pop();
             robots[robotNum-1].taskPub.publish(task);
             robotStatus[name +std::to_string(robotNum)].status = 1;
 
@@ -190,11 +198,11 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "tower");
     ros::NodeHandle nh;
-    // ros::AsyncSpinner spinner(0);
-    // spinner.start();
+    ros::AsyncSpinner spinner(0);
+    spinner.start();
     ControlTower tower = ControlTower(&nh);
-    // ros::waitForShutdown();
-    ros::spin();
+    ros::waitForShutdown();
+    // ros::spin();
 
     return 0;
 }

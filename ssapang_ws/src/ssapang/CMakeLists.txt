@@ -67,6 +67,7 @@ add_service_files(
   FILES
   PathLen.srv
   Go.srv
+  End.srv
 )
 
 ## Generate actions in the 'action' folder
