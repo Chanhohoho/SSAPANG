@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import rospy
 from ssapang.msg import Locations, Coordinate, Move
+from ssapang.srv import PathLen
 import time
 import copy
 
@@ -45,8 +46,6 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
     while path[-1][0] != start_node:
         path.append(prev[path[-1][0]])
     
-    # print(path[-1])
-    # print()
     path.append(copy.deepcopy(path[-1]))
     path.reverse()
     return path
@@ -57,11 +56,10 @@ def addCoordinates(arr):
     for i in range(1, last):
         arr[i].append(node.get(arr[i+1][0]))
         arr[i][0] = arr[i+1][0]
-        # print(arr[i])
     arr[last].append([100,100])
     # arr[last].append(node.get(arr[last][0]))
     arr[last][1] = arr[last-1][1]
-    print(arr)
+    # print(arr)
     return arr
 
 def callback(msg):
@@ -78,9 +76,20 @@ def callback(msg):
         pub.publish(loc)
     except:
         print('error')
-    
+
+def callbackCT(msg):
+    lenght = PathLen()
+    try:
+        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        lenght = len(shortest_dist)
+    except:
+        print('srv_error')
+        lenght = -1
+    return lenght
+
 if __name__ == '__main__':
     rospy.init_node('path_pub')
     pub = rospy.Publisher('path', Locations, queue_size=1)
     sub = rospy.Subscriber('move', Move, callback)
+    lenSrv = rospy.Service('/min_len', PathLen, callbackCT)
     rospy.spin()

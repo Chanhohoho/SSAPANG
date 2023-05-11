@@ -18,6 +18,8 @@
 #include <unordered_map>
 #include <queue>
 #include <unistd.h>
+#include <ssapang/Go.h>
+#include <ssapang/Station.h>
 
 const double PI = std::acos(-1);
 
@@ -34,13 +36,12 @@ public:
         checkGoPub = nh->advertise<ssapang::str>("checkGo", 1);
         goPub = nh->advertise<ssapang::str>("Go", 1);
 
-
         odomSub = nh->subscribe("odom", 10, &RobotControl::odomCallback, this);
         pathSub = nh->subscribe("path", 10, &RobotControl::pathCallback, this);
         waitSub = nh->subscribe("wait", 10, &RobotControl::waitCallback, this);
         shelfSub = nh->subscribe("shelf", 10, &RobotControl::shelfCallback, this);
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
-
+        stationCli = nh->serviceClient<ssapang::Station>("/station");
 
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
@@ -53,8 +54,7 @@ public:
         nextPos.QR = argv[2];
         GO.data = "GO";
         wait = 1;
-
-        nh->getParam("robotName", robotName);
+        robotName = argv[1];
 
         try
         {
@@ -64,39 +64,21 @@ public:
                 // 판단
                 ros::spinOnce();
                 if(idx < 0) continue;
-                // std::cout << NOW.data << "\n";
                 checkGoPub.publish(NEXT); // 다음위치
                 rate.sleep();
                 // sleep(1);
                 
                 ros::spinOnce();
-                // std::cout << "wait " << wait << "\n";
                 if(wait) continue;
-                // std::cout << nextPos.QR << ": " << node[nextPos.QR].size() << std::endl;
-                NOW.data = path[idx-1].QR;
+                
                 
                 nextIdx();
 
-                // if(idx >= path.size()) {
-                //     path.clear();
-                //     idx = -1;
-                //     sleep(3);
-                //     switch (status.status)
-                //     {
-                //     case 1:
-                //         makePath(task.destination);
-                //         break;
-                    
-                //     default:
-                //         makePath("LB1132");
-                //         break;
-                //     }
-                // }else{
-                    std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
-                    turn();
-                    cmdPub.publish(stop);
-                    rate.sleep();
-                // }
+                // std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
+                turn();
+                cmdPub.publish(stop);
+                rate.sleep();
+
                 if(nextPos.y == 100) {
                     path.clear();
                     idx = -1;
@@ -112,11 +94,22 @@ public:
                         break;
                     
                     default:
-                        makePath("LB1132");
+                        ssapang::Station srv;
+                        srv.request.nowNode = nextPos.QR;
+                        srv.request.num = stoi(robotName.substr(6,robotName.length() - 6));
+                        std::cout << "num : " <<srv.request.num  <<std::endl;
+                        std::string destination;
+                        if(stationCli.call(srv)){  
+                             destination = srv.response.stationNode;        
+                        }
+                        else{
+                            ROS_ERROR("robot come back fail");
+                        }
+                        std::cout << "destination : " << destination << std::endl;
+                        makePath(destination);
                         break;
                     }
                 }else{
-                    std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
                     turn();
                     goPub.publish(NOW);
                     rate.sleep();
@@ -134,9 +127,9 @@ public:
 
                         }
                     }
-                    std::cout << idx << '/' << path.size() << "\n";
-                    wait = 1;
+                    // std::cout << idx << '/' << path.size() << "\n";
                 }
+                wait = 1;
                 cmdPub.publish(stop);
                 rate.sleep();
             }
@@ -156,7 +149,8 @@ public:
 private:
     ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
-    ros::Rate rate = 60;
+    ros::ServiceClient stationCli;
+    ros::Rate rate = 30;
 
     geometry_msgs::Twist moveCmd;
     geometry_msgs::Twist stop;
@@ -186,6 +180,7 @@ private:
         nowPosition = pose;
     }
 
+    
     void shelfCallback(const ssapang::str::ConstPtr &msg)
     {
         shelfNode = msg->data;
@@ -193,9 +188,7 @@ private:
     }
     void taskCallback(const ssapang::Task::ConstPtr &msg)
     {
-        // task받아서 처리 할 수있게 코드 수정 필요 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         task = *msg;
-        std::cout << task.product << ", " << task.destination <<"\n";
         makePath(task.product);
     }
 
@@ -213,9 +206,9 @@ private:
         posPub.publish(pos);
         rate.sleep();
     }
+
     void waitCallback(const ssapang::RobotWait::ConstPtr &msg)
     {
-        std::cout <<robotName << " " << msg->wait << "\n";
         wait = msg->wait;
     }
 
@@ -289,10 +282,9 @@ private:
                 dY = nextPos.y - nowPosition.y;
                 distance = std::sqrt(std::pow(dY,2) + std::pow(dX,2));
                 if(distance <= 0.02) return;
-                // std::cout << nowPosition.x << ", " << nowPosition.y << "\n";
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.1), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)

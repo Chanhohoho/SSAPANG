@@ -63,11 +63,12 @@ add_message_files(
 )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  PathLen.srv
+  Go.srv
+  Station.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -148,6 +149,14 @@ target_link_libraries(robot_control ${catkin_LIBRARIES} )
 add_executable(tower src/control_tower.cpp)
 add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(tower ${catkin_LIBRARIES} )
+
+add_executable(task_pub src/task_pub.cpp)
+add_dependencies(task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(task_pub ${catkin_LIBRARIES} )
+
+add_executable(test_test src/test_test.cpp)
+add_dependencies(test_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(test_test ${catkin_LIBRARIES} )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

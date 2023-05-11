@@ -11,6 +11,7 @@
   <!-- BEGIN BURGER -->
 
   <node pkg='ssapang' type='tower' name='tower' output='screen' />
+  <node pkg='ssapang' type='task_pub' name='task_pub' output='screen' />
 
   <group ns="burger1">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
@@ -86,7 +87,7 @@
       </include>
   </group>
 
-  <group ns="burger11">
+  <!-- <group ns="burger11">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
           <arg name="init_pose" value="-x -11.5 -y -9.5 -z 0 -Y 3.14"/>
           <arg name="robot_name" value="burger11"/>
@@ -120,7 +121,7 @@
           <arg name="robot_name" value="burger15"/>
           <arg name="start" value="LB3152"/>
       </include>
-  </group>
+  </group> -->
 
 
    

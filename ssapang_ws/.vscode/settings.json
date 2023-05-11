@@ -76,6 +76,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "bit": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "csignal": "cpp"
     }
 }
