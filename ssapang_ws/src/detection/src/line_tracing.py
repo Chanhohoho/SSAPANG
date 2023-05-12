@@ -9,6 +9,7 @@ from geometry_msgs.msg import Twist
 import sys, select, os
 
 from cv_bridge import CvBridgeError
+from pyzbar.pyzbar import decode
 
 from sensor_msgs.msg import CompressedImage
 
