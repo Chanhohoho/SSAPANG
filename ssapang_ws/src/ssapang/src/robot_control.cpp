@@ -19,6 +19,7 @@
 #include <unordered_map>
 #include <queue>
 #include <unistd.h>
+#include <ssapang/Station.h>
 
 const double PI = std::acos(-1);
 
@@ -43,7 +44,7 @@ public:
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
 
         endSrv = nh->serviceClient<ssapang::End>("end");
-
+        stationCli = nh->serviceClient<ssapang::Station>("/station");
 
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
@@ -58,26 +59,24 @@ public:
         GO.data = "GO";
         wait = 1;
 
-        // nh->getParam("robotName", robotName);
-
         try
         {
             sleep(3);
             while (ros::ok())
             {
                 // 판단
-                // ros::spinOnce();
+                ros::spinOnce();
+                rate.sleep();
                 if(idx < 0) continue;
                 checkGoPub.publish(NEXT); // 다음위치
-                rate.sleep();
                 // sleep(1);
                 
                 ros::spinOnce();
                 if(wait == 1) continue;
-                else if(wait == 2){
+                // else if(wait == 2){
 
-                    continue;;
-                }
+                //     continue;;
+                // }
                 
                 
                 nextIdx();
@@ -104,7 +103,7 @@ public:
                         std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
                         ssapang::End end;
                         end.request.name = robotName;
-                        if(endSrv.call(end)){  
+                        if(battery > 20 && endSrv.call(end)){  
                             std::cout << "일 재할당\n";
                             task = end.response.task;
                             status.status = 0;
@@ -113,10 +112,24 @@ public:
                         }
                         else{
                             std::cout << "충전소\n";
-                            makePath("LB2132");
+                            ssapang::Station srv;
+                            srv.request.nowNode = nextPos.QR;
+                            srv.request.num = stoi(robotName.substr(6,robotName.length() - 6));
+                            std::cout << "num : " <<srv.request.num  <<std::endl;
+                            std::string destination;
+                            if(stationCli.call(srv)){  
+                                destination = srv.response.stationNode;        
+                            }
+                            else{
+                                ROS_ERROR("robot come back fail");
+                            }
+                            std::cout << "destination : " << destination << std::endl;
+                            makePath(destination);
                         }
                         break;
                     }
+
+
                 }else{
                     turn();
                     goPub.publish(NOW);
@@ -136,8 +149,8 @@ public:
                         }
                     }
                     std::cout << idx << '/' << path.size() << "\n";
-                    wait = 1;
                 }
+                wait = 1;
                 cmdPub.publish(stop);
                 rate.sleep();
             }
@@ -157,7 +170,7 @@ public:
 private:
     ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
-    ros::ServiceClient endSrv;
+    ros::ServiceClient endSrv, stationCli;
     ros::Rate rate = 30;
 
     geometry_msgs::Twist moveCmd;
@@ -290,7 +303,7 @@ private:
                 if(distance <= 0.02) return;
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.2), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)

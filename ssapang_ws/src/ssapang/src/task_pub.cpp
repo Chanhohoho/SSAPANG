@@ -19,7 +19,7 @@ public:
         ros::Rate loop_rate(10);
         sleep(3);
         // while (ros::ok()){
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < 20; i++){
                 task.product = rightSectTaskList[rand()%9][rand()%4];
                 task.destination = destination[rand()%7];
                 taskList.list.push_back(task);
