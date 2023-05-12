@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="push_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <jointName>virtual_joint1</jointName>
+        </plugin>
+    </gazebo>
+    
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        </plugin>
+    </gazebo>
+    
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="virtual_link1">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+    <gazebo reference="virtual_link2">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+    <!-- <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo> -->
+
+</robot>

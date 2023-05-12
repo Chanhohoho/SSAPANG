@@ -1,0 +1,12 @@
+<launch>  
+<!--Lifting tray controller-->
+  <rosparam file="$(find control)/config/push_robot_config.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/push_robot" args="joint_state_controller 
+                                         virtual_joint1_controller1"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/push_robot/joint_states" />
+  </node>
+</launch>

@@ -2,18 +2,24 @@
 <!--Lifting tray controller-->
   <rosparam file="$(find ssabot)/config/config.yaml" command="load"/>
 
-  <!-- load the controllers -->
+  <!-- waffle -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" ns="/waffle" args="joint_state_controller 
                                          waffle_piston_controller"/>
 
-  <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
     <remap from="/joint_states" to="/waffle/joint_states" />
   </node>
-  <!--End lifting tray controller-->
 
+
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/push_robot" args="joint_state_controller 
+                                         virtual_joint1_controller1"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/push_robot/joint_states" />
+  </node> -->
 
   <!--Teleop control-->
   <rosparam command="load" file="$(find ssabot)/config/diff_drive.yaml"/>
