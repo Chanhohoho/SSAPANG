@@ -9,10 +9,8 @@ project(control)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   controller_manager
-  effort_controllers
   joint_state_controller
   robot_state_publisher
-  rqt_gui
 )
 
 ## System dependencies are found with CMake's conventions
@@ -107,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES control
-#  CATKIN_DEPENDS controller_manager effort_controllers joint_state_controller robot_state_publisher rqt_gui
+#  CATKIN_DEPENDS controller_manager joint_state_controller robot_state_publisher
 #  DEPENDS system_lib
 )
 

@@ -44,9 +44,9 @@
   <joint name="virtual_joint1" type="prismatic">
     <parent link="base_link"/>
     <child link="virtual_link1"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 1" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="30" lower="-0.3" upper="0.3" velocity="0.171"/>
+    <limit effort="5" lower="-1" upper="1" velocity="0.171"/>
   </joint>
 
 
@@ -202,19 +202,16 @@
     </inertial>
   </link>
 
-  <transmission name="actuator1">
+  <!-- <transmission name="actuator1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="virtual_joint1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <!-- <joint name="virtual_joint3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint> -->
     <actuator name="push_motor1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission>
+  </transmission> -->
 
   
   <!--  -->

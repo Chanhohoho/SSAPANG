@@ -1,4 +1,10 @@
 <launch>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+
   <!-- BEGIN BURGER -->
   <!-- <group ns="burger1">
       <include file="$(find ssabot)/launch/burger_spawn.launch">
@@ -66,20 +72,18 @@
   </group> -->
 
   
-  <group ns="push_robot1">
-      <include file="$(find ssabot)/launch/push_robot_spawn.launch">
-          <arg name="init_pose" value="-x 0 -y -0 -z 3 -Y 0"/>
-          <arg name="robot_name" value="push_robot1"/>
-      </include>
-  </group>
+    <include file="$(find ssabot)/launch/push_robot_spawn.launch">
+        <arg name="init_pose" value="-x 0 -y -0 -z 0.5 -Y 0"/>
+        <arg name="robot_name" value="push_robot"/>
+    </include>
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
-    <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="headless" value="false"/>
-    <arg name="debug" value="false"/>
-  </include>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
 
 </launch>

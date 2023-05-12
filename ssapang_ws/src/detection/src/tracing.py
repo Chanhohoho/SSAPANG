@@ -212,6 +212,19 @@ class IMGParser:
                 self.move_command()
                 self.rate.sleep()
 
+            getKey(0)
+            self.move_command()
+            self.rate.sleep()
+
+            for _ in range(3*freq):
+                getKey(3)
+                self.move_command()
+                self.rate.sleep()
+
+            getKey(0)
+            self.move_command()
+            self.rate.sleep()
+
         else:
             self.detectLine()
             self.move_command()
