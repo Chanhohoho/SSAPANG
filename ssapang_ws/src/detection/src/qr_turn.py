@@ -109,7 +109,40 @@ class IMGParser:
                 self.turning()
                 rate.sleep()
 
-    def getKey(key):
+    def detectQR(self):
+        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
+        codes = decode(self.img_bgrD)
+        for code in codes:
+            qr_info = code.data.decode('utf-8')
+            print(qr_info)
+            qr_ori = code.orientation
+            print(qr_ori)
+        if codes:
+            dir = {'UP':'w', 'LEFT':'a', 'RIGHT':'d'}
+            self.getKey(dir[qr_ori])
+        else:
+            self.getKey(10)
+        self.turning()
+
+
+    def turning(self):
+        global status
+        global target_linear_vel
+        global target_angular_vel 
+        global control_linear_vel
+        global control_angular_vel
+
+        twist = Twist()
+        control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
+        twist.linear.x = control_linear_vel; twist.linear.y = 0.0; twist.linear.z = 0.0
+
+        control_angular_vel = makeSimpleProfile(control_angular_vel, target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
+        twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = control_angular_vel
+
+        self.pub.publish(twist)
+
+    def getKey(self, key):
+
         global target_linear_vel
         global target_angular_vel 
         global control_linear_vel
@@ -119,28 +152,30 @@ class IMGParser:
             target_linear_vel = checkLinearLimitVelocity(0.1)
             target_angular_vel = checkAngularLimitVelocity(0)
             print(vels(target_linear_vel,target_angular_vel))
-            time.sleep(1.5)
 
         elif key == 'a':
-            target_linear_vel = checkLinearLimitVelocity(0.1)
-            target_angular_vel = checkAngularLimitVelocity(0)
-            print(vels(target_linear_vel,target_angular_vel))
-            time.sleep(1)
+            # target_linear_vel = checkLinearLimitVelocity(0.1)
+            # target_angular_vel = checkAngularLimitVelocity(0)
+            # print(vels(target_linear_vel,target_angular_vel))
+            # time.sleep(1)
             target_linear_vel = checkLinearLimitVelocity(0)
             target_angular_vel = checkAngularLimitVelocity(1)
             print(vels(target_linear_vel,target_angular_vel))
             time.sleep(1)
 
         elif key == 'd':
-            target_linear_vel = checkLinearLimitVelocity(0.1)
-            target_angular_vel = checkAngularLimitVelocity(0)
-            print(vels(target_linear_vel,target_angular_vel))
-            time.sleep(1)
+            # target_linear_vel = checkLinearLimitVelocity(0.1)
+            # target_angular_vel = checkAngularLimitVelocity(0)
+            # print(vels(target_linear_vel,target_angular_vel))
+            # time.sleep(1)
             target_linear_vel = checkLinearLimitVelocity(0)
             target_angular_vel = checkAngularLimitVelocity(-1)
             print(vels(target_linear_vel,target_angular_vel))
 
-
+        elif key == 10:
+            target_linear_vel = checkLinearLimitVelocity(0.1)
+            target_angular_vel = checkAngularLimitVelocity(0)
+            print(vels(target_linear_vel,target_angular_vel))
 
         elif key == -1:
             target_linear_vel = checkLinearLimitVelocity(0)
@@ -155,50 +190,11 @@ class IMGParser:
             control_angular_vel = 0.0
             print(vels(target_linear_vel, target_angular_vel))
 
-        twist = Twist()
-        control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
-        twist.linear.x = control_linear_vel; twist.linear.y = 0.0; twist.linear.z = 0.0
-
-        control_angular_vel = makeSimpleProfile(control_angular_vel, target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
-        twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = control_angular_vel
-
-        self.pub.publish(twist)
+        # return key
         
-        return key
-
-    def detectQR(self):
-        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
-        codes = decode(self.img_bgrD)
-        for code in codes:
-            qr_info = code.data.decode('utf-8')
-            print(qr_info)
-            qr_ori = code.orientation
-            print(qr_ori)
-        if codes:
-            dir = {'UP':'w','DOWN':0, 'LEFT':'a', 'RIGHT':'d'}
-            time.sleep(1)
-            getKey(dir[qr_ori])
-            self.turning()
-            time.sleep(1)
-
-
-    def turning(self):
-        global status
-        global target_linear_vel
-        global target_angular_vel 
-        global control_linear_vel
-        global control_angular_vel
-
-        
-
-
         # for i in range(200, 440):
         #     if self.img_blane[i,180]
         # cv2.line(self.img_blane, (320,240),(320,240),(0,0,255),5)
-
-
-        cv2.imshow("black", self.img_bgrD)
-        cv2.waitKey(1)
 
     def binarization(self):
         lower_blane = np.array([0, 0, 0])
@@ -213,8 +209,9 @@ class IMGParser:
             self.img_bgrD = cv2.flip(self.img_bgrD, -1)
         except CvBridgeError as e:
             print(e)
-        # cv2.imshow("bgr", self.img_bgrD)
-        # cv2.waitKey(1)
+
+        cv2.imshow("bgr", self.img_bgrD)
+        cv2.waitKey(1)
 
 if __name__ == '__main__':
 

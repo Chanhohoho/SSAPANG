@@ -4,11 +4,13 @@
 import rospy
 import cv2
 import numpy as np
+import time
 
 from geometry_msgs.msg import Twist
 import sys, select, os
 
 from cv_bridge import CvBridgeError
+from pyzbar.pyzbar import decode
 
 from sensor_msgs.msg import CompressedImage
 
@@ -75,12 +77,49 @@ def checkAngularLimitVelocity(vel):
     vel = constrain(vel, -BURGER_MAX_ANG_VEL, BURGER_MAX_ANG_VEL)
     return vel
 
+def vels(target_linear_vel, target_angular_vel):
+    return "currently:\tlinear vel %s\t angular vel %s " % (target_linear_vel,target_angular_vel)
+
+def makeSimpleProfile(output, input, slop):
+    if input > output:
+        output = min( input, output + slop )
+    elif input < output:
+        output = max( input, output - slop )
+    else:
+        output = input
+
+    return output
+
 def getKey(key):
 
     global target_linear_vel
     global target_angular_vel 
     global control_linear_vel
     global control_angular_vel
+
+    if key == 'w':
+        target_linear_vel = checkLinearLimitVelocity(0.1)
+        target_angular_vel = checkAngularLimitVelocity(0)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    elif key == 'a':
+        # target_linear_vel = checkLinearLimitVelocity(0.1)
+        # target_angular_vel = checkAngularLimitVelocity(0)
+        # print(vels(target_linear_vel,target_angular_vel))
+        # time.sleep(1)
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(1)
+        print(vels(target_linear_vel,target_angular_vel))
+        time.sleep(1)
+
+    elif key == 'd':
+        # target_linear_vel = checkLinearLimitVelocity(0.1)
+        # target_angular_vel = checkAngularLimitVelocity(0)
+        # print(vels(target_linear_vel,target_angular_vel))
+        # time.sleep(1)
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(-1)
+        print(vels(target_linear_vel,target_angular_vel))
 
     if key == 1:
         target_linear_vel = checkLinearLimitVelocity(0.04)
@@ -107,7 +146,10 @@ def getKey(key):
         target_angular_vel = checkAngularLimitVelocity(-1)
         print(vels(target_linear_vel,target_angular_vel))
 
-
+    elif key == 10:
+        target_linear_vel = checkLinearLimitVelocity(0.1)
+        target_angular_vel = checkAngularLimitVelocity(0)
+        print(vels(target_linear_vel,target_angular_vel))
 
     elif key == -1:
         target_linear_vel = checkLinearLimitVelocity(0)
@@ -122,27 +164,26 @@ def getKey(key):
         control_angular_vel = 0.0
         print(vels(target_linear_vel, target_angular_vel))
 
+
+    twist = Twist()
+    control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
+    twist.linear.x = control_linear_vel; twist.linear.y = 0.0; twist.linear.z = 0.0
+
+    control_angular_vel = makeSimpleProfile(control_angular_vel, target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
+    twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = control_angular_vel
+
+    return twist
+    # return key
     
-    return key
-
-def vels(target_linear_vel, target_angular_vel):
-    return "currently:\tlinear vel %s\t angular vel %s " % (target_linear_vel,target_angular_vel)
-
-def makeSimpleProfile(output, input, slop):
-    if input > output:
-        output = min( input, output + slop )
-    elif input < output:
-        output = max( input, output - slop )
-    else:
-        output = input
-
-    return output
-
+    # for i in range(200, 440):
+    #     if self.img_blane[i,180]
+    # cv2.line(self.img_blane, (320,240),(320,240),(0,0,255),5)
 
 class IMGParser:
     def __init__(self):
 
         self.img_bgrD = None
+        self.img_blane =None
 
         self.image_subD = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.callbackD)
     
@@ -153,10 +194,41 @@ class IMGParser:
         while not rospy.is_shutdown():
             if self.img_bgrD is not None:
                 self.binarization()
-                self.detectLine()
+                self.detectQR()
                 rate.sleep()
 
-    
+    def detectQR(self):
+        global status
+        global target_linear_vel
+        global target_angular_vel 
+        global control_linear_vel
+        global control_angular_vel
+
+
+        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
+        codes = decode(self.img_bgrD)
+        for code in codes:
+            qr_info = code.data.decode('utf-8')
+            print(qr_info)
+            qr_ori = code.orientation
+            print(qr_ori)
+        if codes:
+            dir = {'UP':'w', 'LEFT':'a', 'RIGHT':'d'}
+            twist = self.getKey(dir[qr_ori])
+        else:
+            twist = self.detectLine()
+
+        self.pub.publish(twist)
+
+        # for i in range(200, 440):
+        #     if self.img_blane[i,180]
+        # cv2.line(self.img_blane, (320,240),(320,240),(0,0,255),5)
+
+
+        cv2.imshow("black", self.img_bgrD)
+        cv2.waitKey(1)
+
+
     def detectLine(self):
         # point1 = self.img_bgrD[160,320]
         # print("p1 == ", point1)
@@ -164,12 +236,12 @@ class IMGParser:
         # print("p1 == ", point2)
         # point3 = self.img_bgrD[320,320]
         # print("p3 == ", point3)
-
         global status
         global target_linear_vel
         global target_angular_vel 
         global control_linear_vel
         global control_angular_vel
+
         for i in range(3):
             find = 0
             for j in range(50, 590):
@@ -206,7 +278,7 @@ class IMGParser:
             avg = total/denominator
             if avg < 120:
                 print("\n1")
-                getKey(1)
+                self.getKey(1)
             if avg < 220:
                 print("\n1")
                 getKey(2)
@@ -222,12 +294,6 @@ class IMGParser:
         else:
             getKey(-1)
 
-        # cv2.line(self.img_bgrD, (320,160),(320,160),(0,0,255),5)
-        # cv2.line(self.img_bgrD, (320,240),(320,240),(0,0,255),5)
-        # cv2.line(self.img_bgrD, (320,320),(320,320),(0,0,255),5)
-        print("avg == ", avg)
-
-
         twist = Twist()
         control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
         twist.linear.x = control_linear_vel; twist.linear.y = 0.0; twist.linear.z = 0.0
@@ -235,15 +301,11 @@ class IMGParser:
         control_angular_vel = makeSimpleProfile(control_angular_vel, target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
         twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = control_angular_vel
 
-        self.pub.publish(twist)
-
-        # for i in range(200, 440):
-        #     if self.img_blane[i,180]
-        # cv2.line(self.img_blane, (320,240),(320,240),(0,0,255),5)
-
-
-        cv2.imshow("black", self.img_bgrD)
-        cv2.waitKey(1)
+        return twist
+        # cv2.line(self.img_bgrD, (320,160),(320,160),(0,0,255),5)
+        # cv2.line(self.img_bgrD, (320,240),(320,240),(0,0,255),5)
+        # cv2.line(self.img_bgrD, (320,320),(320,320),(0,0,255),5)
+        print("avg == ", avg)
 
     def binarization(self):
         lower_blane = np.array([0, 0, 0])
@@ -258,8 +320,9 @@ class IMGParser:
             self.img_bgrD = cv2.flip(self.img_bgrD, -1)
         except CvBridgeError as e:
             print(e)
-        # cv2.imshow("bgr", self.img_bgrD)
-        # cv2.waitKey(1)
+
+        cv2.imshow("bgr", self.img_bgrD)
+        cv2.waitKey(1)
 
 if __name__ == '__main__':
 
