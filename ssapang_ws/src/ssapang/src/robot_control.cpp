@@ -16,7 +16,6 @@
 #include <vector>
 #include <string>
 
-
 const double PI = std::acos(-1);
 
 class RobotControl
