@@ -1226,14 +1226,31 @@
     <pose>-8.3 -3.5 0  0 0 1.57</pose>
     <static>true</static>
     <link name="shelf_body">
-      <visual name="visual">
+      <visual name="shelf_visual">
         <geometry>
           <mesh><uri>model://shelf/shelf.dae</uri></mesh>
         </geometry>
       </visual>
-      <collision name="visual">
+      <collision name="shelf_visual">
         <geometry>
           <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+  <model name="cardboard_box">
+    <pose>-8.9 -3.5 0  0 0 1.57</pose>
+    <static>false</static>
+    <link name="cardboard_body">
+      <visual name="box_visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="box_visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
         </geometry>
       </collision>
     </link>
