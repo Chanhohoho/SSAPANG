@@ -230,8 +230,8 @@ private:
 
     void nextIdx()
     {
-        nextPos = path[idx];
-        nextPos.deg = path[idx].deg * PI / 180.0;
+        nextPos = path[idx-1];
+        nextPos.deg = path[idx-1].deg * PI / 180.0;
     }
 
     void turn()

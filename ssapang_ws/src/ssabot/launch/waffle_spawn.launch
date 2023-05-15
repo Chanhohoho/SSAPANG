@@ -7,6 +7,8 @@
       <arg name="ang"/>
 
       <!-- Load robot description -->
+      <rosparam file="$(find ssabot)/config/config.yaml" command="load"/>
+
       <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ssabot)/urdf/turtlebot3_waffle.urdf.xacro" />
 
       <!-- Spwan a robot into Gazebo -->
@@ -14,6 +16,9 @@
             args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"
             respawn="false" />
             
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"	output="screen"
+      args="joint_state_controller
+					  waffle_piston_controller"/>
       <!-- Publich robot state -->
       <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
             <param name="publish_frequency" type="double" value="50.0" />

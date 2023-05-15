@@ -1224,8 +1224,45 @@
     </include>
     <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
 	</model>
-    
-    	
+  <model name="shelf1-1">
+    <pose>-8.3 -2.5 0  0 0 1.57</pose>
+    <static>false</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+       <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="8.2573504e-10"/>
+      <inertia ixx="2.2124416e-03" ixy="-1.2294101e-05" ixz="3.4938785e-05"
+                iyy="2.1193702e-03" iyz="-5.0120904e-06"
+                izz="2.0064271e-03" />
+      </inertial>
+    </link>
+  </model>
+  <model name="shelf1-2">
+    <pose>-8.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>  	
     
     <!-- <model name="shelf1-1">
     <pose>-8.3 -2.5 0  0 0 1.57</pose>

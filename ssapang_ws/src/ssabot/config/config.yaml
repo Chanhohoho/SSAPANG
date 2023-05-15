@@ -1,4 +1,3 @@
-waffle:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
@@ -15,3 +14,5 @@ waffle:
     type: position_controllers/JointPositionController
     joint: piston_joint2
     pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
