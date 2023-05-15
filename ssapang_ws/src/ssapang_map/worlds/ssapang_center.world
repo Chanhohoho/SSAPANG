@@ -7,75 +7,10 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
-    <model name="warehouse_ground">
-      <include>
-          <uri>model://warehouse_ground</uri>
-      </include>
-      <pose frame="">0.0 -7.5 -0.000092 0 0 1.57</pose>
-    </model>
-    
-     <model name="container1">
-      <pose>0 -17 -3  0 0 0</pose>
-      <scale>0.01 0.01 0.01</scale>
-      <static>true</static>
-      <link name="container_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-     <model name="container2">
-      <pose>0 -20 -3  0 0 0</pose>
-      <scale>0.01 0.01 0.01</scale>
-      <static>true</static>
-      <link name="container_body2">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-     <include>
-      <uri>model://shelf</uri>
-      <pose>-1 -0 0.01 0 0 0</pose>
-    </include>
-    <model name="shelf1-1">
-      <pose>-8.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <include>
-      <uri>model://container_empty</uri>
-      <pose>-1 -0 0.01 0 0 0</pose>
-    </include>
-   <include>
-      <uri>model://shelf</uri>
-      <pose>-1 -0 0.01 0 0 0</pose>
-    </include>
+      <!-- <include>
+        <uri>model://shelf</uri>
+        <pose>-1 -0 0.01 0 0 0</pose>
+    </include> -->
     <include>
       <uri>model://qrcode/BP0312</uri>
       <pose>9 -6.5 0.01 0 0 0</pose>
@@ -1265,7 +1200,7 @@
       <pose>-1 -4.5 0.01 0 0 0</pose>
     </include>
     <include>
-      <uri>model://qrcode/B0501</uri>
+      <uri>model://qrcode/B0501</uri>https://lab.ssafy.com/s08-final/S08P31A409.git
       <pose>-10 -8.5 0.01 0 0 0</pose>
     </include>
     <include>
@@ -1280,1413 +1215,1619 @@
       <uri>model://qrcode/B0813</uri>
       <pose>7 -13.5 0.01 0 0 0</pose>s
     </include>
-    <model name="shelf1-2">
-      <pose>-8.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf1-3">
-      <pose>-7.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf1-4">
-      <pose>-7.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+
+
+  <model name="warehouse_ground">
+    <include>
+        <uri>model://warehouse_ground</uri>
+    </include>
+    <pose frame="">0.0 -7.5 -0.000092 0 0 1.57</pose>
+	</model>
+  <model name="container1">
+    <pose>0 -17 -3  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>true</static>
+    <link name="container_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="container2">
+    <pose>0 -20 -3  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>true</static>
+    <link name="container_body2">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="tray">
+    <pose>0 -16 2  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>true</static>
+    <link name="tray">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://tray/tray.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://tray/tray.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="onburger">
+    <pose>0 -18 2  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>false</static>
+    <link name="onburger">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://onburger/onburger.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://onburger/onburger.dae</uri></mesh>
+          <scale>1 1 1</scale>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="cardboard_box">
+    <pose>0 -18 5  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>false</static>
+    <link name="cardboard_box">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+  <!-- <model name="container1">
+    <pose>0 -17 -3  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>true</static>
+    <link name="container1">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://container_empty/container_empty.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="container2">
+    <pose>0 -20 -3  0 0 0</pose>
+    <scale>0.01 0.01 0.01</scale>
+    <static>true</static>
+    <link name="container2">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://container_filled/container_filled.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>  -->
+
+    <!-- <model name="shelf">
+    <pose>1 0 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+    <model name="wall">
+    <pose>0 0 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model> -->
+    <model name="shelf1-1">
+    <pose>-8.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf1-2">
+    <pose>-8.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf1-3">
+    <pose>-7.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf1-4">
+    <pose>-7.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall1-1">
-      <pose>-8 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-8 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
     <model name="shelf2-1">
-      <pose>-5.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf2-2">
-      <pose>-5.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf2-3">
-      <pose>-4.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf2-4">
-      <pose>-4.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-5.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf2-2">
+    <pose>-5.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf2-3">
+    <pose>-4.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf2-4">
+    <pose>-4.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall2-1">
-      <pose>-5 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf3-1">
-      <pose>-2.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf3-2">
-      <pose>-2.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf3-3">
-      <pose>-1.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf3-4">
-      <pose>-1.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-5 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+  <model name="shelf3-1">
+    <pose>-2.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf3-2">
+    <pose>-2.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf3-3">
+    <pose>-1.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf3-4">
+    <pose>-1.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall3-1">
-      <pose>-2 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf4-1">
-      <pose>-8.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf4-2">
-      <pose>-8.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf4-3">
-      <pose>-7.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf4-4">
-      <pose>-7.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-      <model name="wall4-1">
-      <pose>-8 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-2 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+      <model name="shelf4-1">
+    <pose>-8.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf4-2">
+    <pose>-8.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf4-3">
+    <pose>-7.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf4-4">
+    <pose>-7.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+    <model name="wall4-1">
+    <pose>-8 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+    <!-- <model name="wall">
+    <pose>0 0 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+        </geometry>
+      </collision>
+    </link>
+  </model> -->
+
+
     <model name="shelf5-1">
-      <pose>-5.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf5-2">
-      <pose>-5.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf5-3">
-      <pose>-4.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf5-4">
-      <pose>-4.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-5.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf5-2">
+    <pose>-5.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf5-3">
+    <pose>-4.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf5-4">
+    <pose>-4.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall5-1">
-      <pose>-5 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf6-1">
-      <pose>-2.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf6-2">
-      <pose>-2.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf6-3">
-      <pose>-1.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf6-4">
-      <pose>-1.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-5 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf6-1">
+    <pose>-2.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf6-2">
+    <pose>-2.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf6-3">
+    <pose>-1.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf6-4">
+    <pose>-1.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall6-1">
-      <pose>-2 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf7-1">
-      <pose>-8.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf7-2">
-      <pose>-8.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf7-3">
-      <pose>-7.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf7-4">
-      <pose>-7.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-2 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+        <model name="shelf7-1">
+    <pose>-8.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf7-2">
+    <pose>-8.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf7-3">
+    <pose>-7.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf7-4">
+    <pose>-7.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall7-1">
-      <pose>-8 -11 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-8 -11 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="shelf8-1">
-      <pose>-5.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf8-2">
-      <pose>-5.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf8-3">
-      <pose>-4.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf8-4">
-      <pose>-4.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-5.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf8-2">
+    <pose>-5.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf8-3">
+    <pose>-4.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf8-4">
+    <pose>-4.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall8-1">
-      <pose>-5 -11 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf9-1">
-      <pose>-2.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf9-2">
-      <pose>-2.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf9-3">
-      <pose>-1.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf9-4">
-      <pose>-1.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
+    <pose>-5 -11 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf9-1">
+    <pose>-2.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf9-2">
+    <pose>-2.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf9-3">
+    <pose>-1.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf9-4">
+    <pose>-1.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
     </model>
     <model name="wall9-1">
-      <pose>-2 -11 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>-2 -11 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="shelf12-1">
-      <pose>8.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf12-2">
-      <pose>8.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf12-3">
-      <pose>7.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf12-4">
-      <pose>7.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>8.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf12-2">
+    <pose>8.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf12-3">
+    <pose>7.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf12-4">
+    <pose>7.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall12-1">
-      <pose>8 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>8 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
     <model name="shelf11-1">
-      <pose>5.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf11-2">
-      <pose>5.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf11-3">
-      <pose>4.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf11-4">
-      <pose>4.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>5.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf11-2">
+    <pose>5.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf11-3">
+    <pose>4.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf11-4">
+    <pose>4.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall11-1">
-      <pose>5 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf10-1">
-      <pose>2.3 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf10-2">
-      <pose>2.3 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf10-3">
-      <pose>1.7 -2.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf10-4">
-      <pose>1.7 -3.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    <pose>5 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+  <model name="shelf10-1">
+    <pose>2.3 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf10-2">
+    <pose>2.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf10-3">
+    <pose>1.7 -2.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf10-4">
+    <pose>1.7 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
     <model name="wall10-1">
-      <pose>2 -3 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf15-1">
-      <pose>8.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf15-2">
-      <pose>8.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf15-3">
-      <pose>7.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf15-4">
-      <pose>7.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="wall15-1">
-      <pose>8 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf14-1">
-      <pose>5.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf14-2">
-      <pose>5.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf14-3">
-      <pose>4.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf14-4">
-      <pose>4.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="wall14-1">
-      <pose>5 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf13-1">
-      <pose>2.3 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf13-2">
-      <pose>2.3 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf13-3">
-      <pose>1.7 -6.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf13-4">
-      <pose>1.7 -7.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="wall13-1">
-      <pose>2 -7 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf18-1">
-      <pose>8.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf18-2">
-      <pose>8.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf18-3">
-      <pose>7.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf18-4">
-      <pose>7.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="wall18-1">
-      <pose>8 -11 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf17-1">
-      <pose>5.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf17-2">
-      <pose>5.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf17-3">
-      <pose>4.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf17-4">
-      <pose>4.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="wall17-1">
-      <pose>5 -11 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="wall_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://wall/wall.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf16-1">
-      <pose>2.3 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf16-2">
-      <pose>2.3 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf16-3">
-      <pose>1.7 -10.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-    <model name="shelf16-4">
-      <pose>1.7 -11.5 0  0 0 1.57</pose>
-      <static>true</static>
-      <link name="shelf_body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </visual>
-        <collision name="visual">
-          <geometry>
-            <mesh><uri>model://shelf/shelf.dae</uri></mesh>
-          </geometry>
-        </collision>
-      </link>
+    <pose>2 -3 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf15-1">
+    <pose>8.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf15-2">
+    <pose>8.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf15-3">
+    <pose>7.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf15-4">
+    <pose>7.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="wall15-1">
+    <pose>8 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf14-1">
+    <pose>5.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf14-2">
+    <pose>5.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf14-3">
+    <pose>4.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf14-4">
+    <pose>4.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="wall14-1">
+    <pose>5 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf13-1">
+    <pose>2.3 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf13-2">
+    <pose>2.3 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+      
+  <model name="shelf13-3">
+    <pose>1.7 -6.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf13-4">
+    <pose>1.7 -7.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="wall13-1">
+    <pose>2 -7 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf18-1">
+    <pose>8.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf18-2">
+    <pose>8.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf18-3">
+    <pose>7.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf18-4">
+    <pose>7.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="wall18-1">
+    <pose>8 -11 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf17-1">
+    <pose>5.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf17-2">
+    <pose>5.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf17-3">
+    <pose>4.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf17-4">
+    <pose>4.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="wall17-1">
+    <pose>5 -11 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="wall_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://wall/wall.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf16-1">
+    <pose>2.3 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf16-2">
+    <pose>2.3 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf16-3">
+    <pose>1.7 -10.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="shelf16-4">
+    <pose>1.7 -11.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
     </model>
     <model name="wall16-1">
       <pose>2 -11 0  0 0 1.57</pose>
@@ -2703,7 +2844,7 @@
           </geometry>
         </collision>
       </link>
-    </model>
+    </model> 
     <light name="Warehouse_CeilingLight_003" type="point">
       <pose frame="">0 0 9 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
