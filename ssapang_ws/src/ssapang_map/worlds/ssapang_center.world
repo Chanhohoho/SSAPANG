@@ -1221,7 +1221,25 @@
     </include>
     <pose frame="">0.0 -7.5 0 0 0 0</pose>
 	</model>
+  
+  <model name="shelf1-2">
+    <pose>-8.3 -3.5 0  0 0 1.57</pose>
+    <static>true</static>
+    <link name="shelf_body">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="visual">
+        <geometry>
+          <mesh><uri>model://shelf/shelf.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
 
+  
   <light type="directional" name="some_light">
       <diffuse>0.7 0.7 0.7 0</diffuse>
       <specular>1 1 1 0</specular>
