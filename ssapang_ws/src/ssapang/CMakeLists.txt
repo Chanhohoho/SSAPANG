@@ -134,18 +134,21 @@ include_directories(
 ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(burger_control src/burger_control.cpp)
+add_dependencies(burger_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(burger_control ${catkin_LIBRARIES} )
 
-add_executable(path_pub src/path_pub.cpp)
-add_dependencies(path_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(path_pub ${catkin_LIBRARIES} )
+add_executable(waffle_control src/waffle_control.cpp)
+add_dependencies(waffle_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(waffle_control ${catkin_LIBRARIES} )
 
-# add_executable(path_sub src/path_sub.cpp)
-# add_dependencies(path_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-# target_link_libraries(path_sub ${catkin_LIBRARIES} )
+add_executable(burger_tower src/burger_control_tower.cpp)
+add_dependencies(burger_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(burger_tower ${catkin_LIBRARIES} )
 
-add_executable(robot_control src/robot_control.cpp)
-add_dependencies(robot_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(robot_control ${catkin_LIBRARIES} )
+add_executable(waffle_tower src/waffle_control_tower.cpp)
+add_dependencies(waffle_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(waffle_tower ${catkin_LIBRARIES} )
 
 add_executable(tower src/control_tower.cpp)
 add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

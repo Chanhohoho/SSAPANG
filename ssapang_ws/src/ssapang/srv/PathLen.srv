@@ -1,4 +1,5 @@
 string startNode
 string endNode
+string type
 ---
 int32 len

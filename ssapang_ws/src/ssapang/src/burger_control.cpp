@@ -13,12 +13,13 @@
 #include <ssapang/RobotPos.h>
 #include <ssapang/RobotStatus.h>
 #include <ssapang/Task.h>
-#include <ssapang/Go.h>
+#include <ssapang/End.h>
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <queue>
 #include <unistd.h>
+#include <ssapang/Station.h>
 
 const double PI = std::acos(-1);
 
@@ -36,15 +37,14 @@ public:
         goPub = nh->advertise<ssapang::str>("Go", 1);
 
 
-        goSrv = nh->advertiseService("go_go", &RobotControl::possible, this);
         odomSub = nh->subscribe("odom", 10, &RobotControl::odomCallback, this);
         pathSub = nh->subscribe("path", 10, &RobotControl::pathCallback, this);
         waitSub = nh->subscribe("wait", 10, &RobotControl::waitCallback, this);
         shelfSub = nh->subscribe("shelf", 10, &RobotControl::shelfCallback, this);
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
 
-        // goSrv = nh->advertiseService("gogo", &RobotControl::possible, this);
-
+        endSrv = nh->serviceClient<ssapang::End>("end");
+        stationCli = nh->serviceClient<ssapang::Station>(argv[1][0] == 'b' ? "/burger/station" : "/waffle/station");
 
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
@@ -55,39 +55,44 @@ public:
         status.status = 0;
         battery = 100.0;
         nextPos.QR = argv[2];
+        robotName = argv[1];
         GO.data = "GO";
         wait = 1;
-        sw = 1;
-
-        nh->getParam("robotName", robotName);
 
         try
         {
-            sleep(10);
+            sleep(3);
             while (ros::ok())
             {
-                // 판단
-                ros::spinOnce();
-                rate.sleep();
-                if(idx < 0) continue;
-                if(sw){
-                    checkGoPub.publish(NEXT); // 다음위치
-                    rate.sleep();
-                    sw = 0;
+                if(status.status == 4){
+                    sleep(1);
+                    battery += 5;
+                    std:: cout << robotName << " battery : " << battery << "\n";
+                    if(battery < 100) continue;
+                    battery = 100;
+                    status.status = -2;
+                    statePush();
                 }
+                // 판단
+                // ros::spinOnce();
+                // rate.sleep();
+                if(idx < 0) continue;
+                checkGoPub.publish(NEXT); // 다음위치
+                // std:: cout << robotName << "- go\n";
                 // sleep(1);
                 
                 // ros::spinOnce();
-                if(wait) continue;
-                // std::cout << "들어옴\n";
-                
-                
-                // nextIdx();
+                if(wait == 1) continue;
+                // else if(wait == 2){
 
-                // // std::cout << nh->getNamespace() << " - " << nextPos.x << ", " << nextPos.y << ", " << nextPos.deg << std::endl;
-                // turn();
-                // cmdPub.publish(stop);
-                // rate.sleep();
+                //     continue;;
+                // }
+                
+                
+                nextIdx();
+                turn();
+                cmdPub.publish(stop);
+                rate.sleep();
 
                 if(nextPos.y == 100) {
                     path.clear();
@@ -99,32 +104,64 @@ public:
                     sleep(3);
                     switch (status.status)
                     {
+                    case 3:
+                        std::cout << robotName << " 충전소 도착\n";
+                        statePush();
+                        break;
                     case 1:
+                        std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
-                    
-                    default:
-                        makePath("LB1132");
+                    case 2:
+                        std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
+                        ssapang::End end;
+                        end.request.name = robotName;
+                        if(battery > 30 && endSrv.call(end)){  
+                            std::cout << "일 재할당\n";
+                            task = end.response.task;
+                            status.status = 0;
+                            makePath(task.product);
+                        }
+                        else{
+                            std::cout << "충전소\n";
+                            ssapang::Station srv;
+                            srv.request.nowNode = nextPos.QR;
+                            srv.request.num = stoi(robotName.substr(6,robotName.length() - 6));
+                            std::cout << "num : " <<srv.request.num  <<std::endl;
+                            std::string destination;
+                            if(stationCli.call(srv)){  
+                                destination = srv.response.stationNode;        
+                            }
+                            else{
+                                ROS_ERROR("robot come back fail");
+                            }
+                            std::cout << "destination : " << destination << std::endl;
+                            makePath(destination);
+                        }
                         break;
                     }
+
+
                 }else{
-                    // turn();
-                    // goPub.publish(NOW);
-                    // rate.sleep();
+                    turn();
+                    goPub.publish(NOW);
+                    rate.sleep();
                     go();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
                         NOW.data = path[idx].QR;
-                        pos.battery = --battery;
+                        battery -= 3;
+                        pos.battery = battery;
                         pos.idx = ++idx;
                         if(NOW.data != path[idx].QR){
                             pos.toNode = path[idx].QR;
                             NEXT.data = path[idx].QR;
                             posPub.publish(pos);
+
                         }
                     }
-                    std::cout << idx << '/' << path.size() << "\n";
+                    std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
                 }
                 wait = 1;
                 cmdPub.publish(stop);
@@ -146,7 +183,7 @@ public:
 private:
     ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
-    ros::ServiceServer goSrv;
+    ros::ServiceClient endSrv, stationCli;
     ros::Rate rate = 30;
 
     geometry_msgs::Twist moveCmd;
@@ -155,7 +192,6 @@ private:
     std::string shelfNode;
     ssapang::Task task;
     std::vector<ssapang::Coordinate> path;
-    // ssapang::Coordinate nextPos;
     ssapang::str NOW, NEXT, GO;
     int idx;
     double d, linearSpeed, angularSpeed;
@@ -163,20 +199,6 @@ private:
     int wait;
     ssapang::RobotStatus status;
     double battery;
-    bool sw;
-
-    bool possible(ssapang::Go::Request &req, ssapang::Go::Response &res)
-    {
-        wait = req.wait;
-        sw = 1;
-        if(wait) return false;
-        nextIdx();
-        turn();
-        cmdPub.publish(stop);
-        rate.sleep();
-        res.now = NOW.data;
-        return true ;
-    }
 
     void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
     {
@@ -205,6 +227,7 @@ private:
     void pathCallback(const ssapang::Locations::ConstPtr &msg)
     {
         path = msg->location;
+        std::cout << robotName << " - " << path.size() << "\n";
         idx = 1;
         NEXT.data = path[1].QR;
         NOW.data = path[0].QR;
@@ -225,6 +248,7 @@ private:
         ssapang::Move move;
         move.startNode = nextPos.QR;
         move.endNode = nodeName;
+        // move.types = "burger";
         movePub.publish(move);
         rate.sleep();
         statePush();
@@ -323,12 +347,12 @@ private:
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "robot_control");
+    ros::init(argc, argv, "burger_control");
     ros::NodeHandle nh;
-    // ros::AsyncSpinner spinner(0);
-    // spinner.start();
+    ros::AsyncSpinner spinner(0);
+    spinner.start();
     RobotControl RobotControl(argc, argv, &nh);
-    // ros::waitForShutdown();
+    ros::waitForShutdown();
 
     return 0;
 }

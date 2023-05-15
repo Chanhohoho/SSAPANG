@@ -22,12 +22,12 @@
     </group>
 
     <!-- BEGIN ROBOT 2 -->
-    <group ns="robot2">
+    <!-- <group ns="robot2">
         <include file="$(find ssapang)/launch/one_robot.launch">
             <arg name="init_pose" value="-x 2 -y 0 -z 0 -Y 0"/>
             <arg name="robot_name" value="robot2"/>
         </include>
-    </group>
+    </group> -->
 
     <!-- <group ns="robot3">
         <include file="$(find ssapang)/launch/one_robot.launch">

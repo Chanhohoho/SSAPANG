@@ -64,14 +64,21 @@ public:
             sleep(3);
             while (ros::ok())
             {
+                if(status.status == 4){
+                    sleep(1);
+                    std:: cout << robotName << " battery : " << ++battery << "\n";
+                    if(battery < 100) continue;
+                    status.status = -1;
+                    statePush();
+                }
                 // 판단
-                ros::spinOnce();
-                rate.sleep();
+                // ros::spinOnce();
+                // rate.sleep();
                 if(idx < 0) continue;
                 checkGoPub.publish(NEXT); // 다음위치
                 // sleep(1);
                 
-                ros::spinOnce();
+                // ros::spinOnce();
                 if(wait == 1) continue;
                 // else if(wait == 2){
 
@@ -94,21 +101,23 @@ public:
                     sleep(3);
                     switch (status.status)
                     {
+                    case 3:
+                        std::cout << robotName << " 충전소 도착\n";
+                        statePush();
+                        break;
                     case 1:
                         std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
-                    
                     case 2:
                         std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
                         ssapang::End end;
                         end.request.name = robotName;
-                        if(battery > 20 && endSrv.call(end)){  
+                        if(battery > 30 && endSrv.call(end)){  
                             std::cout << "일 재할당\n";
                             task = end.response.task;
                             status.status = 0;
                             makePath(task.product);
-                            // statePush();
                         }
                         else{
                             std::cout << "충전소\n";
@@ -148,7 +157,7 @@ public:
 
                         }
                     }
-                    std::cout << idx << '/' << path.size() << "\n";
+                    std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
                 }
                 wait = 1;
                 cmdPub.publish(stop);
@@ -235,6 +244,7 @@ private:
         ssapang::Move move;
         move.startNode = nextPos.QR;
         move.endNode = nodeName;
+        // move.types = "waffle";
         movePub.publish(move);
         rate.sleep();
         statePush();
@@ -260,10 +270,10 @@ private:
             double deg=0.0;
             while (1){
                 ros::spinOnce();
-                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.01)
+                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.03)
                     return;
                 deg = std::abs(nowPosition.theta - nextPos.deg);
-                speed = std::max(2*std::min(deg, 1.0), 0.1);
+                speed = std::max(2*std::min(deg, 0.7), 0.1);
                 
                 
                 if (nextPos.deg >= 0){
@@ -300,10 +310,10 @@ private:
                 dX = nextPos.x - nowPosition.x;
                 dY = nextPos.y - nowPosition.y;
                 distance = std::sqrt(std::pow(dY,2) + std::pow(dX,2));
-                if(distance <= 0.02) return;
+                if(distance <= 0.03) return;
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.1), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
@@ -333,7 +343,7 @@ private:
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "robot_control");
+    ros::init(argc, argv, "waffle_control");
     ros::NodeHandle nh;
     ros::AsyncSpinner spinner(0);
     spinner.start();

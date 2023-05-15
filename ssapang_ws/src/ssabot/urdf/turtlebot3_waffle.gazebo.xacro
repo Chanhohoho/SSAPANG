@@ -1,4 +1,3 @@
- 
 <?xml version="1.0"?>
 <robot name="turtlebot3_waffle_sim" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name="laser_visual"  default="false"/>
@@ -119,7 +118,7 @@
     </plugin>
   </gazebo>
 
-  <gazebo reference="base_scan">
+  <!-- <gazebo reference="base_scan">
     <material>Gazebo/FlatBlack</material>
     <sensor type="ray" name="lds_lfcd_sensor">
       <pose>0 0 0 0 0 0</pose>
@@ -150,7 +149,7 @@
         <frameName>base_scan</frameName>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
   <gazebo reference="camera_rgb_frame">
     <sensor type="depth" name="realsense_R200">
@@ -197,3 +196,4 @@
   </gazebo>
 
 </robot>
+
