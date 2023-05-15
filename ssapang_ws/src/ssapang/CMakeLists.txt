@@ -154,9 +154,6 @@ add_executable(task_pub src/task_pub.cpp)
 add_dependencies(task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(task_pub ${catkin_LIBRARIES} )
 
-add_executable(test_test src/test_test.cpp)
-add_dependencies(test_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(test_test ${catkin_LIBRARIES} )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
