@@ -44,7 +44,7 @@ public:
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
 
         endSrv = nh->serviceClient<ssapang::End>("end");
-        stationCli = nh->serviceClient<ssapang::Station>(argv[1][0] == 'b' ? "/burger/station" : "/waffle/station");
+        stationCli = nh->serviceClient<ssapang::Station>(argv[1][0] == 'l' ? "/burger/left_station" : "/burger/right_station");
 
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
@@ -61,28 +61,29 @@ public:
 
         try
         {
-            sleep(3);
+            sleep(20);
             while (ros::ok())
             {
                 if(status.status == 4){
                     sleep(1);
-                    battery += 5;
-                    std:: cout << robotName << " battery : " << battery << "\n";
+                    battery += 50;
+                    // std:: cout << robotName << " battery : " << battery << "\n";
                     if(battery < 100) continue;
                     battery = 100;
                     status.status = -2;
                     statePush();
+                    status.status = 0;
                 }
                 // 판단
-                // ros::spinOnce();
-                // rate.sleep();
+                ros::spinOnce();
+                rate.sleep();
                 if(idx < 0) continue;
                 checkGoPub.publish(NEXT); // 다음위치
-                // std:: cout << robotName << "- go\n";
-                // sleep(1);
                 
-                // ros::spinOnce();
+                ros::spinOnce();
+                rate.sleep();
                 if(wait == 1) continue;
+                sleep(0.5);
                 // else if(wait == 2){
 
                 //     continue;;
@@ -126,7 +127,7 @@ public:
                             std::cout << "충전소\n";
                             ssapang::Station srv;
                             srv.request.nowNode = nextPos.QR;
-                            srv.request.num = stoi(robotName.substr(6,robotName.length() - 6));
+                            srv.request.num = stoi(robotName.substr(7,robotName.length() - 7));
                             std::cout << "num : " <<srv.request.num  <<std::endl;
                             std::string destination;
                             if(stationCli.call(srv)){  
@@ -161,7 +162,7 @@ public:
 
                         }
                     }
-                    std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
+                    // std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
                 }
                 wait = 1;
                 cmdPub.publish(stop);
@@ -227,7 +228,7 @@ private:
     void pathCallback(const ssapang::Locations::ConstPtr &msg)
     {
         path = msg->location;
-        std::cout << robotName << " - " << path.size() << "\n";
+        // std::cout << robotName << " - " << path.size() << "\n";
         idx = 1;
         NEXT.data = path[1].QR;
         NOW.data = path[0].QR;
@@ -349,10 +350,10 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "burger_control");
     ros::NodeHandle nh;
-    ros::AsyncSpinner spinner(0);
-    spinner.start();
+    // ros::AsyncSpinner spinner(0);
+    // spinner.start();
     RobotControl RobotControl(argc, argv, &nh);
-    ros::waitForShutdown();
+    // ros::waitForShutdown();
 
     return 0;
 }

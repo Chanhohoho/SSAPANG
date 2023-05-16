@@ -138,29 +138,35 @@ add_executable(burger_control src/burger_control.cpp)
 add_dependencies(burger_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(burger_control ${catkin_LIBRARIES} )
 
+add_executable(left_burger_tower src/left_burger_control_tower.cpp)
+add_dependencies(left_burger_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(left_burger_tower ${catkin_LIBRARIES} )
+
+add_executable(left_burger_task_pub src/left_burger_task_pub.cpp)
+add_dependencies(left_burger_task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(left_burger_task_pub ${catkin_LIBRARIES} )
+
+add_executable(right_burger_tower src/right_burger_control_tower.cpp)
+add_dependencies(right_burger_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(right_burger_tower ${catkin_LIBRARIES} )
+
+add_executable(right_burger_task_pub src/right_burger_task_pub.cpp)
+add_dependencies(right_burger_task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(right_burger_task_pub ${catkin_LIBRARIES} )
+
+
+
 add_executable(waffle_control src/waffle_control.cpp)
 add_dependencies(waffle_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(waffle_control ${catkin_LIBRARIES} )
-
-add_executable(burger_tower src/burger_control_tower.cpp)
-add_dependencies(burger_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(burger_tower ${catkin_LIBRARIES} )
 
 add_executable(waffle_tower src/waffle_control_tower.cpp)
 add_dependencies(waffle_tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(waffle_tower ${catkin_LIBRARIES} )
 
-add_executable(tower src/control_tower.cpp)
-add_dependencies(tower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(tower ${catkin_LIBRARIES} )
-
-add_executable(task_pub src/task_pub.cpp)
-add_dependencies(task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(task_pub ${catkin_LIBRARIES} )
-
-# add_executable(test_test src/test_test.cpp)
-# add_dependencies(test_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-# target_link_libraries(test_test ${catkin_LIBRARIES} )
+add_executable(waffle_task_pub src/waffle_task_pub.cpp)
+add_dependencies(waffle_task_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(waffle_task_pub ${catkin_LIBRARIES} )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

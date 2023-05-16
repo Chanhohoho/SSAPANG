@@ -29,16 +29,8 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
             continue
         # 현재 노드와 연결된 모든 노드를 순회
         for next_node in graph[curr_node]:
-            if cantGoNode!=None:
-                if isinstance(cantGoNode, list): # 가면 안되는 노드가 2개이상
-                    block = False # 가도 되는지 확인
-                    for i in cantGoNode:
-                        if next_node == i: # 현재 가려는 노드가 가면 안되는 노드인 경우
-                            block = True # 거리 계산 과정 생략
-                            break
-                    if block:           # 연결된 노드 중 다음 순서로
-                        continue
-                elif next_node == cantGoNode: # 가면 안되는 노드가 1개
+            if cantGoNode!=None: #만약 지나면 안되는 노드가 있다면 통과
+                if next_node == cantGoNode:
                     continue
             # 새로운 거리 계산
             new_dist = curr_dist + 1
@@ -56,6 +48,7 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
     path.append(copy.deepcopy(path[-1]))
     path.reverse()
     return path
+
 
 def addCoordinates(arr):
     last = len(arr)-1
@@ -89,7 +82,12 @@ def callback(msg):
 def callbackCT(msg):
     lenght = PathLen()
     try:
-        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
+        # if msg.type == "burger":
+        #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo))
+        # else:
+        #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        print(msg.startNode, msg.endNode)
+        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
         lenght = len(shortest_dist)
     except:
         print(msg.startNode, msg.endNode,'srv_error')

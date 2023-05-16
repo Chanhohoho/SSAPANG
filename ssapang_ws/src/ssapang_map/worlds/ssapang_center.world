@@ -7,11 +7,106 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
+    <!-- <model name="shelf1-1">
       <include>
-        <uri>model://shelf</uri>
-        <pose>-1 -0 0.01 0 0 0</pose>
-    </include>
-<!-- 
+        <uri>model://ssapang_shelf</uri>
+        <pose> 9 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf1-2">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 9 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+    <!-- <model name="shelf1-3">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 6 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf1-4">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 6 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+    <!-- <model name="shelf1-5">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 3 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf1-6">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 3 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+    <!-- <model name="shelf1-7">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 1 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf1-8">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> 1 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+
+    <!-- <model name="shelf2-1">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -9 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf2-2">
+
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -9 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+    <!-- <model name="shelf2-3">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -6 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf2-4">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -6 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+    <!-- <model name="shelf2-5">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -3 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf2-6">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -3 1 0 0 0 0 1.57</pose>        
+      </include>
+    </model>
+    <!-- <model name="shelf2-7">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -1 0.5 0 0 0 0 1.57</pose>
+      </include>
+    </model> -->
+    <model name="shelf2-8">
+      <include>
+        <uri>model://ssapang_shelf</uri>
+        <pose> -1 1 0 0 0 0 1.57</pose>
+      </include>
+    </model>
+
+    <!-- 
     <include>
       <uri>model://qrcode/BP0312</uri>
       <pose>9 -6.5 0.01 0 0 0</pose>
@@ -1218,15 +1313,14 @@
     </include> -->
 
 
-  <model name="warehouse_ground">
-    <include>
+    <model name="warehouse_ground">
+      <include>
         <uri>model://warehouse_ground</uri>
-    </include>
-    <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
-	</model>
-    
-    	
-    
+      </include>
+      <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
+    </model>
+
+
     <!-- <model name="shelf1-1">
     <pose>-8.3 -2.5 0  0 0 1.57</pose>
     <static>true</static>
@@ -2688,7 +2782,7 @@
       <cast_shadows>0</cast_shadows>
       <direction>0.1 0.1 -1</direction>
     </light>
-    
+
 
     <gui fullscreen='0'>
       <camera name='user_camera'>
