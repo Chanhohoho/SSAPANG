@@ -87,6 +87,7 @@ public:
                 
                 ros::spinOnce();
                 if(wait == 1) continue;
+                sleep(1);
                 // else if(wait == 2){
 
                 //     continue;;

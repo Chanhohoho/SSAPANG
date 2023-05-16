@@ -59,6 +59,8 @@ public:
         GO.data = "GO";
         wait = 1;
 
+        bool sw = 0;
+
         try
         {
             sleep(20);
@@ -80,10 +82,16 @@ public:
                 if(idx < 0) continue;
                 checkGoPub.publish(NEXT); // 다음위치
                 
+                
                 ros::spinOnce();
                 rate.sleep();
-                if(wait == 1) continue;
-                sleep(0.5);
+                if(wait == 1) {
+                    sw = 1;
+                    continue;
+                }
+                if(sw && (NEXT.data[0]=='L' || NEXT.data[0]=='R')) sleep(5);
+                sw = 0;
+                // sleep(1);
                 // else if(wait == 2){
 
                 //     continue;;

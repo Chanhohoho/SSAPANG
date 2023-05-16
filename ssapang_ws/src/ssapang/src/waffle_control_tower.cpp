@@ -31,7 +31,7 @@ std::list <std::string> batteryStation2;
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 2;
+int robotCnt = 6;
 
 std::string startNode[13] = {"",
     "LW21","RW21",
