@@ -156,7 +156,7 @@ public:
         reqMinDist = nh->serviceClient<ssapang::PathLen>("/min_len");
         stationSrv = tower_nh->advertiseService("left_station",  &ControlTower::findStationNode,this);
 
-        for(int i = robotCnt+1; i < startNode->length(); i++)
+        for(int i = robotCnt+1; i < 19; i++)
             station[startNode[i]] = 1;
         
         for(int i = 1; i <= robotCnt; i++){
@@ -187,7 +187,7 @@ private:
         int minLen = 1000;
         int minIdx = -1;
 
-        for(int i = 1; i < startNode->length(); i++){
+        for(int i = 1; i < 19; i++){
                 // 각 충전소의 노드 
                 pathLen.request.endNode = startNode[i];
                 std::cout << startNode[i] << "->" <<station[pathLen.request.endNode]  << "\n";

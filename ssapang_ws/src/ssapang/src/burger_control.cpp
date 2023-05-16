@@ -59,8 +59,6 @@ public:
         GO.data = "GO";
         wait = 1;
 
-        bool sw = 0;
-
         try
         {
             sleep(20);
@@ -80,34 +78,15 @@ public:
                 ros::spinOnce();
                 rate.sleep();
                 if(idx < 0) continue;
-                checkGoPub.publish(NEXT); // 다음위치
-                
-                
-                ros::spinOnce();
-                rate.sleep();
-                if(wait == 1) {
-                    sw = 1;
-                    continue;
-                }
-                if(sw && (NEXT.data[0]=='L' || NEXT.data[0]=='R')) sleep(5);
-                sw = 0;
-                // sleep(1);
-                // else if(wait == 2){
-
-                //     continue;;
-                // }
-                
+                if(wait) {
+                    checkGoPub.publish(NEXT); // 다음위치
+                    continue;;
+                }               
                 
                 nextIdx();
-                turn();
-                cmdPub.publish(stop);
-                rate.sleep();
-
                 if(nextPos.y == 100) {
                     path.clear();
                     idx = -1;
-                    // status.status++;
-                    // statusPub.publish(status);
                     cmdPub.publish(stop);
                     rate.sleep();
                     sleep(3);
@@ -153,9 +132,18 @@ public:
 
                 }else{
                     turn();
-                    goPub.publish(NOW);
+                    if(NOW.data[0]=='L' || NOW.data[0]=='R'){
+                        go();
+                        goPub.publish(NOW);
+                        rate.sleep();
+                    }else{
+                        goPub.publish(NOW);
+                        rate.sleep();
+                        go();
+                    }
+                    cmdPub.publish(stop);
                     rate.sleep();
-                    go();
+                    turn();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
@@ -283,7 +271,7 @@ private:
             double deg=0.0;
             while (1){
                 ros::spinOnce();
-                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.01)
+                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.02)
                     return;
                 deg = std::abs(nowPosition.theta - nextPos.deg);
                 speed = std::max(2*std::min(deg, 1.0), 0.1);
@@ -350,8 +338,7 @@ private:
         }
         cmdPub.publish(stop);
         rate.sleep();
-    } 
-
+    }
 };
 
 int main(int argc, char **argv)

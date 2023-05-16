@@ -9,9 +9,9 @@
         <arg name="debug" value="false" />
     </include>
 
-    <include file="$(find ssabot)/launch/left_burger.launch" />
+    <!-- <include file="$(find ssabot)/launch/left_burger.launch" /> -->
     <!-- <include file="$(find ssabot)/launch/right_burger.launch" /> -->
-    <!-- <include file="$(find ssabot)/launch/waffle.launch" /> -->
+    <include file="$(find ssabot)/launch/waffle.launch" />
 
     <!-- BEGIN RRBOT -->
     <!-- <group ns="rrbot1">

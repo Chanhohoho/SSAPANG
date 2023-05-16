@@ -82,28 +82,15 @@ public:
                 ros::spinOnce();
                 rate.sleep();
                 if(idx < 0) continue;
-                checkGoPub.publish(NEXT); // 다음위치
-                // sleep(1);
-                
-                ros::spinOnce();
-                if(wait == 1) continue;
-                sleep(1);
-                // else if(wait == 2){
-
-                //     continue;;
-                // }
-                
+                if(wait) {
+                    checkGoPub.publish(NEXT); // 다음위치
+                    continue;;
+                }   
                 
                 nextIdx();
-                turn();
-                cmdPub.publish(stop);
-                rate.sleep();
-
                 if(nextPos.y == 100) {
                     path.clear();
                     idx = -1;
-                    // status.status++;
-                    // statusPub.publish(status);
                     cmdPub.publish(stop);
                     rate.sleep();
                     sleep(3);
@@ -156,9 +143,12 @@ public:
 
                 }else{
                     turn();
+                    go();
                     goPub.publish(NOW);
                     rate.sleep();
-                    go();
+                    cmdPub.publish(stop);
+                    rate.sleep();
+                    turn();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
@@ -172,7 +162,7 @@ public:
 
                         }
                     }
-                    std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
+                    // std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
                 }
                 wait = 1;
                 cmdPub.publish(stop);
@@ -329,7 +319,7 @@ private:
                 if(distance <= 0.03) return;
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.1), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)
