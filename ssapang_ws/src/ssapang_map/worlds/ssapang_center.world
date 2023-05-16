@@ -1223,7 +1223,7 @@
 	</model>
   
 
-  <model name="shelf1-1">
+  <!-- <model name="shelf1-1">
     <pose>-8.3 -3.5 0  0 0 1.57</pose>
     <static>true</static>
     <link name="shelf_body">
@@ -1289,8 +1289,24 @@
         </geometry>
       </collision>
     </link>
+  </model> -->
+
+  <model name="ssapang_box_01_001">
+    <include>
+      <uri>model://box</uri>
+      <pose>-8.3 -2.5 0.8 0 0 1.57</pose>
+    </include>	
   </model>
 
+
+
+  <model name="ssapang_shelf_01_001">
+    <include>
+      <uri>model://shelf</uri>
+      <pose>-8.3 -2.5 0  0 0 1.57</pose>
+    </include>	
+  </model>
+  
   <model name="cardboard_box">
     <pose>-8.9 -3.5 0  0 0 1.57</pose>
     <static>false</static>
