@@ -36,6 +36,14 @@ _설치는 다음을 참조하십시오. [포팅메뉴얼](exec/포팅매뉴얼_
 _자세한 예와 용도는 다음을 참조하십시오. [Wiki][wiki]._
 
 
+## 기여
+
+1. 해당 프로젝트를 Fork 하세요 (<https://lab.ssafy.com/s08-final/S08P31A409/-/forks/new>)
+2. feature 브랜치를 생성하세요 (`git checkout -b feature/fooBar`)
+3. 변경사항을 commit 하세요 (`git commit -am 'Add some fooBar'`)
+4. 브랜치에 Push 하세요 (`git push origin feature/fooBar`)
+5. 새로운 Merge Request를 요청하세요
+
 ## 프로젝트 구성원
 
 - 8기 곽준영
