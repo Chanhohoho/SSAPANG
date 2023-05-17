@@ -10,7 +10,7 @@ material WareHouseGround/Image
 
               texture_unit
               {
-                texture MyImage.png
+                texture Floor.png
               }
             }
           }
