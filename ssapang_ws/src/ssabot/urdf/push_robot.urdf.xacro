@@ -44,7 +44,7 @@
     <child link="virtual_link1"/>
     <origin xyz="0 0 1" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0.03" lower="-0.5" upper="0.5" velocity="0.0001"/>
+    <limit effort="0.03" lower="-0.8" upper="0.8" velocity="0.0001"/>
   </joint>
 
   <link name="virtual_link1">
@@ -76,7 +76,7 @@
     <child link="virtual_link2"/>
     <origin xyz="0 0 1" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.03" lower="-0.5" upper="0.5" velocity="0.0001"/>
+    <limit effort="0.03" lower="-0.8" upper="0.8" velocity="0.0001"/>
   </joint>
 
   <link name="virtual_link2">

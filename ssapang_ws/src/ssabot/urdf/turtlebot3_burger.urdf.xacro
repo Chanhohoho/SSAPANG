@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="turtlebot3_burger" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find ssabot)/urdf/common_properties.xacro"/>
+  <!-- <xacro:include filename="$(find ssabot)/urdf/common_properties.xacro"/> -->
   <xacro:include filename="$(find ssabot)/urdf/turtlebot3_burger.gazebo.xacro"/>
 
   <link name="base_footprint"/>
@@ -17,7 +17,8 @@
       <geometry>
         <mesh filename="package://ssabot/meshes/bases/burger_base.stl" scale="0.002 0.002 0.002"/>
       </geometry>
-      <material name="light_black"/>
+      <!-- <material name="light_black"/> -->
+      <material name="blue"/>
     </visual>
 
     <collision>
@@ -49,7 +50,7 @@
       <geometry>
         <mesh filename="package://ssabot/meshes/wheels/left_tire.stl" scale="0.002 0.002 0.002"/>
       </geometry>
-      <material name="dark"/>
+      <!-- <material name="dark"/> -->
     </visual>
 
     <collision>
@@ -81,7 +82,7 @@
       <geometry>
         <mesh filename="package://ssabot/meshes/wheels/right_tire.stl" scale="0.002 0.002 0.002"/>
       </geometry>
-      <material name="dark"/>
+      <!-- <material name="dark"/> -->
     </visual>
 
     <collision>
@@ -168,14 +169,14 @@
     <collision name='collision'>
       <origin xyz="-0.3 0 0" rpy=" 0 0 1.57079"/> 
         <geometry>
-          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.015 0.015 0.015"/>
+          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
         </geometry>
     </collision>
-    <visual name='dump_box_visual'>
+    <visual>
       <origin xyz=" -0.3 0 0.0" rpy="0 0 1.57079"/>
-        <geometry>
-          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.015 0.015 0.015"/>
-        </geometry>
+      <geometry>
+        <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
+      </geometry>
     </visual>
 
     <inertial>

@@ -8,6 +8,47 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
+
+  <model name="ssapang_box_01_001">
+    <include>
+      <uri>model://box</uri>
+      <pose>-8.3 -2.5 0.8 0 0 1.57</pose>
+    </include>	
+  </model>
+  <model name="ssapang_box_01_002">
+    <include>
+      <uri>model://box</uri>
+      <pose>-8.3 -2.5 1.63 0 0 1.57</pose>
+    </include>	
+  </model>
+
+
+  <model name="ssapang_shelf_01_001">
+    <include>
+      <uri>model://shelf</uri>
+      <pose>-8.3 -2.5 0  0 0 1.57</pose>
+    </include>	
+  </model>
+  
+  <!-- <model name="cardboard_box">
+    <pose>-8.9 -3.5 0  0 0 1.57</pose>
+    <static>false</static>
+    <link name="cardboard_body">
+      <visual name="box_visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="box_visual">
+        <geometry>
+          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model> -->
+
+
+
 <!-- 
     <include>
       <uri>model://qrcode/BP0312</uri>
@@ -1290,39 +1331,6 @@
       </collision>
     </link>
   </model> -->
-
-  <model name="ssapang_box_01_001">
-    <include>
-      <uri>model://box</uri>
-      <pose>-8.3 -2.5 0.8 0 0 1.57</pose>
-    </include>	
-  </model>
-
-
-
-  <model name="ssapang_shelf_01_001">
-    <include>
-      <uri>model://shelf</uri>
-      <pose>-8.3 -2.5 0  0 0 1.57</pose>
-    </include>	
-  </model>
-  
-  <model name="cardboard_box">
-    <pose>-8.9 -3.5 0  0 0 1.57</pose>
-    <static>false</static>
-    <link name="cardboard_body">
-      <visual name="box_visual">
-        <geometry>
-          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
-        </geometry>
-      </visual>
-      <collision name="box_visual">
-        <geometry>
-          <mesh><uri>model://cardboard_box/meshes/cardboard_box.dae</uri></mesh>
-        </geometry>
-      </collision>
-    </link>
-  </model>
 
   
   <light type="directional" name="some_light">

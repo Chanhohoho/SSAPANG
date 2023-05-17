@@ -1,48 +1,48 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="cardboard_box">
+    <pose>0 0 0 0 0 0</pose>
     <link name="link">
       <inertial>
-        <mass>0.005</mass>
+        <mass>0.001</mass>
         <inertia>
-          <ixx>0.0041666667</ixx>
+          <ixx>0.00016667</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0056666667</iyy>
-          <iyz>0</iyz>
-          <izz>0.0068333333</izz>
+          <iyy>0.00016667</iyy>
+          <iyz>0.1</iyz>
+          <izz>0.00016667</izz>
         </inertia>
       </inertial>
       <collision name="collision">
         <geometry>
-          <mesh>
-            <uri>model://cardboard_box/meshes/cardboard_box.dae</uri>
-            <scale>0.1 0.1 0.1</scale>
-          </mesh>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
         </geometry>
         <surface>
           <friction>
             <ode>
-              <mu>0.1</mu>
-              <mu2>0.1</mu2>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
             </ode>
           </friction>
-          <!-- <contact>
+          <contact>
             <ode>
               <kp>10000000.0</kp>
               <kd>1.0</kd>
               <min_depth>0.001</min_depth>
               <max_vel>0.1</max_vel>
             </ode>
-          </contact> -->
+          </contact>
         </surface>
       </collision>
       <visual name="visual">
-        <!-- <pose>0 0 0 0 0 0</pose> -->
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://cardboard_box/meshes/cardboard_box.dae</uri>
-            <scale>0.1 0.1 0.1</scale>
+            <scale>0.3 0.3 0.3</scale>
           </mesh>
         </geometry>
       </visual>
