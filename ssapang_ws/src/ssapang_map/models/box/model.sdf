@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
   <model name='box'>
-    <link name='box::link_0'>
+    <link name='link_0'>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -9,12 +9,12 @@
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.00016667</iyy>
-          <iyz>0.1</iyz>
+          <iyz>0</iyz>
           <izz>0.00016667</izz>
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>-0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -23,7 +23,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.3 0.3 0.3</size>
+            <size>0.3 0.3 0.3</size> 
           </box>
         </geometry>
         <material>
@@ -55,8 +55,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.1</mu>
-              <mu2>0.1</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
               <fdir1>0 0 0</fdir1>
               <slip1>0</slip1>
               <slip2>0</slip2>

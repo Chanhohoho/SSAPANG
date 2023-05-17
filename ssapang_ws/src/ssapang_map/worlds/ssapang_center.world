@@ -29,6 +29,13 @@
       <pose>-8.3 -2.5 0  0 0 1.57</pose>
     </include>	
   </model>
+
+  <model name="ssapang_shelf_with_box">
+    <include>
+      <uri>model://box_on_shelf</uri>
+      <pose>0 -2.5 0  0 0 1.57</pose>
+    </include>	
+  </model>
   
   <!-- <model name="cardboard_box">
     <pose>-8.9 -3.5 0  0 0 1.57</pose>
