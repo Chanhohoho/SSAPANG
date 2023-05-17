@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='shelf'>
-    <link name='shelf::link_0'>
+  <model name='ssapang_shelf_with_box'>
+    <link name='shelf::shelf::link_0'>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -43,6 +43,29 @@
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
+      <visual name='ModelPreview_1::shelf::shelf::link_0::visual_3'>
+        <pose>0 0 1.28 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+        <material>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <script>
+            <name>ModelPreview_3::link_0::visual_1_MATERIAL_ModelPreview_6::link_0::visual_MATERIAL_</name>
+            <uri>__default__</uri>
+          </script>
+          <ambient>0.961 0.475 0 1</ambient>
+          <diffuse>0.961 0.475 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
       <visual name='ModelPreview_3::link_0::visual_1'>
         <pose>0 0 0.31 0 -0 0</pose>
         <geometry>
@@ -62,6 +85,29 @@
           </script>
           <ambient>0.204 0.396 0.643 1</ambient>
           <diffuse>0.204 0.396 0.643 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <visual name='ModelPreview_1::shelf::shelf::link_0::visual_2'>
+        <pose>0 0 0.65 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+        <material>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <script>
+            <name>ModelPreview_3::link_0::visual_1_MATERIAL_ModelPreview_6::link_0::visual_MATERIAL_</name>
+            <uri>__default__</uri>
+          </script>
+          <ambient>0.961 0.475 0 1</ambient>
+          <diffuse>0.961 0.475 0 1</diffuse>
           <specular>0 0 0 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>

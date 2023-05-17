@@ -20,6 +20,10 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="dumper_bin">
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
   </gazebo>
