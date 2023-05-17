@@ -1222,7 +1222,7 @@
     <include>
         <uri>model://warehouse_ground</uri>
     </include>
-    <pose frame="">0.0 -7.5 -0.000092 0 0 0</pose>
+    <pose frame="">0.0 -6 -0.000092 0 0 0</pose>
 	</model>
     
     	
