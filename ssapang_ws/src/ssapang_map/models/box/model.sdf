@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='ssapang_box'>
+  <model name='box'>
     <link name='box::link_0'>
       <inertial>
         <mass>0.001</mass>
@@ -46,7 +46,7 @@
           <script>
             <uri>model://box/materials/scripts</uri>
             <uri>model://box/materials/textures</uri>
-            <name>box/Diffuse</name>
+            <name>box/Image</name>
           </script>
         </material>
 

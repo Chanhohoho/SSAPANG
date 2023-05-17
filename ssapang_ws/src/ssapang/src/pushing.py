@@ -19,17 +19,16 @@ def pushing(msg):
     push = Float64()
 
     row.data = -0.3
-    col.data = 0.3 if parameter[1] == '1' else -0.3
-    push.data = -0.3 if parameter[2] == 'l' else 0.3
+    col.data = 0.5 if parameter[1] == '1' else -0.5
+    push.data = -0.35 if parameter[2] == 'l' else 0.35
     pub[int(parameter[0])][1].publish(row)
-    # rate.sleep()
     pub[int(parameter[0])][2].publish(row)
-    # rate.sleep()
     pub[int(parameter[0])][3].publish(col)
     rate.sleep()
     time.sleep(3)
     pub[int(parameter[0])][0].publish(push)
     rate.sleep()
+    time.sleep(1)
     push.data = 0
     pub[int(parameter[0])][0].publish(push)
     rate.sleep()

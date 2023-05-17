@@ -104,6 +104,7 @@ public:
                         up.data = 1.0;
                         upPub.publish(up);
                         rate.sleep();
+                        sleep(2);
                         std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;

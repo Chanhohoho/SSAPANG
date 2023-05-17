@@ -29,7 +29,7 @@ struct status{
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 6;
+int robotCnt = 3;
 
 
 std::string startNode[13] = {"",

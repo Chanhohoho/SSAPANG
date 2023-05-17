@@ -2,6 +2,7 @@
 #include <random>
 #include <ssapang/Task.h>
 #include <ssapang/TaskList.h>
+#include <ssapang/str.h>
 #include <time.h>
 #include <unistd.h>
 #include <iostream>
@@ -15,20 +16,12 @@ class Task
 public:
     Task(ros::NodeHandle *nh){
         taskPub = nh->advertise<ssapang::TaskList>( "/burger/right_task_list", 1);
-
-        ros::Rate loop_rate(10);
-        sleep(3);
-        for(int i = 0; i < 20; i++){
-            task.product = sectTaskList[rand()%9][rand()%4];
-            task.destination = destination[rand()%4];
-            taskList.list.push_back(task);
-        }
-
-        taskPub.publish(taskList);
+        makePathPub = nh->subscribe<ssapang::str>("/right_make_task", 10, &Task::callback, this);
     }
 
 private:
     ros::Publisher taskPub;
+    ros::Subscriber makePathPub;
     std::string startNode, endNode;
     ssapang::Task task;
     ssapang::TaskList taskList;
@@ -47,6 +40,16 @@ private:
     std::string destination[4] = {
         "BO0109","BO0111","BO0113","BO0115",
     };
+
+    void callback(const ssapang::str::ConstPtr &msg){
+        for(int i = 0; i < 20; i++){
+            task.product = sectTaskList[rand()%9][rand()%4];
+            task.destination = destination[rand()%4];
+            taskList.list.push_back(task);
+        }
+
+        taskPub.publish(taskList);
+    }
 };
 
 

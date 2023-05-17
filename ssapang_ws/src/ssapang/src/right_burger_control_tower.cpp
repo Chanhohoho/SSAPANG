@@ -100,29 +100,18 @@ private:
         node[msg->toNode].push(name);
         robotStatus[name].nowIdx = msg->fromNode;
         robotStatus[name].battery = msg->battery;
-        // std::cout << name << "-pos "<< msg->idx<<"\n";
-        // std::cout << "now : " << msg->fromNode << ", size : " << node[msg->fromNode].size() << ", front : " << (node[msg->fromNode].size() ? node[msg->fromNode].front() : "None") << "\n";
-        // std::cout << "next : " << msg->toNode << ", size : " << node[msg->toNode].size() << ", front : " << (node[msg->toNode].size() ? node[msg->toNode].front() : "None") << "\n";
     }
 
     void checkGo(const ssapang::str::ConstPtr &msg, std::string name, int num){
         // std::cout << name <<" go?\n"; 
-        if(node[msg->data].size() == 0 || node[msg->data].front() != name){
-                // std::cout << "너 못감 - " << name << " - "<<msg->data << "\n";
-            // Wait.wait = 2;
+        if(node[msg->data].size() == 0 || node[msg->data].front() != name)
             return;
-        }else{
-            // std::cout << "너 감 - " << name << " - "<<msg->data << "\n";
-            // std::cout <<node[msg->data].front() << ", " << name << ", " << msg->data <<" wait - " << Wait.wait << "\n";
-            Wait.wait = 0;
-
-        }
+        Wait.wait = 0;
         robots[num-1].waitPub.publish(Wait);
     }
     void go(const ssapang::str::ConstPtr &msg, std::string name){
         //로봇이 움직인 후 뺀다.
         node[msg->data].pop();
-        // std::cout << name <<" now : " << msg->data << ", size : " << node[msg->data].size() << "---------------------------------------------------------------------------\n";
     }
 
     bool task(ssapang::End::Request &req, ssapang::End::Response &res)
@@ -194,7 +183,6 @@ private:
         }
         if(minIdx == -1)return false;
         res.stationNode = startNode[minIdx];
-        // robotStatus["burger"+std::to_string(r)]
         station[res.stationNode] = false;
         return true;
     }

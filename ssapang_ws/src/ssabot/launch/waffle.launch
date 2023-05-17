@@ -25,7 +25,7 @@
             <arg name="start" value="LW22" />
         </include>
     </group>
-    <group ns="waffle4">
+    <!-- <group ns="waffle4">
         <include file="$(find ssabot)/launch/waffle_spawn.launch">
             <arg name="init_pose" value="-x 1 -y 3 -z 0 -Y 3.14" />
             <arg name="robot_name" value="waffle4" />
@@ -46,7 +46,7 @@
             <arg name="robot_name" value="waffle6" />
             <arg name="start" value="RW23" />
         </include>
-    </group>
+    </group> -->
 
     <!-- <group ns="waffle7">
         <include file="$(find ssabot)/launch/waffle_spawn.launch">
