@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 import rospy
 from ssapang.msg import Locations, Coordinate, Move
-import time
 
 import heapq
 from graph import graph
 from node import node
 
-# def dijkstra(graph, start_node, destination_node):
 def dijkstra(graph, start_node, destination_node, cantGoNode=None):
 
     # 시작 노드로부터의 거리 초기화
@@ -28,8 +26,16 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
             continue
         # 현재 노드와 연결된 모든 노드를 순회
         for next_node in graph[curr_node]:
-            if cantGoNode!=None: #만약 지나면 안되는 노드가 있다면 통과
-                if next_node == cantGoNode:
+            if cantGoNode!=None:
+                if isinstance(cantGoNode, list): # 가면 안되는 노드가 2개이상
+                    block = False # 가도 되는지 확인
+                    for i in cantGoNode:
+                        if next_node == i: # 현재 가려는 노드가 가면 안되는 노드인 경우
+                            block = True # 거리 계산 과정 생략
+                            break
+                    if block:           # 연결된 노드 중 다음 순서로
+                        continue
+                elif next_node == cantGoNode: # 가면 안되는 노드가 1개
                     continue
             # 새로운 거리 계산
             new_dist = curr_dist + 1
@@ -53,7 +59,6 @@ def addCoordinates(arr):
         arr[i].append(node.get(arr[i+1][0]))
     arr[last].append([-100, 100])
     arr[last][1] = arr[last-1][1]
-    print(arr)
     return arr
 
 def callback(msg):
@@ -63,9 +68,9 @@ def callback(msg):
         for i in range(len(shortest_dist)):
             coord = Coordinate()
             coord.QR = shortest_dist[i][0]
-            coord.x = shortest_dist[i][2][1]
-            coord.y = shortest_dist[i][2][0]
             coord.deg = shortest_dist[i][1]
+            coord.y = shortest_dist[i][2][0]
+            coord.x = shortest_dist[i][2][1]
             loc.location.append(coord)
         pub.publish(loc)
     except:
