@@ -29,27 +29,27 @@ struct status{
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 18;
+int robotCnt = 6;
 
-std::string startNode[19] = {"",
-    "LB1112","LB1122","LB1132",
-    "LB2112","LB2122","LB2132",
-    "LB3112","LB3122","LB3132",
 
-    "LB1212","LB1222","LB1232",
-    "LB2212","LB2222","LB2232",
-    "LB3212","LB3222","LB3232",
+std::string startNode[13] = {"",
+    "LB1112","LB1132",
+    "LB2112","LB2132",
+    "LB3112","LB3132",
+
+    "LB1212","LB1232",
+    "LB2212","LB2232",
+    "LB3212","LB3232",
 };
 
-
 // std::string startNode[19] = {"",
-//     "LB1112","LB1132","LB1152",
-//     "LB2112","LB2132","LB2152",
-//     "LB3112","LB3132","LB3152",
+//     "LB1112","LB1122","LB1132",
+//     "LB2112","LB2122","LB2132",
+//     "LB3112","LB3122","LB3132",
 
-//     "LB1212","LB1232","LB1252",
-//     "LB2212","LB2232","LB2252",
-//     "LB3212","LB3232","LB3252",
+//     "LB1212","LB1222","LB1232",
+//     "LB2212","LB2222","LB2232",
+//     "LB3212","LB3222","LB3232",
 // };
 
 std::unordered_map<std::string, bool> station;
@@ -156,7 +156,7 @@ public:
         reqMinDist = nh->serviceClient<ssapang::PathLen>("/min_len");
         stationSrv = tower_nh->advertiseService("left_station",  &ControlTower::findStationNode,this);
 
-        for(int i = robotCnt+1; i < 19; i++)
+        for(int i = robotCnt+1; i < 13; i++)
             station[startNode[i]] = 1;
         
         for(int i = 1; i <= robotCnt; i++){
@@ -187,7 +187,7 @@ private:
         int minLen = 1000;
         int minIdx = -1;
 
-        for(int i = 1; i < 19; i++){
+        for(int i = 1; i < 13; i++){
                 // 각 충전소의 노드 
                 pathLen.request.endNode = startNode[i];
                 std::cout << startNode[i] << "->" <<station[pathLen.request.endNode]  << "\n";

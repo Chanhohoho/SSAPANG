@@ -59,14 +59,14 @@ def addCoordinates(arr):
     arr[last].append([100,100])
     # arr[last].append(node.get(arr[last][0]))
     arr[last][1] = arr[last-1][1]
-    # print(arr)
     return arr
 
 def callback(msg):
     try:
-        print(msg.startNode, msg.endNode)
         # shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
+        # print(msg.startNode, msg.endNode)
         shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        # print(shortest_dist)
         loc = Locations()
         for i in range(len(shortest_dist)):
             coord = Coordinate()

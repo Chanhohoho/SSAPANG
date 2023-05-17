@@ -18,9 +18,9 @@ public:
 
         ros::Rate loop_rate(10);
         sleep(3);
-        for(int i = 0; i < 15; i++){
+        for(int i = 0; i < 20; i++){
             task.product = sectTaskList[rand()%9][rand()%4];
-            task.destination = destination[rand()%7];
+            task.destination = destination[rand()%4];
             taskList.list.push_back(task);
         }
 
@@ -44,9 +44,8 @@ private:
         {"BP0505","BP0506", "BP0605","BP0606"}
     };
 
-    std::string destination[7] = {
-        "BO0101","BO0102","BO0103","BO0104","BO0105",
-        "BO0106","BO0107",
+    std::string destination[4] = {
+        "BO0102","BO0104","BO0106","BO0107",
     };
 };
 

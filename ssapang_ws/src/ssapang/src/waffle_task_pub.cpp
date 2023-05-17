@@ -34,15 +34,23 @@ private:
     ssapang::TaskList taskList;
 
     std::string sectTaskList[8] = {
-        "LWO13",//"LWO14",
-        "LWO23",//"LWO24",
-        "LWO33",//"LWO34",
-        "LWO43",//"LWO44",
+        // "LWO13",
+        "LWO14",
+        // "LWO23",
+        "LWO24",
+        // "LWO33",
+        "LWO34",
+        // "LWO43",
+        "LWO44",
 
-        "RWO13",//"RWO14",
-        "RWO23",//"RWO24",
-        "RWO33",//"RWO34",
-        "RWO43",//"RWO44",
+        // "RWO13",
+        "RWO14",
+        // "RWO23",
+        "RWO24",
+        // "RWO33",
+        "RWO34",
+        // "RWO43",
+        "RWO44",
     };
 
     std::string destination[9][4] = {

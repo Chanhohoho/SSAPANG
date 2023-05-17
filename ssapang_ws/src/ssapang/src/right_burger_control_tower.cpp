@@ -29,16 +29,16 @@ struct status{
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 9;
+int robotCnt = 3;
 
 std::string startNode[19] = {"",
-    "RB1112","RB1132","RB1152",
-    "RB2112","RB2132","RB2152",
-    "RB3112","RB3132","RB3152",
+    "RB1112","RB1122","RB1132",
+    "RB2112","RB2122","RB2132",
+    "RB3112","RB3122","RB3132",
 
-    "RB1212","RB1232","RB1252",
-    "RB2212","RB2232","RB2252",
-    "RB3212","RB3232","RB3252",
+    "RB1212","RB1222","RB1232",
+    "RB2212","RB2222","RB2232",
+    "RB3212","RB3222","RB3232",
 };
 
 std::unordered_map<std::string, bool> station;
@@ -144,7 +144,7 @@ public:
         reqMinDist = nh->serviceClient<ssapang::PathLen>("/min_len");
         stationSrv = tower_nh->advertiseService("right_station",  &ControlTower::findStationNode,this);
 
-        for(int i = robotCnt+1; i < startNode->length(); i++)
+        for(int i = robotCnt+1; i < 19; i++)
             station[startNode[i]] = 1;
         
         for(int i = 1; i <= robotCnt; i++){
@@ -175,7 +175,7 @@ private:
         int minLen = 1000;
         int minIdx = -1;
 
-        for(int i = 1; i < startNode->length(); i++){
+        for(int i = 1; i < 19; i++){
                 // 각 충전소의 노드 
                 pathLen.request.endNode = startNode[i];
                 if(station[pathLen.request.endNode] == false)continue;

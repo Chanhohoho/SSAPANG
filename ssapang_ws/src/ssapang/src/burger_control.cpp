@@ -20,6 +20,7 @@
 #include <queue>
 #include <unistd.h>
 #include <ssapang/Station.h>
+#include<std_msgs/Float64.h>
 
 const double PI = std::acos(-1);
 
@@ -35,6 +36,8 @@ public:
         statusPub = nh->advertise<ssapang::RobotStatus>("status", 10);
         checkGoPub = nh->advertise<ssapang::str>("checkGo", 1);
         goPub = nh->advertise<ssapang::str>("Go", 1);
+        dumpPub = nh->advertise<std_msgs::Float64>("dump_joint_position_controller/command",1);
+        pickPub = nh->advertise<ssapang::str>("/picking",1);
 
 
         odomSub = nh->subscribe("odom", 10, &RobotControl::odomCallback, this);
@@ -97,10 +100,20 @@ public:
                         statePush();
                         break;
                     case 1:
+                        nextPos.deg = ( (NOW.data[NOW.data.length()-1] -'0') & 1 ) ? 0 : PI;
+                        turn();
+                        pickPub.publish(NOW);
+                        sleep(3);
                         std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
                     case 2:
+                        dump.data = 1.0;
+                        dumpPub.publish(dump);
+                        rate.sleep();
+                        sleep(2);
+                        dump.data = 0.0;
+                        dumpPub.publish(dump);
                         std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
                         ssapang::End end;
                         end.request.name = robotName;
@@ -178,7 +191,7 @@ public:
     }
 
 private:
-    ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
+    ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub, dumpPub, pickPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
     ros::ServiceClient endSrv, stationCli;
     ros::Rate rate = 30;
@@ -190,6 +203,7 @@ private:
     ssapang::Task task;
     std::vector<ssapang::Coordinate> path;
     ssapang::str NOW, NEXT, GO;
+    std_msgs::Float64 dump;
     int idx;
     double d, linearSpeed, angularSpeed;
     double lastDeg;
