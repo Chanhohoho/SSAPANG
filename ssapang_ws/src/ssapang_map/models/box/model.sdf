@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
   <model name='box'>
+<<<<<<< HEAD
     <link name='link_0'>
       <inertial>
         <mass>0.001</mass>
@@ -15,18 +16,45 @@
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
       <pose>-0 0 0 0 -0 0</pose>
+=======
+    <link name='box::link_0'>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00000771</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000771</iyy>
+          <iyz>0.0001</iyz>
+          <izz>0.00036667</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>0 0 0 0 0 0</pose>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <enable_wind>0</enable_wind>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
+<<<<<<< HEAD
             <size>0.3 0.3 0.3</size> 
           </box>
         </geometry>
         <material>
+=======
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <!-- <material>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -39,10 +67,27 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+<<<<<<< HEAD
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
+=======
+        </material> -->
+
+        <material>
+          <script>
+            <uri>model://box/materials/scripts</uri>
+            <uri>model://box/materials/textures</uri>
+            <name>box/Image</name>
+          </script>
+        </material>
+
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
@@ -55,8 +100,13 @@
         <surface>
           <friction>
             <ode>
+<<<<<<< HEAD
               <mu>1</mu>
               <mu2>1</mu2>
+=======
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
               <fdir1>0 0 0</fdir1>
               <slip1>0</slip1>
               <slip2>0</slip2>

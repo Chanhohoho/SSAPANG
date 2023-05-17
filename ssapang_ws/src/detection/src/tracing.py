@@ -10,7 +10,11 @@ from ssapang.msg import Move, Locations, Coordinate
 import sys, select, os
 
 from cv_bridge import CvBridgeError
+<<<<<<< HEAD
 from pyzbar.pyzbar import decode
+=======
+# from pyzbar.pyzbar import decode
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
 from sensor_msgs.msg import CompressedImage
 
@@ -155,8 +159,11 @@ def getKey(key):
         target_angular_vel = checkAngularLimitVelocity(-1.5)
         print(vels(target_linear_vel,target_angular_vel))
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     elif key == -1:
         target_linear_vel = checkLinearLimitVelocity(0)
         target_angular_vel = checkAngularLimitVelocity(-0.5)
@@ -187,6 +194,7 @@ def makeSimpleProfile(output, input, slop):
 
 class IMGParser:
     def __init__(self):
+<<<<<<< HEAD
 
         self.img_bgrD = None
         self.path = []
@@ -194,20 +202,38 @@ class IMGParser:
         self.next = None
         self.start = 'B0206'
 
+=======
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         self.image_subD = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.callbackD)
     
         self.pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
         self.movePub = rospy.Publisher('/move', Move, queue_size=1)
         self.pathSub = rospy.Subscriber("/path",Locations, self.pathCallback)
+<<<<<<< HEAD
    
         self.rate = rospy.Rate(freq)
 
+=======
+        self.rate = rospy.Rate(freq)
+
+
+        self.task = []
+
+
+
+        self.img_bgrD = None
+        self.path = []
+        self.idx = 0
+        self.now = 'B0206'
+        self.next = ['B0206', 0.0]
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         self.way_point = 0
         self.inputTask()
         while True:
             while not rospy.is_shutdown():
                 if self.path == []:
                     continue
+<<<<<<< HEAD
                 if self.img_bgrD is not None:
                     self.binarization()
                     self.detectQR()
@@ -227,10 +253,52 @@ class IMGParser:
         move.startNode = self.now
         move.endNode = self.dst[self.way_point]
         self.movePub.publish(move)
+=======
+                # 인식
+                n = input("입력")
+                if n == 'o':
+                    if self.idx+1 == len(self.path):
+                        self.path = []
+                        if self.way_point == 2:
+                            self.inputTask()
+                        else:
+                            self.way_point += 1
+                            self.makePath()
+                    else:
+                        self.nextIdx()
+                else:
+                    self.path = []
+                    self.makePath()
+                
+                # if self.img_bgrD is not None:
+                #     self.binarization()
+                #     self.detectQR()
+                #     self.rate.sleep()
+
+    def inputTask(self):
+        self.task = input().split()
+        self.way_point = 0
+        self.makePath()
+        
+    def makePath(self):
+        move = Move()
+        move.startNode = self.now
+        move.endNode = self.task[self.way_point]
+        self.movePub.publish(move)
+        self.rate.sleep()
+    
+    def nextIdx(self):
+        self.now = self.next[0]
+        self.idx += 1
+        self.next[0] = self.path[self.idx][0]
+        self.next[1] = self.path[self.idx-1][1]
+        print(self.next)
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
     def pathCallback(self, msg):
         for data in msg.location:
             self.path.append([data.QR, data.deg])
+<<<<<<< HEAD
         self.idx = 1
         self.next[0] = self.path[self.idx][0]
         self.next[1] = self.path[self.idx-1][1]
@@ -305,6 +373,77 @@ class IMGParser:
         else:
             self.detectLine()
             self.move_command()
+=======
+        self.idx = 0
+        self.nextIdx()
+        # print(self.next)
+
+    # def detectQR(self):
+        
+    #     # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
+    #     self.img_qrroi = self.img_bgrD[240:480, 120:520]
+
+    #     codes = decode(self.img_qrroi)
+    #     for code in codes:
+    #         qr_info = code.data.decode('utf-8').split(',')[0]
+    #         print("\n\n\n\n\n",qr_info)
+    #         qr_ori = code.orientation
+    #         print(qr_ori)
+    #     if qr_info == self.path[-1][0]:
+    #         if self.way_point == 3:
+    #             self.inputTask()
+    #         else:
+    #             self.way_point += 1
+    #             self.makePath()
+        
+    #     if codes and qr_info == self.next[0]:
+
+    #         dir = {'UP':180, 'DOWN':0, 'LEFT':90, 'RIGHT':-90}
+
+    #         today = datetime.datetime.today()
+    #         start_time = today.second
+    #         print("\n\n")
+    #         print(start_time)
+
+    #         for _ in range(3*freq):
+    #             getKey(5)
+    #             self.move_command()
+    #             self.rate.sleep()
+
+    #         getKey(0)
+    #         self.move_command()
+    #         self.rate.sleep()
+
+    #         # 각도계산
+    #         move = (dir[qr_ori] - self.next[1]) % 360
+    #         for _ in range(2*freq):
+    #             getKey(move)
+    #             self.move_command()
+    #             self.rate.sleep()
+
+    #         getKey(0)
+    #         self.move_command()
+    #         self.rate.sleep()
+
+    #         for _ in range(3*freq):
+    #             getKey(5)
+    #             self.move_command()
+    #             self.rate.sleep()
+
+    #         getKey(0)
+    #         self.move_command()
+    #         self.rate.sleep()
+            
+    #         #읽고 나서 갱신
+    #         self.idx += 1
+
+    #     elif codes and qr_info != self.next[0]:
+    #         self.now == qr_info
+
+    #     else:
+    #         self.detectLine()
+    #         self.move_command()
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
 
     def detectLine(self):
@@ -318,8 +457,11 @@ class IMGParser:
                     px[i][1] = j
                     break
 
+<<<<<<< HEAD
         # print("\n\npx")
         # print(px)
+=======
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
         global avg
         denominator = 0
@@ -341,7 +483,12 @@ class IMGParser:
             cv2.line(self.img_bgrD, (px[2][0],160),(px[2][1],160),(0,0,255),5)
             total += (px[2][1]+px[2][0])/2
             denominator += 1
+<<<<<<< HEAD
     
+=======
+        
+
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         if denominator > 1 :
             avg = total/denominator
             if avg < 120:
@@ -402,6 +549,7 @@ class IMGParser:
             self.img_bgrD = cv2.flip(self.img_bgrD, -1)
         except CvBridgeError as e:
             print(e)
+<<<<<<< HEAD
         # cv2.imshow("bgr", self.img_bgrD)
         # cv2.waitKey(1)
 
@@ -411,4 +559,10 @@ if __name__ == '__main__':
 
     image_parser = IMGParser()
 
+=======
+
+if __name__ == '__main__':
+    rospy.init_node('lane_fitting', anonymous=True)
+    image_parser = IMGParser()
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     rospy.spin()

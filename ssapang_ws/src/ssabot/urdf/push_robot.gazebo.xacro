@@ -53,6 +53,12 @@
         </plugin>
     </gazebo>
     
+<<<<<<< HEAD
+=======
+    <gazebo reference="base_link1">
+        <material>Gazebo/Black</material>
+    </gazebo>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     <gazebo reference="virtual_link1">
         <material>Gazebo/Orange</material>
     </gazebo>
