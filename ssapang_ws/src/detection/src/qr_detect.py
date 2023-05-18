@@ -48,11 +48,13 @@ class IMGParser:
                                        [1, 0.9],
                                        ])
 
-        rate = rospy.Rate(5)
+        rate = rospy.Rate(20)
 
         while not rospy.is_shutdown():
             if self.img_bgrD is not None:
-                # self.img_bgrD = warp_image(self.img_bgrD, self.source_prop)
+                # self.img_bgrD = warp_image(self.img_bgrD, self.source_prop)\
+                self.binarization()
+
                 self.detectQR()
 
                 rate.sleep()
@@ -80,30 +82,39 @@ class IMGParser:
     #     cv2.waitKey(1)
 
     def detectQR(self):
-        self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
+        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
         # decoded = decode(self.img_bgrD)
         # print(decoded)    
-        codes = decode(self.img_bgrD)
+        codes = decode(self.img_blane)
         for code in codes:
             qr_info = code.data.decode('utf-8').split(',')[0]
             print("\n\n\n\n\n",qr_info)
             qr_ori = code.orientation
             print(qr_ori)
+            
+            x, y, w, h = code.rect
+            cv2.rectangle(self.img_blane,(x,y),(x+w,y+h), (0, 0, 255), 3)
 
+        cv2.imshow("Image window", self.img_blane)
+        cv2.waitKey(1)
+
+
+    def binarization(self):
+        lower_blane = np.array([100,100, 100])
+        upper_blane = np.array([255, 255, 255])
+
+        self.img_blane = cv2.inRange(self.img_bgrD, lower_blane, upper_blane)
 
     def callbackD(self, msg):
         try:
-            np_arr = np.fromstring(msg.data, np.uint8)
+            np_arr = np.frombuffer(msg.data, np.uint8)
             self.img_bgrD = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
             # self.img_hsvL = cv2.cvtColor(img_bgrL, cv2.COLOR_BGR2HSV)
         except CvBridgeError as e:
             print(e)
         
-        img_warp = warp_image(self.img_bgrD, self.source_prop)
+        # img_warp = warp_image(self.img_bgrD, self.source_prop)
         # cv2.imshow("Image window", img_warp)
-        self.img_bgrD = cv2.flip(self.img_bgrD, 0)
-        cv2.imshow("Image window", self.img_bgrD)
-        cv2.waitKey(1)
         #self.detectLane("left", img_hsvL)
 
 
