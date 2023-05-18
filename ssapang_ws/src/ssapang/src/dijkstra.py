@@ -8,8 +8,7 @@ import copy
 import heapq
 from graph import graph
 from node import node
-
-# def dijkstra(graph, start_node, destination_node):
+burgerDontGo = ['BS0101', 'BS0103', 'BS0105', 'BS0108', 'BS0111', 'BS0113', 'BS0115']
 def dijkstra(graph, start_node, destination_node, cantGoNode=None):
 
     # 시작 노드로부터의 거리 초기화
@@ -30,8 +29,16 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
             continue
         # 현재 노드와 연결된 모든 노드를 순회
         for next_node in graph[curr_node]:
-            if cantGoNode!=None: #만약 지나면 안되는 노드가 있다면 통과
-                if next_node == cantGoNode:
+            if cantGoNode!=None:
+                if isinstance(cantGoNode, list): # 가면 안되는 노드가 2개이상
+                    block = False # 가도 되는지 확인
+                    for i in cantGoNode:
+                        if next_node == i: # 현재 가려는 노드가 가면 안되는 노드인 경우
+                            block = True # 거리 계산 과정 생략
+                            break
+                    if block:           # 연결된 노드 중 다음 순서로
+                        continue
+                elif next_node == cantGoNode: # 가면 안되는 노드가 1개
                     continue
             # 새로운 거리 계산
             new_dist = curr_dist + 1
@@ -64,6 +71,8 @@ def addCoordinates(arr):
 
 def callback(msg):
     try:
+        print(msg.startNode, msg.endNode)
+        # shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
         shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
         loc = Locations()
         for i in range(len(shortest_dist)):
@@ -80,16 +89,19 @@ def callback(msg):
 def callbackCT(msg):
     lenght = PathLen()
     try:
-        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
         lenght = len(shortest_dist)
     except:
-        print('srv_error')
+        print(msg.startNode, msg.endNode,'srv_error')
         lenght = -1
     return lenght
 
 if __name__ == '__main__':
     rospy.init_node('path_pub')
-    pub = rospy.Publisher('path', Locations, queue_size=1)
-    sub = rospy.Subscriber('move', Move, callback)
-    lenSrv = rospy.Service('/min_len', PathLen, callbackCT)
-    rospy.spin()
+    try:
+        pub = rospy.Publisher('path', Locations, queue_size=1)
+        sub = rospy.Subscriber('move', Move, callback)
+        lenSrv = rospy.Service('/min_len', PathLen, callbackCT)
+        rospy.spin()
+    except:
+        print('qwrgtsfgsdfg')

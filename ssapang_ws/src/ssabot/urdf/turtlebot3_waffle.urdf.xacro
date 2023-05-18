@@ -58,9 +58,9 @@
       </geometry>
     </collision> -->
     <visual>
-	  <origin xyz="-0.05 0 0.14" rpy="0 0 0"/>
+	  <origin xyz="-0.05 0 0.12" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.02" radius="0.005"/>
+        <cylinder length="0.03" radius="0.025"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -76,14 +76,14 @@
     <child link="piston_link2"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-0.1" upper="0.3" velocity="0.171"/>
+    <limit effort="30" lower="-0.1" upper="0.05" velocity="0.171"/>
   </joint>
 
   <link name="piston_link2">
     <visual>
-	  <origin xyz="-0.05 0 0.16" rpy="0 0 0"/>
+	  <origin xyz="-0.05 0 0.08" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.02" radius="0.01"/>
+        <cylinder length="0.08" radius="0.015"/>
       </geometry>
       <material name="orange"/>
     </visual>
@@ -101,17 +101,17 @@
 
   <link name="piston_plate">
     <visual>
-      <origin xyz="-0.05 0 0.17" rpy="0 0 1.57"/>
+      <origin xyz="0 0 0.1" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="package://ssabot/meshes/piston/piston_plate.dae" scale="0.015 0.015 0.015"/>
+        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.01  0.01  0.01"/>
       </geometry>
       <material name="dark"/>
     </visual>
 
     <collision>
-      <origin xyz="-0.05 0 0.17" rpy="0 0 1.57"/>
+      <origin xyz="0 0 0.1" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="package://ssabot/meshes/piston/piston_plate.dae" scale="0.015 0.015 0.015"/>
+        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.01  0.01 0.01"/>
       </geometry>
     </collision>
 

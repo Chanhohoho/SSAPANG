@@ -18,7 +18,13 @@
             <param name="tf_prefix" value="$(arg robot_name)_tf" />
       </node>
       
-      <node pkg='ssapang' type='robot_control' name='robot_control' args="$(arg robot_name) $(arg start)" output='screen' />
+      <node pkg='ssapang' type='burger_control' name='burger_control' args="$(arg robot_name) $(arg start)" output='screen' />
       <node pkg='ssapang' type='dijkstra.py' name='path_pub'  output='screen'/>
+      <rosparam file="$(find ssabot)/config/dump_config.yaml" command="load"/>
+
+      <!-- load the controllers -->
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+            output="screen" args="joint_state_controller 
+                                                dump_joint_position_controller"/>
 </launch>
 

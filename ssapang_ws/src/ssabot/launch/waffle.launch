@@ -1,0 +1,27 @@
+<launch>  
+    <node pkg='ssapang' type='waffle_tower' name='waffle_tower' output='screen' />
+
+     <group ns="waffle1">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x 0.5 -y 3 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle1"/>
+          <arg name="start" value="RW21"/>
+      </include>
+  </group> 
+
+  <group ns="waffle2">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x 1 -y 3 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle2"/>
+          <arg name="start" value="RW22"/>
+      </include>
+  </group>
+
+  <group ns="waffle3">
+      <include file="$(find ssabot)/launch/waffle_spawn.launch">
+          <arg name="init_pose" value="-x 1.5 -y 3 -z 0 -Y 3.14"/>
+          <arg name="robot_name" value="waffle3"/>
+          <arg name="start" value="RW23"/>
+      </include>
+  </group>
+</launch>

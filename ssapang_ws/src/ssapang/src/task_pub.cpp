@@ -13,21 +13,18 @@ using namespace std;
 class Task
 {
 public:
-    Task(int argc, char **argv, ros::NodeHandle *nh){
-        taskPub = nh->advertise<ssapang::TaskList>("/task_list", 1);
+    Task(ros::NodeHandle *nh, std::string type){
+        taskPub = nh->advertise<ssapang::TaskList>(type + "/task_list", 1);
 
         ros::Rate loop_rate(10);
         sleep(3);
-        // while (ros::ok()){
-            for(int i = 0; i < 20; i++){
-                task.product = rightSectTaskList[rand()%9][rand()%4];
-                task.destination = destination[rand()%7];
-                taskList.list.push_back(task);
-            }
+        for(int i = 0; i < 0; i++){
+            task.product = rightSectTaskList[rand()%9][rand()%4];
+            task.destination = destination[rand()%7];
+            taskList.list.push_back(task);
+        }
 
-            // taskPub.publish(taskList);
-            // loop_rate.sleep();
-        // }
+        taskPub.publish(taskList);
     }
 
 private:
@@ -74,7 +71,8 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "task_pub");
     ros::NodeHandle nh;
-    Task task(argc, argv, &nh);
+    Task burger = Task(&nh, "burger");
+    Task waffle = Task(&nh, "waffle");
     ros::spin();
 
     return 0;
