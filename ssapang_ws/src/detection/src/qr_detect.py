@@ -81,8 +81,14 @@ class IMGParser:
 
     def detectQR(self):
         self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
-        decoded = decode(self.img_bgrD)
-        print(decoded)    
+        # decoded = decode(self.img_bgrD)
+        # print(decoded)    
+        codes = decode(self.img_bgrD)
+        for code in codes:
+            qr_info = code.data.decode('utf-8').split(',')[0]
+            print("\n\n\n\n\n",qr_info)
+            qr_ori = code.orientation
+            print(qr_ori)
 
 
     def callbackD(self, msg):

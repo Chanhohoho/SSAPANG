@@ -15,16 +15,28 @@
             respawn="false" />
             
       <!-- Publich robot state -->
+<<<<<<< HEAD
       <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
             <param name="publish_frequency" type="double" value="50.0" />
             <param name="tf_prefix" value="$(arg robot_name)_tf" />
             <remap from="/joint_states" to="/$(arg robot_name)/joint_states" />
       </node>
+=======
+      <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+            <param name="publish_frequency" type="double" value="50.0" />
+            <param name="tf_prefix" value="$(arg robot_name)_tf" />
+            <remap from="/joint_states" to="/$(arg robot_name)/joint_states" />
+      </node> -->
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
       <!-- ======== -->
       <!-- control -->
 
+<<<<<<< HEAD
       <rosparam file="$(find control)/config/config.yaml" command="load"/>
+=======
+      <rosparam file="$(find ssabot)/config/pushbot_config.yaml" command="load"/>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
       <!-- load the controllers -->
       <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
@@ -36,4 +48,7 @@
 
 
 </launch>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7

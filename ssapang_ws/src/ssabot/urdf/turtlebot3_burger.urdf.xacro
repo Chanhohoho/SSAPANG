@@ -163,20 +163,34 @@
                izz="0.001" />
     </inertial>
   </link> -->
+<<<<<<< HEAD
 
   <link name="dumper_bin">
 
+=======
+
+  <link name="dumper_bin">
+
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     <collision name='collision'>
       <origin xyz="-0.3 0 0" rpy=" 0 0 1.57079"/> 
         <geometry>
           <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
         </geometry>
     </collision>
+<<<<<<< HEAD
     <visual>
       <origin xyz=" -0.3 0 0.0" rpy="0 0 1.57079"/>
       <geometry>
         <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
       </geometry>
+=======
+    <visual >
+      <origin xyz=" -0.3 0 0.0" rpy="0 0 1.57079"/>
+        <geometry>
+          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
+        </geometry>
+>>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     </visual>
 
     <inertial>
