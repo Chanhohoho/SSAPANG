@@ -26,21 +26,30 @@ struct status{
     std::string nowIdx;
     double battery;
 };
-std::list <std::string> batteryStation1;
-std::list <std::string> batteryStation2;
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
 int robotCnt = 3;
 
-std::string startNode[31] = {"",
-    "LB1112","LB1122","LB1132","LB1142","LB1152",
-    "LB2112","LB2122","LB2132","LB2142","LB2152",
-    "LB3112","LB3122","LB3132","LB3142","LB3152",
-    "RB1112","RB1122","RB1132","RB1142","RB1152",
-    "RB2112","RB2122","RB2132","RB2142","RB2152",
-    "RB3112","RB3122","RB3132","RB3142","RB3152",
+std::string startNode[13] = {"",
+    "RB1112","RB1122",
+    "RB1132","RB2112",
+    "RB2122","RB2132",
+
+    "RB3112","RB3122",
+    "RB3132","RB4112",
+    "RB4122","RB4132",
 };
+
+// std::string startNode[19] = {"",
+//     "RB1112","RB1122","RB1132",
+//     "RB2112","RB2122","RB2132",
+//     "RB3112","RB3122","RB3132",
+
+//     "RB1212","RB1222","RB1232",
+//     "RB2212","RB2222","RB2232",
+//     "RB3212","RB3222","RB3232",
+// };
 
 std::unordered_map<std::string, bool> station;
 
@@ -74,21 +83,19 @@ private:
     ros::Rate rate = 30;
 
     void status(const ssapang::RobotStatus::ConstPtr &msg, std::string name, int num){
-        // printf("&s:status\n", robotName);
-        // printf("&d\n", msg->status);
-        std::cout << name << "-status: " << msg->status <<"\n";
+        // std::cout << name << "-status: " << msg->status <<"\n";
         robotStatus[name].status = msg->status;
         if(msg->status == -1){
-            std::cout << name << "- 충전완료\n";
+            // std::cout << name << "- 충전완료, " << taskList.size() << "\n";
             robotStatus[name].status = 0;
-        }else{
-            robotStatus[name].status = msg->status;
+            robotStatus[name].battery = 100;
+            if(robotStatus[name].status || taskList.size() == 0) return;
+            std::cout << name << "일 재할당\n";
+            ssapang::Task task = taskList.front();
+            robots[num-1].taskPub.publish(task);
+            taskList.pop();
+            robotStatus[name].status = 1;
         }
-        if(msg->status || taskList.size() == 0) return;
-        ssapang::Task task = taskList.front();
-        robots[num-1].taskPub.publish(task);
-        taskList.pop();
-        robotStatus[name].status = 1;
     }
 
     void pos(const ssapang::RobotPos::ConstPtr &msg, std::string name){
@@ -103,29 +110,18 @@ private:
         node[msg->toNode].push(name);
         robotStatus[name].nowIdx = msg->fromNode;
         robotStatus[name].battery = msg->battery;
-        // std::cout << name << "-pos "<< msg->idx<<"\n";
-        // std::cout << "now : " << msg->fromNode << ", size : " << node[msg->fromNode].size() << ", front : " << (node[msg->fromNode].size() ? node[msg->fromNode].front() : "None") << "\n";
-        // std::cout << "next : " << msg->toNode << ", size : " << node[msg->toNode].size() << ", front : " << (node[msg->toNode].size() ? node[msg->toNode].front() : "None") << "\n";
     }
 
     void checkGo(const ssapang::str::ConstPtr &msg, std::string name, int num){
         // std::cout << name <<" go?\n"; 
-        if(node[msg->data].size() == 0 || node[msg->data].front() != name){
-                // std::cout << "너 못감 - " << name << " - "<<msg->data << "\n";
-            // Wait.wait = 2;
+        if(node[msg->data].size() == 0 || node[msg->data].front() != name)
             return;
-        }else{
-            // std::cout << "너 감 - " << name << " - "<<msg->data << "\n";
-            // std::cout <<node[msg->data].front() << ", " << name << ", " << msg->data <<" wait - " << Wait.wait << "\n";
-            Wait.wait = 0;
-
-        }
+        Wait.wait = 0;
         robots[num-1].waitPub.publish(Wait);
     }
     void go(const ssapang::str::ConstPtr &msg, std::string name){
         //로봇이 움직인 후 뺀다.
         node[msg->data].pop();
-        // std::cout << name <<" now : " << msg->data << ", size : " << node[msg->data].size() << "---------------------------------------------------------------------------\n";
     }
 
     bool task(ssapang::End::Request &req, ssapang::End::Response &res)
@@ -143,16 +139,16 @@ class ControlTower
 public:
     ControlTower(ros::NodeHandle *nh){
         tower_nh = new ros::NodeHandle(*nh, "burger" );
-        taskListSub = tower_nh->subscribe<ssapang::TaskList>("task_list", 10, &ControlTower::taskListCallback, this);
+        taskListSub = tower_nh->subscribe<ssapang::TaskList>("right_task_list", 10, &ControlTower::taskListCallback, this);
         reqMinDist = nh->serviceClient<ssapang::PathLen>("/min_len");
-        stationSrv = tower_nh->advertiseService("station",  &ControlTower::findStationNode,this);
+        stationSrv = tower_nh->advertiseService("right_station",  &ControlTower::findStationNode,this);
 
-        for(int i = robotCnt+1; i <= 30; i++)
+        for(int i = robotCnt+1; i < 19; i++)
             station[startNode[i]] = 1;
         
         for(int i = 1; i <= robotCnt; i++){
             station[startNode[i]] = 0;
-            Robot robot = Robot("burger",i, nh);
+            Robot robot = Robot("rburger",i, nh);
             robots.push_back(robot);
         }
 
@@ -167,8 +163,7 @@ private:
     void taskListCallback(const ssapang::TaskList::ConstPtr &msg){
         for(auto task: msg->list)
             taskList.push(task);
-        distributeTask("burger");
-        // distributeTask("waffle");
+        distributeTask("rburger");
     }
     bool findStationNode(ssapang::Station::Request &req, ssapang::Station::Response &res){
         ssapang::PathLen pathLen;
@@ -176,12 +171,10 @@ private:
         pathLen.request.startNode = req.nowNode;
         pathLen.request.type = "burger";
 
-        int st = req.num <= 15 ? 1 : 16;
-        int en = req.num <= 15 ? 15 : 30;
         int minLen = 1000;
         int minIdx = -1;
 
-        for(int i = st; i <= en; i++){
+        for(int i = 1; i < 19; i++){
                 // 각 충전소의 노드 
                 pathLen.request.endNode = startNode[i];
                 if(station[pathLen.request.endNode] == false)continue;
@@ -200,14 +193,13 @@ private:
         }
         if(minIdx == -1)return false;
         res.stationNode = startNode[minIdx];
-        // robotStatus["burger"+std::to_string(r)]
         station[res.stationNode] = false;
         return true;
     }
 
     void distributeTask(std:: string name){
         ssapang::PathLen pathLen;
-        int minLen = 100000;
+        int minLen = 0x7fff0000;
         int robotNum;
 
         int len = std::min(robotCnt, int(taskList.size()));
@@ -234,7 +226,7 @@ private:
                 rate.sleep();
             }
             if(robotNum == -1) continue;
-            std::cout << "select robot - " << robotNum << "\n";
+            // std::cout << "select robot - " << robotNum << "\n";
             taskList.pop();
             robots[robotNum-1].taskPub.publish(task);
             std::string node = startNode[robotNum];
@@ -251,11 +243,11 @@ private:
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "burger_tower");
-    ros::NodeHandle nh1, nh2;
+    ros::init(argc, argv, "right_burger_tower");
+    ros::NodeHandle nh;
     // ros::AsyncSpinner spinner(0);
     // spinner.start();
-    ControlTower ControlTower(&nh2);
+    ControlTower ControlTower(&nh);
     
     // ros::waitForShutdown();
     ros::spin();

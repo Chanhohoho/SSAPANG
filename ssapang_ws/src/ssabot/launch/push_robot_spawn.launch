@@ -15,25 +15,24 @@
             respawn="false" />
             
       <!-- Publich robot state -->
-      <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
             <param name="publish_frequency" type="double" value="50.0" />
             <param name="tf_prefix" value="$(arg robot_name)_tf" />
             <remap from="/joint_states" to="/$(arg robot_name)/joint_states" />
-      </node>
+      </node> -->
 
       <!-- ======== -->
       <!-- control -->
 
-      <rosparam file="$(find ssabot)/config/pushbot_config.yaml" command="load"/>
+      <!-- <rosparam file="$(find ssabot)/config/pushbot_config.yaml" command="load"/> -->
 
       <!-- load the controllers -->
-      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
             output="screen" args="joint_state_controller 
                                                 virtual_joint1_position_controller 
                                                 virtual_joint2_position_controller
                                                 push_joint1_position_controller
-                                                push_joint2_position_controller"/>
+                                                push_joint2_position_controller"/> -->
 
 
 </launch>
-

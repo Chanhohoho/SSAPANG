@@ -14,6 +14,8 @@
 #include <ssapang/RobotStatus.h>
 #include <ssapang/Task.h>
 #include <ssapang/End.h>
+#include <ssapang/Station.h>
+#include <std_msgs/Float64.h>
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -35,6 +37,7 @@ public:
         statusPub = nh->advertise<ssapang::RobotStatus>("status", 10);
         checkGoPub = nh->advertise<ssapang::str>("checkGo", 1);
         goPub = nh->advertise<ssapang::str>("Go", 1);
+        upPub = nh->advertise<std_msgs::Float64>("waffle_piston_controller/command",1);
 
 
         odomSub = nh->subscribe("odom", 10, &RobotControl::odomCallback, this);
@@ -44,7 +47,7 @@ public:
         taskSub = nh->subscribe("task", 10, &RobotControl::taskCallback, this);
 
         endSrv = nh->serviceClient<ssapang::End>("end");
-        stationCli = nh->serviceClient<ssapang::Station>("/station");
+        stationCli = nh->serviceClient<ssapang::Station>("/waffle/station");
 
         stop.angular.z = 0.0;
         stop.linear.x = 0.0;
@@ -58,44 +61,37 @@ public:
         robotName = argv[1];
         GO.data = "GO";
         wait = 1;
+        std_msgs::Float64 up;
 
         try
         {
-            sleep(3);
+            sleep(10);
+            
             while (ros::ok())
             {
                 if(status.status == 4){
                     sleep(1);
-                    std:: cout << robotName << " battery : " << ++battery << "\n";
+                    battery += 50;
+                    std:: cout << robotName << " battery : " << battery << "\n";
                     if(battery < 100) continue;
-                    status.status = -1;
+                    battery = 100;
+                    status.status = -2;
                     statePush();
+                    status.status = 0;
                 }
                 // 판단
-                // ros::spinOnce();
-                // rate.sleep();
+                ros::spinOnce();
+                rate.sleep();
                 if(idx < 0) continue;
-                checkGoPub.publish(NEXT); // 다음위치
-                // sleep(1);
-                
-                // ros::spinOnce();
-                if(wait == 1) continue;
-                // else if(wait == 2){
-
-                //     continue;;
-                // }
-                
+                if(wait) {
+                    checkGoPub.publish(NEXT); // 다음위치
+                    continue;;
+                }   
                 
                 nextIdx();
-                turn();
-                cmdPub.publish(stop);
-                rate.sleep();
-
                 if(nextPos.y == 100) {
                     path.clear();
                     idx = -1;
-                    // status.status++;
-                    // statusPub.publish(status);
                     cmdPub.publish(stop);
                     rate.sleep();
                     sleep(3);
@@ -106,10 +102,18 @@ public:
                         statePush();
                         break;
                     case 1:
+                        up.data = 1.0;
+                        upPub.publish(up);
+                        rate.sleep();
+                        sleep(2);
                         std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
                     case 2:
+                        up.data = 0.0;
+                        upPub.publish(up);
+                        rate.sleep();
+                        sleep(1);
                         std::cout << robotName << " 일처리 완료 후 일하러갈지 충전소 갈지 판단\n";
                         ssapang::End end;
                         end.request.name = robotName;
@@ -141,9 +145,12 @@ public:
 
                 }else{
                     turn();
+                    go();
                     goPub.publish(NOW);
                     rate.sleep();
-                    go();
+                    cmdPub.publish(stop);
+                    rate.sleep();
+                    turn();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
@@ -157,7 +164,7 @@ public:
 
                         }
                     }
-                    std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
+                    // std::cout << robotName << " - "<< idx << '/' << path.size() << "\n";
                 }
                 wait = 1;
                 cmdPub.publish(stop);
@@ -177,7 +184,7 @@ public:
     }
 
 private:
-    ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub;
+    ros::Publisher cmdPub, movePub, posPub, statusPub, checkGoPub, goPub, upPub;
     ros::Subscriber odomSub, pathSub, waitSub, shelfSub, taskSub;
     ros::ServiceClient endSrv, stationCli;
     ros::Rate rate = 30;
@@ -218,6 +225,7 @@ private:
     void taskCallback(const ssapang::Task::ConstPtr &msg)
     {
         task = *msg;
+        std::cout << robotName << " - " << msg->product << " -> " << msg->destination <<"\n";
         makePath(task.product);
     }
 
@@ -270,7 +278,7 @@ private:
             double deg=0.0;
             while (1){
                 ros::spinOnce();
-                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.03)
+                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.025)
                     return;
                 deg = std::abs(nowPosition.theta - nextPos.deg);
                 speed = std::max(2*std::min(deg, 0.7), 0.1);
@@ -310,10 +318,10 @@ private:
                 dX = nextPos.x - nowPosition.x;
                 dY = nextPos.y - nowPosition.y;
                 distance = std::sqrt(std::pow(dY,2) + std::pow(dX,2));
-                if(distance <= 0.03) return;
+                if(distance <= 0.025) return;
 
                 pathAng = std::atan2(dY, dX);
-                moveCmd.linear.x = std::max(std::min(distance,0.1), 0.1);
+                moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
                 
                 if(pathAng >= 0){
                     if(nowPosition.theta <= pathAng && nowPosition.theta >= pathAng - PI)

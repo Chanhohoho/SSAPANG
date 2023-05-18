@@ -155,7 +155,7 @@
     <mu1>1</mu1>
     <mu2>1</mu2>
     <kp>1000000.0</kp>
-    <kd>1000.0</kd>
+    <kd>10000.0</kd>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
 </robot>

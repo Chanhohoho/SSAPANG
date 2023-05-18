@@ -168,13 +168,13 @@
     <collision name='collision'>
       <origin xyz="-0.3 0 0" rpy=" 0 0 1.57079"/> 
         <geometry>
-          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.015 0.015 0.015"/>
+          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
         </geometry>
     </collision>
-    <visual name='dump_box_visual'>
+    <visual >
       <origin xyz=" -0.3 0 0.0" rpy="0 0 1.57079"/>
         <geometry>
-          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.015 0.015 0.015"/>
+          <mesh filename="package://ssabot/meshes/meshes/dumper_bin.dae" scale="0.013 0.013 0.013"/>
         </geometry>
     </visual>
 

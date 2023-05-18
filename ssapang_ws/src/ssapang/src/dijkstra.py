@@ -57,6 +57,7 @@ def dijkstra(graph, start_node, destination_node, cantGoNode=None):
     path.reverse()
     return path
 
+
 def addCoordinates(arr):
     last = len(arr)-1
     arr[0].append(node.get(arr[0][0]))
@@ -66,14 +67,14 @@ def addCoordinates(arr):
     arr[last].append([100,100])
     # arr[last].append(node.get(arr[last][0]))
     arr[last][1] = arr[last-1][1]
-    # print(arr)
     return arr
 
 def callback(msg):
     try:
-        print(msg.startNode, msg.endNode)
         # shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
+        # print(msg.startNode, msg.endNode)
         shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        # print(shortest_dist)
         loc = Locations()
         for i in range(len(shortest_dist)):
             coord = Coordinate()
@@ -89,7 +90,12 @@ def callback(msg):
 def callbackCT(msg):
     lenght = PathLen()
     try:
-        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo if msg.type == 'burger' else None))
+        # if msg.type == "burger":
+        #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo))
+        # else:
+        #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
+        print(msg.startNode, msg.endNode)
+        shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
         lenght = len(shortest_dist)
     except:
         print(msg.startNode, msg.endNode,'srv_error')

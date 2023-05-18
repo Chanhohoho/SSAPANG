@@ -76,7 +76,7 @@
     <child link="piston_link2"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-0.1" upper="0.05" velocity="0.171"/>
+    <limit effort="30" lower="-0.1" upper="0.07" velocity="0.171"/>
   </joint>
 
   <link name="piston_link2">
@@ -101,17 +101,17 @@
 
   <link name="piston_plate">
     <visual>
-      <origin xyz="0 0 0.1" rpy="0 0 1.57"/>
+      <origin xyz="0.01 0 0.1" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.01  0.01  0.01"/>
+        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.011  0.011  0.01"/>
       </geometry>
       <material name="dark"/>
     </visual>
 
     <collision>
-      <origin xyz="0 0 0.1" rpy="0 0 1.57"/>
+      <origin xyz="0.01 0 0.1" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.01  0.01 0.01"/>
+        <mesh filename="package://ssabot/meshes/piston/fix_plate.dae" scale="0.011  0.011 0.01"/>
       </geometry>
     </collision>
 

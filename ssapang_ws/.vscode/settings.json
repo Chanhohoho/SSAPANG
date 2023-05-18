@@ -77,6 +77,7 @@
         "variant": "cpp",
         "bit": "cpp",
         "queue": "cpp",
-        "csignal": "cpp"
+        "csignal": "cpp",
+        "forward_list": "cpp"
     }
 }

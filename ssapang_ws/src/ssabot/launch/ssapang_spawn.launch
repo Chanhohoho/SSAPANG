@@ -1,51 +1,18 @@
 <launch>
-
-<include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world"/>
-    <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="headless" value="false"/>
-    <arg name="debug" value="false"/>
-  </include>
-  <!-- BEGIN BURGER -->
-
-  <node pkg='ssapang' type='task_pub' name='task_pub' output='screen' />
-
-  <include file="$(find ssabot)/launch/burger.launch" />
-  <include file="$(find ssabot)/launch/waffle.launch" />
-
- <!-- BEGIN WAFFLE -->
- 
-  <group ns="push_robot1">
-    <include file="$(find ssabot)/launch/push_robot_spawn.launch">
-        <!-- <arg name="init_pose" value="-x 0 -y -0 -z 0.5 -Y 0"/> -->
-        <arg name="init_pose" value="-x -8.0 -y -3.0 -z 0.5 -Y 0"/>
-        <arg name="robot_name" value="push_robot1"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find ssapang_map)/worlds/ssapang_center.world" />
+        <arg name="paused" value="false" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="true" />
+        <arg name="headless" value="false" />
+        <arg name="debug" value="false" />
     </include>
-  </group>
- <!-- BEGIN RRBOT -->
-  <!-- <group ns="rrbot1">
-      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
-          <arg name="init_pose" value="-x 2 -y -3 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="rrbot1"/>
-      </include>
-  </group>
+    <node pkg='ssapang' type='pushing.py' name='pushing' output='screen' />
 
-  <group ns="rrbot2">
-      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
-          <arg name="init_pose" value="-x 5 -y -3 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="rrbot2"/>
-      </include>
-  </group>
+    <!-- <include file="$(find ssabot)/launch/left_burger.launch" /> -->
+    <!-- <include file="$(find ssabot)/launch/right_burger.launch" /> -->
+    <include file="$(find ssabot)/launch/waffle.launch" />
+    <include file="$(find ssabot)/launch/pushbot.launch" />
 
-  <group ns="rrbot3">
-      <include file="$(find ssabot)/launch/rrbot_spawn.launch">
-          <arg name="init_pose" value="-x 2 -y -7 -z 0 -Y 3.14"/>
-          <arg name="robot_name" value="rrbot3"/>
-      </include>
-  </group> -->
-
-  
-
+    
 </launch>

@@ -3,14 +3,14 @@
   <model name='shelf'>
     <link name='shelf::link_0'>
       <inertial>
-        <mass>0.001</mass>
+        <mass>0.01</mass>
         <inertia>
-          <ixx>7.71e-06</ixx>
+          <ixx>7.71e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>7.71e-06</iyy>
+          <iyy>7.71e-05</iyy>
           <iyz>0</iyz>
-          <izz>4.2e-07</izz>
+          <izz>4.2e-06</izz>
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
