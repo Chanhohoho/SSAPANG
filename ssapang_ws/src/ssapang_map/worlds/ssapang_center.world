@@ -9,20 +9,6 @@
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
-  <model name="ssapang_box_01_001">
-    <include>
-      <uri>model://box</uri>
-      <pose>-8.3 -2.5 0.8 0 0 1.57</pose>
-    </include>	
-  </model>
-  <model name="ssapang_box_01_002">
-    <include>
-      <uri>model://box</uri>
-      <pose>-8.3 -2.5 1.63 0 0 1.57</pose>
-    </include>	
-  </model>
-
-
   <model name="ssapang_shelf_01_001">
     <include>
       <uri>model://shelf</uri>
@@ -30,12 +16,41 @@
     </include>	
   </model>
 
-  <model name="ssapang_shelf_with_box">
+  <model name="ssapang_box_01_001">
     <include>
-      <uri>model://box_on_shelf</uri>
-      <pose>0 -2.5 0  0 0 1.57</pose>
+      <uri>model://box(yz0)</uri>
+      <pose>-8.3 -2.5 0.8 0 0 1.57</pose>
     </include>	
   </model>
+  <model name="ssapang_box_01_002">
+    <include>
+      <uri>model://box(yz0)</uri>
+      <pose>-8.3 -2.5 1.63 0 0 1.57</pose>
+    </include>	
+  </model>  
+
+  <model name="ssapang_shelf_02_001">
+    <include>
+      <uri>model://shelf</uri>
+      <pose>-7.7 -2.5 0  0 0 -1.57</pose>
+    </include>	
+  </model>
+
+  <model name="ssapang_box_02_001">
+    <include>
+      <uri>model://box</uri>
+      <pose>-7.7 -2.5 0.8 0 0 -1.57</pose>
+    </include>	
+  </model>
+  <model name="ssapang_box_02_002">
+    <include>
+      <uri>model://box</uri>
+      <pose>-7.7 -2.5 1.63 0 0 -1.57</pose>
+    </include>	
+  </model>
+
+
+  
   
   <!-- <model name="cardboard_box">
     <pose>-8.9 -3.5 0  0 0 1.57</pose>
