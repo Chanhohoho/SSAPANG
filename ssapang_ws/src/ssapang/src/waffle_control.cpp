@@ -277,7 +277,7 @@ private:
             double deg=0.0;
             while (1){
                 ros::spinOnce();
-                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.03)
+                if (std::abs(nowPosition.theta - nextPos.deg) <= 0.025)
                     return;
                 deg = std::abs(nowPosition.theta - nextPos.deg);
                 speed = std::max(2*std::min(deg, 0.7), 0.1);
@@ -317,7 +317,7 @@ private:
                 dX = nextPos.x - nowPosition.x;
                 dY = nextPos.y - nowPosition.y;
                 distance = std::sqrt(std::pow(dY,2) + std::pow(dX,2));
-                if(distance <= 0.03) return;
+                if(distance <= 0.025) return;
 
                 pathAng = std::atan2(dY, dX);
                 moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);

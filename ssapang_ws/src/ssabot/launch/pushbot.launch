@@ -41,7 +41,7 @@
         </include>
     </group>
 
-    <!-- <group ns="push_robot7">
+    <group ns="push_robot7">
         <include file="$(find ssabot)/launch/push_robot_spawn.launch">
             <arg name="init_pose" value="-x -8.0 -y -11.0 -z 0.5 -Y 0" />
             <arg name="robot_name" value="push_robot7" />
@@ -60,7 +60,7 @@
             <arg name="init_pose" value="-x -2.0 -y -11.0 -z 0.5 -Y 0" />
             <arg name="robot_name" value="push_robot9" />
         </include>
-    </group> -->
+    </group>
 
     <!-- <group ns="push_robot10">
         <include file="$(find ssabot)/launch/push_robot_spawn.launch">

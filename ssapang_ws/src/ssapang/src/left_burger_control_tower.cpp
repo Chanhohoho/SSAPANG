@@ -29,28 +29,18 @@ struct status{
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 3;
+int robotCnt = 12;
 
 
 std::string startNode[13] = {"",
-    "LB1112","LB1132",
-    "LB2112","LB2132",
-    "LB3112","LB3132",
+    "LB1112","LB1122",
+    "LB1132","LB2112",
+    "LB2122","LB2132",
 
-    "LB1212","LB1232",
-    "LB2212","LB2232",
-    "LB3212","LB3232",
+    "LB3112","LB3122",
+    "LB3132","LB4112",
+    "LB4122","LB4132",
 };
-
-// std::string startNode[19] = {"",
-//     "LB1112","LB1122","LB1132",
-//     "LB2112","LB2122","LB2132",
-//     "LB3112","LB3122","LB3132",
-
-//     "LB1212","LB1222","LB1232",
-//     "LB2212","LB2222","LB2232",
-//     "LB3212","LB3222","LB3232",
-// };
 
 std::unordered_map<std::string, bool> station;
 

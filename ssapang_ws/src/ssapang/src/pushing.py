@@ -17,10 +17,10 @@ def pushing(msg):
     row = Float64()
     col = Float64()
     push = Float64()
-
-    row.data = -0.3
+    power = 0.35 if burger_node in data else 0.5
+    row.data = 0.3 if burger_node in data else -0.3
     col.data = 0.5 if parameter[1] == '1' else -0.5
-    push.data = -0.35 if parameter[2] == 'l' else 0.35
+    push.data = -power if parameter[2] == 'l' else power
     pub[int(parameter[0])][1].publish(row)
     pub[int(parameter[0])][2].publish(row)
     pub[int(parameter[0])][3].publish(col)
@@ -29,14 +29,16 @@ def pushing(msg):
     pub[int(parameter[0])][0].publish(push)
     rate.sleep()
     time.sleep(1)
-    push.data = 0
+    push.data = 0.0
     pub[int(parameter[0])][0].publish(push)
     rate.sleep()
+    data.add(burger_node)
 
 if __name__ == '__main__':
 
     rospy.init_node('pushing')
     rate = rospy.Rate(30) 
+    data = set()
 
     n = 18
     pub = [[None for _ in range(4)] for _ in range(n+1)]

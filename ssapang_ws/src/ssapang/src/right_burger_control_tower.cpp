@@ -31,15 +31,25 @@ std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
 int robotCnt = 3;
 
-std::string startNode[19] = {"",
-    "RB1112","RB1122","RB1132",
-    "RB2112","RB2122","RB2132",
-    "RB3112","RB3122","RB3132",
+std::string startNode[13] = {"",
+    "RB1112","RB1122",
+    "RB1132","RB2112",
+    "RB2122","RB2132",
 
-    "RB1212","RB1222","RB1232",
-    "RB2212","RB2222","RB2232",
-    "RB3212","RB3222","RB3232",
+    "RB3112","RB3122",
+    "RB3132","RB4112",
+    "RB4122","RB4132",
 };
+
+// std::string startNode[19] = {"",
+//     "RB1112","RB1122","RB1132",
+//     "RB2112","RB2122","RB2132",
+//     "RB3112","RB3122","RB3132",
+
+//     "RB1212","RB1222","RB1232",
+//     "RB2212","RB2222","RB2232",
+//     "RB3212","RB3222","RB3232",
+// };
 
 std::unordered_map<std::string, bool> station;
 

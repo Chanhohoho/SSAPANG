@@ -9,7 +9,7 @@
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.00000771</iyy>
-          <iyz>0.0001</iyz>
+          <iyz>0</iyz>
           <izz>0.00036667</izz>
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
@@ -44,8 +44,8 @@
 
         <material>
           <script>
-            <uri>model://box/materials/scripts</uri>
-            <uri>model://box/materials/textures</uri>
+            <uri>model://ssapang_box/materials/scripts</uri>
+            <uri>model://ssapang_box/materials/textures</uri>
             <name>box/Diffuse</name>
           </script>
         </material>
