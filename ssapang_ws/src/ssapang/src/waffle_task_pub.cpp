@@ -18,8 +18,8 @@ public:
 
         ros::Rate loop_rate(10);
         sleep(3);
-        for(int i = 0; i < 3; i++){
-            task.product = sectTaskList[rand()%8];
+        for(int i = 0; i < 16; i++){
+            task.product = sectTaskList[i];
             task.destination = destination[rand()%9][rand()%4];
             taskList.list.push_back(task);
         }
@@ -33,7 +33,7 @@ private:
     ssapang::Task task;
     ssapang::TaskList taskList;
 
-    std::string sectTaskList[8] = {
+    std::string sectTaskList[16] = {
         "LWO14",
         "LWO24",
         "LWO34",
@@ -43,15 +43,15 @@ private:
         "RWO34",
         "RWO44",
 
-        // "LWO13",
-        // "LWO23",
-        // "LWO33",
-        // "LWO43",
+        "LWO13",
+        "LWO23",
+        "LWO33",
+        "LWO43",
 
-        // "RWO13",
-        // "RWO23",
-        // "RWO33",
-        // "RWO43",
+        "RWO13",
+        "RWO23",
+        "RWO33",
+        "RWO43",
     };
 
     std::string destination[9][4] = {

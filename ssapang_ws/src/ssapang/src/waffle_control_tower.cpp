@@ -31,7 +31,7 @@ std::list <std::string> batteryStation2;
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 3;
+int robotCnt = 12;
 
 std::string startNode[13] = {"",
     "LW21","RW21",
@@ -251,10 +251,10 @@ private:
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "waffle_tower");
-    ros::NodeHandle nh1, nh2;
+    ros::NodeHandle nh;
     // ros::AsyncSpinner spinner(0);
     // spinner.start();
-    ControlTower ControlTower(&nh2);
+    ControlTower ControlTower(&nh);
     
     // ros::waitForShutdown();
     ros::spin();

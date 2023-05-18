@@ -317,7 +317,7 @@ private:
                 dX = nextPos.x - nowPosition.x;
                 dY = nextPos.y - nowPosition.y;
                 distance = std::sqrt(std::pow(dY,2) + std::pow(dX,2));
-                if(distance <= 0.025) return;
+                if(distance <= 0.03) return;
 
                 pathAng = std::atan2(dY, dX);
                 moveCmd.linear.x = std::max(std::min(distance,0.15), 0.1);
