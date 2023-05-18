@@ -2245,8 +2245,6 @@
           <wrench>0 -0 -0 0 -0 0</wrench>
         </link>
       </model>
-       
- <
       <light name='Warehouse_CeilingLight_003'>
         <pose>0 0 9 0 -0 0</pose>
       </light>

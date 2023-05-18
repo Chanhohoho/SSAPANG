@@ -1,5 +1,4 @@
 <?xml version='1.0'?>
-<<<<<<< HEAD
 <sdf version='1.7'>
   <model name='shelf'>
     <link name='shelf::link_0'>
@@ -22,25 +21,6 @@
       <enable_wind>0</enable_wind>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
-=======
-<sdf version='1.6'>
-  <model name='shelf'>
-    <link name='link'>
-      <inertial>
-        <mass>0.01</mass>
-        <inertia>
-          <ixx>0.01</ixx>
-          <ixy>0.00</ixy>
-          <ixz>0.00</ixz>
-          <iyy>0.01</iyy>
-          <iyz>0.00</iyz>
-          <izz>0.1</izz>
-        </inertia>
-      </inertial>
-      <pose frame=''>0 0 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         <geometry>
           <mesh>
             <uri>model://shelf/meshes/shelf.dae</uri>
@@ -49,7 +29,6 @@
         </geometry>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-<<<<<<< HEAD
         <material>
           <shader type='pixel'>
             <normal_map>__default__</normal_map>
@@ -945,47 +924,20 @@
           <box>
             <size>0.9 0.4 0.15</size>
           </box>
-=======
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://shelf/meshes/shelf.dae</uri>
-            <scale>1 1 1</scale>
-          </mesh>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         </geometry>
         <surface>
           <friction>
             <ode>
-<<<<<<< HEAD
               <mu>100</mu>
               <mu2>100</mu2>
-=======
-<<<<<<< HEAD
-              <mu>1</mu>
-              <mu2>1</mu2>
-=======
-              <mu>2</mu>
-              <mu2>2</mu2>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
->>>>>>> d276f99a166f98cd15ad1d5c59576596c17eb39c
               <fdir1>0 0 0</fdir1>
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
             <torsional>
               <coefficient>1</coefficient>
-<<<<<<< HEAD
               <patch_radius>0</patch_radius>
               <surface_radius>0</surface_radius>
-=======
-              <patch_radius>1</patch_radius>
-              <surface_radius>1</surface_radius>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
               <use_patch_radius>1</use_patch_radius>
               <ode>
                 <slip>0</slip>
@@ -993,11 +945,7 @@
             </torsional>
           </friction>
           <bounce>
-<<<<<<< HEAD
             <restitution_coefficient>0</restitution_coefficient>
-=======
-            <restitution_coefficient>1</restitution_coefficient>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
             <threshold>1e+06</threshold>
           </bounce>
           <contact>
@@ -1027,8 +975,4 @@
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model>
-<<<<<<< HEAD
 </sdf>
-=======
-</sdf>
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7

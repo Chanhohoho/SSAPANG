@@ -264,7 +264,7 @@ class IMGParser:
         for code in codes:
             self.qr_info = code.data.decode('utf-8').split(',')[0]
             print("\n\n\n\n\n",self.qr_info)
-            self.r_ori = code.orientation
+            self.qr_ori = code.orientation
             print(self.qr_ori)
         # if qr_info == self.path[-1][0]:
         #     if self.way_point == 3:
