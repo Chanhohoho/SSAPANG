@@ -10,11 +10,7 @@ from ssapang.msg import Move, Locations, Coordinate
 import sys, select, os
 
 from cv_bridge import CvBridgeError
-<<<<<<< HEAD
 from pyzbar.pyzbar import decode
-=======
-# from pyzbar.pyzbar import decode
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
 from sensor_msgs.msg import CompressedImage
 
@@ -122,23 +118,23 @@ def getKey(key):
 
     if key == 1:
         target_linear_vel = checkLinearLimitVelocity(-0.05)
-        target_angular_vel = checkAngularLimitVelocity(1.5)
+        target_angular_vel = checkAngularLimitVelocity(1)
         print(vels(target_linear_vel,target_angular_vel))
 
     elif key == 2:
         target_linear_vel = checkLinearLimitVelocity(0)
-        target_angular_vel = checkAngularLimitVelocity(1)
+        target_angular_vel = checkAngularLimitVelocity(0.7)
         print(vels(target_linear_vel,target_angular_vel))
 
     elif key == 3:
         target_linear_vel = checkLinearLimitVelocity(0.05)
-        target_angular_vel = checkAngularLimitVelocity(0.5)
+        target_angular_vel = checkAngularLimitVelocity(0.3)
         print(vels(target_linear_vel,target_angular_vel))
 
     ##############
 
     elif key == 5:
-        target_linear_vel = checkLinearLimitVelocity(0.12)
+        target_linear_vel = checkLinearLimitVelocity(0.08)
         target_angular_vel = checkAngularLimitVelocity(0)
         print(vels(target_linear_vel,target_angular_vel))
 
@@ -146,24 +142,19 @@ def getKey(key):
 
     elif key == 7:
         target_linear_vel = checkLinearLimitVelocity(0.05)
-        target_angular_vel = checkAngularLimitVelocity(-0.5)
+        target_angular_vel = checkAngularLimitVelocity(-0.3)
         print(vels(target_linear_vel,target_angular_vel))
 
     elif key == 8:
         target_linear_vel = checkLinearLimitVelocity(0)
-        target_angular_vel = checkAngularLimitVelocity(-1)
+        target_angular_vel = checkAngularLimitVelocity(-0.7)
         print(vels(target_linear_vel,target_angular_vel))
 
     elif key == 9:
         target_linear_vel = checkLinearLimitVelocity(-0.05)
-        target_angular_vel = checkAngularLimitVelocity(-1.5)
+        target_angular_vel = checkAngularLimitVelocity(-1)
         print(vels(target_linear_vel,target_angular_vel))
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     elif key == -1:
         target_linear_vel = checkLinearLimitVelocity(0)
         target_angular_vel = checkAngularLimitVelocity(-0.5)
@@ -194,86 +185,30 @@ def makeSimpleProfile(output, input, slop):
 
 class IMGParser:
     def __init__(self):
-<<<<<<< HEAD
-
-        self.img_bgrD = None
-        self.path = []
-        self.idx = 0
-        self.next = None
-        self.start = 'B0206'
-
-=======
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         self.image_subD = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.callbackD)
     
         self.pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
         self.movePub = rospy.Publisher('/move', Move, queue_size=1)
         self.pathSub = rospy.Subscriber("/path",Locations, self.pathCallback)
-<<<<<<< HEAD
-   
         self.rate = rospy.Rate(freq)
-
-=======
-        self.rate = rospy.Rate(freq)
-
 
         self.task = []
-
-
 
         self.img_bgrD = None
         self.path = []
         self.idx = 0
-        self.now = 'B0206'
-        self.next = ['B0206', 0.0]
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
+        self.now = 'B0101'
+        self.next = ['B0101', 0.0]
         self.way_point = 0
         self.inputTask()
         while True:
             while not rospy.is_shutdown():
                 if self.path == []:
                     continue
-<<<<<<< HEAD
                 if self.img_bgrD is not None:
                     self.binarization()
                     self.detectQR()
                     self.rate.sleep()
-
-    def inputTask(self):
-        self.dst[0] = self.start
-        self.dst[1] = input("첫번째 경유지를 입력하시오. :")
-        self.dst[2] = input("두번째 경유지를 입력하시오. :")
-        self.dst[3] = self.start
-        self.way_point = 0
-        self.get_waypoint()
-        
-
-    def get_waypoint(self):
-        move = Move()
-        move.startNode = self.now
-        move.endNode = self.dst[self.way_point]
-        self.movePub.publish(move)
-=======
-                # 인식
-                n = input("입력")
-                if n == 'o':
-                    if self.idx+1 == len(self.path):
-                        self.path = []
-                        if self.way_point == 2:
-                            self.inputTask()
-                        else:
-                            self.way_point += 1
-                            self.makePath()
-                    else:
-                        self.nextIdx()
-                else:
-                    self.path = []
-                    self.makePath()
-                
-                # if self.img_bgrD is not None:
-                #     self.binarization()
-                #     self.detectQR()
-                #     self.rate.sleep()
 
     def inputTask(self):
         self.task = input().split()
@@ -293,158 +228,113 @@ class IMGParser:
         self.next[0] = self.path[self.idx][0]
         self.next[1] = self.path[self.idx-1][1]
         print(self.next)
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
     def pathCallback(self, msg):
         for data in msg.location:
             self.path.append([data.QR, data.deg])
-<<<<<<< HEAD
-        self.idx = 1
-        self.next[0] = self.path[self.idx][0]
-        self.next[1] = self.path[self.idx-1][1]
-        print(self.next)
-
-    def detectQR(self):
-        
-        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
-        self.img_qrroi = self.img_bgrD[240:480, 120:520]
-
-        codes = decode(self.img_qrroi)
-        for code in codes:
-            # 큐알코드 인식 후 사각형 그리기
-            # x, y, w, h = code.rect
-            # cv2.rectangle(self.img_qrroi,(x,y),(x+w,y+h), (0, 0, 255), 3)
-            qr_info = code.data.decode('utf-8').split(',')[0]
-            print("\n\n\n\n\n",qr_info)
-            qr_ori = code.orientation
-            print(qr_ori)
-        if qr_info == self.path[-1][0]:
-            if self.way_point == 3:
-                self.inputTask()
-            else:
-                self.way_point += 1
-                self.get_waypoint()
-        
-
-        if codes and qr_info == self.next[0]:
-
-            dir = {'UP':180, 'DOWN':0, 'LEFT':90, 'RIGHT':-90}
-
-            today = datetime.datetime.today()
-            start_time = today.second
-            print("\n\n")
-            print(start_time)
-
-            for _ in range(3*freq):
-                getKey(5)
-                self.move_command()
-                self.rate.sleep()
-
-            getKey(0)
-            self.move_command()
-            self.rate.sleep()
-
-            # 각도계산
-            move = (dir[qr_ori] - self.next[1]) % 360
-            for _ in range(2*freq):
-                getKey(move)
-                self.move_command()
-                self.rate.sleep()
-
-            getKey(0)
-            self.move_command()
-            self.rate.sleep()
-
-            for _ in range(3*freq):
-                getKey(5)
-                self.move_command()
-                self.rate.sleep()
-
-            getKey(0)
-            self.move_command()
-            self.rate.sleep()
-            
-            #읽고 나서 갱신
-            self.idx += 1
-
-        elif codes and qr_info != self.next[0]:
-            self.now == qr_info
-
-        else:
-            self.detectLine()
-            self.move_command()
-=======
         self.idx = 0
         self.nextIdx()
         # print(self.next)
 
-    # def detectQR(self):
+    def detectQR(self):
         
-    #     # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
-    #     self.img_qrroi = self.img_bgrD[240:480, 120:520]
+        # n = input("입력")
+        # if n == 'o':
+        #     if self.idx+1 == len(self.path):
+        #         self.path = []
+        #         if self.way_point == 2:
+        #             self.inputTask()
+        #         else:
+        #             self.way_point += 1
+        #             self.makePath()
+        #     else:
+        #         self.nextIdx()
+        # else:
+        #     self.path = []
+        #     self.makePath()
 
-    #     codes = decode(self.img_qrroi)
-    #     for code in codes:
-    #         qr_info = code.data.decode('utf-8').split(',')[0]
-    #         print("\n\n\n\n\n",qr_info)
-    #         qr_ori = code.orientation
-    #         print(qr_ori)
-    #     if qr_info == self.path[-1][0]:
-    #         if self.way_point == 3:
-    #             self.inputTask()
-    #         else:
-    #             self.way_point += 1
-    #             self.makePath()
+        ###################################################
+        # self.img_bgrD = cv2.resize(self.img_bgrD, (0, 0), fx=1, fy=0.8)
+        self.img_qrroi = self.img_bgrD[240:480, 120:520]
+
+        self.qr_info = 0
+        self.qr_ori = 0
+
+        codes = decode(self.img_qrroi)
+        for code in codes:
+            self.qr_info = code.data.decode('utf-8').split(',')[0]
+            print("\n\n\n\n\n",self.qr_info)
+            self.r_ori = code.orientation
+            print(self.qr_ori)
+        # if qr_info == self.path[-1][0]:
+        #     if self.way_point == 3:
+        #         self.inputTask()
+        #     else:
+        #         self.way_point += 1
+        #         self.makePath()
         
-    #     if codes and qr_info == self.next[0]:
+        if codes and self.qr_info == self.next[0]:
 
-    #         dir = {'UP':180, 'DOWN':0, 'LEFT':90, 'RIGHT':-90}
+            if self.idx+1 == len(self.path):
+                self.path = []
 
-    #         today = datetime.datetime.today()
-    #         start_time = today.second
-    #         print("\n\n")
-    #         print(start_time)
+                if self.way_point == 2:
+                    self.inputTask()
+                else:
+                    self.way_point += 1
+                    self.makePath()
+            else:
+                self.move_hardturn()
+                self.nextIdx()
 
-    #         for _ in range(3*freq):
-    #             getKey(5)
-    #             self.move_command()
-    #             self.rate.sleep()
+        elif codes and self.qr_info != self.next[0]:
+            self.path = []
+            self.makePath()
 
-    #         getKey(0)
-    #         self.move_command()
-    #         self.rate.sleep()
+        else:
+            self.detectLine()
+            self.move_command()
 
-    #         # 각도계산
-    #         move = (dir[qr_ori] - self.next[1]) % 360
-    #         for _ in range(2*freq):
-    #             getKey(move)
-    #             self.move_command()
-    #             self.rate.sleep()
+    def move_hardturn(self):
 
-    #         getKey(0)
-    #         self.move_command()
-    #         self.rate.sleep()
+        dir = {'UP':180, 'DOWN':0, 'LEFT':90, 'RIGHT':-90}
 
-    #         for _ in range(3*freq):
-    #             getKey(5)
-    #             self.move_command()
-    #             self.rate.sleep()
+        today = datetime.datetime.today()
+        start_time = today.second
+        print("\n\n")
+        print(start_time)
 
-    #         getKey(0)
-    #         self.move_command()
-    #         self.rate.sleep()
-            
-    #         #읽고 나서 갱신
-    #         self.idx += 1
+        for _ in range(3*freq):
+            getKey(5)
+            self.move_command()
+            self.rate.sleep()
 
-    #     elif codes and qr_info != self.next[0]:
-    #         self.now == qr_info
+        getKey(0)
+        self.move_command()
+        self.rate.sleep()
+        
+        # 각도계산
+        move = (dir[self.qr_ori] - self.next[1]) % 360
+        for _ in range(2*freq):
+            getKey(move)
+            self.move_command()
+            self.rate.sleep()
 
-    #     else:
-    #         self.detectLine()
-    #         self.move_command()
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
+        getKey(0)
+        self.move_command()
+        self.rate.sleep()
 
+        for _ in range(3*freq):
+            getKey(5)
+            self.move_command()
+            self.rate.sleep()
+
+        getKey(0)
+        self.move_command()
+        self.rate.sleep()
+        
+        #읽고 나서 갱신
+        self.idx += 1
 
     def detectLine(self):
         for i in range(3):
@@ -457,11 +347,6 @@ class IMGParser:
                     px[i][1] = j
                     break
 
-<<<<<<< HEAD
-        # print("\n\npx")
-        # print(px)
-=======
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
 
         global avg
         denominator = 0
@@ -483,12 +368,8 @@ class IMGParser:
             cv2.line(self.img_bgrD, (px[2][0],160),(px[2][1],160),(0,0,255),5)
             total += (px[2][1]+px[2][0])/2
             denominator += 1
-<<<<<<< HEAD
-    
-=======
         
 
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
         if denominator > 1 :
             avg = total/denominator
             if avg < 120:
@@ -549,20 +430,8 @@ class IMGParser:
             self.img_bgrD = cv2.flip(self.img_bgrD, -1)
         except CvBridgeError as e:
             print(e)
-<<<<<<< HEAD
-        # cv2.imshow("bgr", self.img_bgrD)
-        # cv2.waitKey(1)
-
-if __name__ == '__main__':
-
-    rospy.init_node('lane_fitting', anonymous=True)
-
-    image_parser = IMGParser()
-
-=======
 
 if __name__ == '__main__':
     rospy.init_node('lane_fitting', anonymous=True)
     image_parser = IMGParser()
->>>>>>> d2d46bd033c6114a82d2ed123778a13e47a874d7
     rospy.spin()

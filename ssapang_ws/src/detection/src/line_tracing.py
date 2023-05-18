@@ -82,37 +82,77 @@ def getKey(key):
     global target_angular_vel 
     global control_linear_vel
     global control_angular_vel
-
-    if key == 1:
-        target_linear_vel = checkLinearLimitVelocity(0.04)
-        target_angular_vel = checkAngularLimitVelocity(1)
-        print(vels(target_linear_vel,target_angular_vel))
-
-    elif key == 2:
-        target_linear_vel = checkLinearLimitVelocity(0.07)
-        target_angular_vel = checkAngularLimitVelocity(0.7)
-        print(vels(target_linear_vel,target_angular_vel))
-
-    elif key == 3:
+    #w 직진
+    if key == 0:
         target_linear_vel = checkLinearLimitVelocity(0.1)
         target_angular_vel = checkAngularLimitVelocity(0)
         print(vels(target_linear_vel,target_angular_vel))
 
-    elif key == 4:
-        target_linear_vel = checkLinearLimitVelocity(0.07)
+    #a 좌회전
+    elif key == 270:
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(1)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    #d 우회전
+    elif key == 90:
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(-1)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    #s 후진
+    if key == 180:
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(2)
+        print(vels(target_linear_vel,target_angular_vel))
+
+
+    ##############
+
+    if key == 1:
+        target_linear_vel = checkLinearLimitVelocity(-0.05)
+        target_angular_vel = checkAngularLimitVelocity(1)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    elif key == 2:
+        target_linear_vel = checkLinearLimitVelocity(0)
+        target_angular_vel = checkAngularLimitVelocity(0.7)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    elif key == 3:
+        target_linear_vel = checkLinearLimitVelocity(0.05)
+        target_angular_vel = checkAngularLimitVelocity(0.3)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    ##############
+
+    elif key == 5:
+        target_linear_vel = checkLinearLimitVelocity(0.08)
+        target_angular_vel = checkAngularLimitVelocity(0)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    ##############
+
+    elif key == 7:
+        target_linear_vel = checkLinearLimitVelocity(0.05)
+        target_angular_vel = checkAngularLimitVelocity(-0.3)
+        print(vels(target_linear_vel,target_angular_vel))
+
+    elif key == 8:
+        target_linear_vel = checkLinearLimitVelocity(0)
         target_angular_vel = checkAngularLimitVelocity(-0.7)
         print(vels(target_linear_vel,target_angular_vel))
 
-    elif key == 5:
-        target_linear_vel = checkLinearLimitVelocity(0.04)
+    elif key == 9:
+        target_linear_vel = checkLinearLimitVelocity(-0.05)
         target_angular_vel = checkAngularLimitVelocity(-1)
         print(vels(target_linear_vel,target_angular_vel))
 
-
+    #####################################
 
     elif key == -1:
         target_linear_vel = checkLinearLimitVelocity(0)
-        target_angular_vel = checkAngularLimitVelocity(-1)
+        target_angular_vel = checkAngularLimitVelocity(-0.5)
         print(vels(target_linear_vel,target_angular_vel))
 
 
@@ -187,39 +227,45 @@ class IMGParser:
         global avg
         denominator = 0
         total = 0
-        if 30 < px[0][1]-px[0][0] < 150 and px[0][0] != 50 and px[0][1] != 589:
+        if 50 < px[0][1]-px[0][0] < 80 and px[0][0] != 50 and px[0][1] != 589:
             cv2.line(self.img_bgrD, (px[0][0],320),(px[0][1],320),(0,0,255),5)
             total += (px[0][1]+px[0][0])/2
             denominator += 1
 
-        if 30 < px[1][1]-px[1][0] < 150 and px[1][0] != 50 and px[1][1] != 589:
+        if 45 < px[1][1]-px[1][0] < 70 and px[1][0] != 50 and px[1][1] != 589:
             cv2.line(self.img_bgrD, (px[1][0],240),(px[1][1],240),(0,0,255),5)
             total += (px[1][1]+px[1][0])/2
             denominator += 1
 
-        if 30 < px[2][1]-px[2][0] < 150 and px[2][0] != 50 and px[2][1] != 589:
+        if 40 < px[2][1]-px[2][0] < 65 and px[2][0] != 50 and px[2][1] != 589:
             cv2.line(self.img_bgrD, (px[2][0],160),(px[2][1],160),(0,0,255),5)
             total += (px[2][1]+px[2][0])/2
             denominator += 1
         
 
-        if denominator != 0:
+        if denominator > 1 :
             avg = total/denominator
             if avg < 120:
                 print("\n1")
                 getKey(1)
-            if avg < 220:
-                print("\n1")
+            elif avg < 190:
+                print("\n2")
                 getKey(2)
-            elif avg < 420:
-                print("\n2")
-                getKey(3)
-            elif avg < 520:
-                print("\n2")
-                getKey(4)
-            elif avg < 640:
+            elif avg < 260:
                 print("\n3")
+                getKey(3)
+            elif avg < 380:
+                print("\n5")
                 getKey(5)
+            elif avg < 450:
+                print("\n7")
+                getKey(7)
+            elif avg < 520:
+                print("\n8")
+                getKey(8)
+            elif avg < 590:
+                print("\n9")
+                getKey(9)
         else:
             getKey(-1)
 
