@@ -10,15 +10,14 @@ def pub(num, row, col, push):
     pushPub[num][2].publish(row)
     pushPub[num][3].publish(col)
     rate.sleep()
-    time.sleep(5)
+    time.sleep(2)
     pushPub[num][0].publish(push)
     rate.sleep()
     time.sleep(3)
-    push.data = 0.1
-    for _ in range(5):
-        push.data -= 0.02
-        pushPub[num][0].publish(push)
-        rate.sleep()
+    push.data = 0.03 if push.data > 0 else -0.03
+    pushPub[num][0].publish(push)
+    rate.sleep()
+    time.sleep(0.5)
     push.data = 0.0
     pushPub[num][0].publish(push)
     rate.sleep()
@@ -34,7 +33,7 @@ def pushing(msg):
     print(burger_node, parameter)
     
     
-    power = 0.1 if burger_node in data else 0.2
+    power = 0.8 if burger_node in data else 0.8
     row.data = 0.3 if burger_node in data else -0.3
     col.data = 0.5 if parameter[1] == '1' else -0.5
     push.data = -power if parameter[2] == 'l' else power

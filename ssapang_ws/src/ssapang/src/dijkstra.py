@@ -86,7 +86,7 @@ def callbackCT(msg):
         #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode, burgerDontGo))
         # else:
         #     shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
-        print(msg.startNode, msg.endNode)
+        # print(msg.startNode, msg.endNode)
         shortest_dist = addCoordinates(dijkstra(graph, msg.startNode, msg.endNode))
         lenght = len(shortest_dist)
     except:

@@ -10,8 +10,8 @@
     <node pkg='ssapang' type='pushing.py' name='pushing' output='screen' />
 
     <include file="$(find ssabot)/launch/left_burger.launch" />
-    <!-- <include file="$(find ssabot)/launch/right_burger.launch" /> -->
-    <!-- <include file="$(find ssabot)/launch/waffle.launch" /> -->
+    <include file="$(find ssabot)/launch/right_burger.launch" />
+    <include file="$(find ssabot)/launch/waffle.launch" />
     <include file="$(find ssabot)/launch/pushbot.launch" />
 
     

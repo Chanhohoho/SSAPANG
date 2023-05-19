@@ -8,7 +8,7 @@
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
-    <!-- <model name="shelf1-1">
+    <model name="shelf1-1">
       <include>
         <uri>model://shelf</uri>
         <pose> 9 0.5 0 0 0 0</pose>
@@ -82,7 +82,7 @@
         <uri>model://ssapang_box</uri>
         <pose> 1 0.5 1.283 0.05 0 0</pose>
       </include>
-    </model> -->
+    </model>
 
 
     <model name="shelf2-1">
@@ -159,7 +159,7 @@
     </model>
 
 
-    <!-- <model name="shelf1-2">
+    <model name="shelf1-2">
       <include>
         <uri>model://shelf</uri>
         <pose> 9 1 0 0 0 0</pose>
@@ -234,7 +234,7 @@
         <uri>model://ssapang_box</uri>
         <pose> 1 1 1.283 0.05 0 0</pose>
       </include>
-    </model> -->
+    </model>
 
 
     <model name="shelf2-2">
@@ -2180,7 +2180,7 @@
         <pose>-1.7 -11.5 1.4 0 0 1.57</pose>
       </include>
     </model>
-<!--    <model name="shelf7">
+   <!-- <model name="shelf7">
  <include>
 <uri>model://shelf</uri>
 <pose>1.7 -2.5 0 0 0 1.57</pose>
@@ -2197,7 +2197,7 @@
 <uri>model://ssapang_box</uri>
 <pose>1.7 -2.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf8">
 <include>
 <uri>model://shelf</uri>
@@ -2234,7 +2234,7 @@
 <pose>4.7 -2.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf10">
+<!-- <model name="shelf10">
 <include>
 <uri>model://shelf</uri>
 <pose>5.3 -2.5 0 0 0 -1.57</pose>
@@ -2251,7 +2251,7 @@
 <uri>model://ssapang_box</uri>
 <pose>5.3 -2.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf11">
 <include>
 <uri>model://shelf</uri>
@@ -2378,7 +2378,7 @@
 <pose>7.7 -3.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf24">
+<!-- <model name="shelf24">
 <include>
 <uri>model://shelf</uri>
 <pose>8.3 -3.5 0 0 0 -1.57</pose>
@@ -2395,7 +2395,7 @@
 <uri>model://ssapang_box</uri>
 <pose>8.3 -3.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf31">
 <include>
 <uri>model://shelf</uri>
@@ -2450,7 +2450,7 @@
 <pose>4.7 -6.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf34">
+<!-- <model name="shelf34">
 <include>
 <uri>model://shelf</uri>
 <pose>5.3 -6.5 0 0 0 -1.57</pose>
@@ -2467,8 +2467,8 @@
 <uri>model://ssapang_box</uri>
 <pose>5.3 -6.5 1.4 0 0 1.57</pose>
 </include>
-</model>
-<model name="shelf35">
+</model> -->
+<!-- <model name="shelf35">
 <include>
 <uri>model://shelf</uri>
 <pose>7.7 -6.5 0 0 0 1.57</pose>
@@ -2485,7 +2485,7 @@
 <uri>model://ssapang_box</uri>
 <pose>7.7 -6.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf36">
 <include>
 <uri>model://shelf</uri>
@@ -2504,7 +2504,7 @@
 <pose>8.3 -6.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf43">
+<!-- <model name="shelf43">
 <include>
 <uri>model://shelf</uri>
 <pose>1.7 -7.5 0 0 0 1.57</pose>
@@ -2521,7 +2521,7 @@
 <uri>model://ssapang_box</uri>
 <pose>1.7 -7.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf44">
 <include>
 <uri>model://shelf</uri>
@@ -2666,7 +2666,7 @@
 <pose>4.7 -10.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf58">
+<!-- <model name="shelf58">
 <include>
 <uri>model://shelf</uri>
 <pose>5.3 -10.5 0 0 0 -1.57</pose>
@@ -2683,7 +2683,7 @@
 <uri>model://ssapang_box</uri>
 <pose>5.3 -10.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf59">
 <include>
 <uri>model://shelf</uri>
@@ -2738,7 +2738,7 @@
 <pose>1.7 -11.5 1.4 0 0 1.57</pose>
 </include>
 </model>
-<model name="shelf68">
+<!-- <model name="shelf68">
 <include>
 <uri>model://shelf</uri>
 <pose>2.3 -11.5 0 0 0 -1.57</pose>
@@ -2755,7 +2755,7 @@
 <uri>model://ssapang_box</uri>
 <pose>2.3 -11.5 1.4 0 0 1.57</pose>
 </include>
-</model>
+</model> -->
 <model name="shelf69">
 <include>
 <uri>model://shelf</uri>
@@ -2827,7 +2827,7 @@
 <uri>model://ssapang_box</uri>
 <pose>8.3 -11.5 1.4 0 0 1.57</pose>
 </include>
-</model> -->
+</model>
 
     
 

@@ -76,7 +76,7 @@
     <child link="piston_link2"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-0.1" upper="0.05" velocity="0.171"/>
+    <limit effort="30" lower="-0.1" upper="0.08" velocity="0.171"/>
   </joint>
 
   <link name="piston_link2">

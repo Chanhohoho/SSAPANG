@@ -29,7 +29,7 @@ struct status{
 std::unordered_map<std::string, std::queue<std::string>> node;
 std::unordered_map<std::string, status> robotStatus;
 std::queue<ssapang::Task> taskList;
-int robotCnt = 6;
+int robotCnt = 12;
 
 
 std::string startNode[13] = {"",
@@ -180,7 +180,7 @@ private:
         for(int i = 1; i < 13; i++){
                 // 각 충전소의 노드 
                 pathLen.request.endNode = startNode[i];
-                std::cout << startNode[i] << "->" <<station[pathLen.request.endNode]  << "\n";
+                // std::cout << startNode[i] << "->" <<station[pathLen.request.endNode]  << "\n";
                 if(station[pathLen.request.endNode] == false)continue;
 
                 if(reqMinDist.call(pathLen)){  

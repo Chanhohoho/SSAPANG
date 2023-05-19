@@ -88,6 +88,7 @@ public:
                 
                 nextIdx();
                 if(nextPos.y == 100) {
+                    std::cout << robotName << " 잔여 전력량 : " << battery << "\n";
                     path.clear();
                     idx = -1;
                     cmdPub.publish(stop);
@@ -102,8 +103,11 @@ public:
                     case 1:
                         nextPos.deg = ( (NOW.data[NOW.data.length()-1] -'0') & 1 ) ? 0 : PI;
                         turn();
+                        cmdPub.publish(stop);
                         pickPub.publish(NOW);
-                        sleep(3);
+                        rate.sleep();
+
+                        sleep(5);
                         std::cout << robotName << " 픽업 완료 후 경로 생성\n";
                         makePath(task.destination);
                         break;
@@ -145,15 +149,18 @@ public:
 
                 }else{
                     turn();
-                    if(NOW.data[0]=='L' || NOW.data[0]=='R'){
-                        go();
-                        goPub.publish(NOW);
-                        rate.sleep();
-                    }else{
-                        goPub.publish(NOW);
-                        rate.sleep();
-                        go();
-                    }
+                    go();
+                    goPub.publish(NOW);
+                    rate.sleep();
+                    // if(NOW.data[0]=='L' || NOW.data[0]=='R' || NOW.data[1] == 'O'){
+                    //     go();
+                    //     goPub.publish(NOW);
+                    //     rate.sleep();
+                    // }else{
+                    //     goPub.publish(NOW);
+                    //     rate.sleep();
+                    //     go();
+                    // }
                     cmdPub.publish(stop);
                     rate.sleep();
                     turn();
@@ -161,7 +168,7 @@ public:
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
                         NOW.data = path[idx].QR;
-                        battery -= 3;
+                        battery -= 2;
                         pos.battery = battery;
                         pos.idx = ++idx;
                         if(NOW.data != path[idx].QR){
@@ -233,6 +240,7 @@ private:
     {
         task = *msg;
         makePath(task.product);
+        std::cout << robotName << " => 운반물 픽업 위치 :" <<  task.product << ", 운반 장소 : " << task.destination << "\n";
     }
 
     void pathCallback(const ssapang::Locations::ConstPtr &msg)

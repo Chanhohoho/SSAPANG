@@ -149,7 +149,7 @@ public:
                     rate.sleep();
                     cmdPub.publish(stop);
                     rate.sleep();
-                    turn();
+                    // turn();
                     if(idx < path.size()){
                         ssapang::RobotPos pos;
                         pos.fromNode = nextPos.QR;
