@@ -33,7 +33,7 @@ def pushing(msg):
     print(burger_node, parameter)
     
     
-    power = 0.8 if burger_node in data else 0.8
+    power = 0.12 if burger_node in data else 0.2
     row.data = 0.3 if burger_node in data else -0.3
     col.data = 0.5 if parameter[1] == '1' else -0.5
     push.data = -power if parameter[2] == 'l' else power

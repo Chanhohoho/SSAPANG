@@ -3,7 +3,7 @@
   <model name='ssapang_box'>
     <link name='box::link_0'>
       <inertial>
-        <mass>0.001</mass>
+        <mass>0.0001</mass>
         <inertia>
           <ixx>0.00000771</ixx>
           <ixy>0</ixy>
